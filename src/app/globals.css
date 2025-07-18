@@ -71,3 +71,9 @@ body {
     @apply bg-background text-foreground;
   }
 }
+
+@layer utilities {
+    .bg-primary-5 {
+        background-color: hsl(var(--primary) / 0.05);
+    }
+}

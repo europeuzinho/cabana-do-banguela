@@ -13,6 +13,7 @@ import { CheckCircle, Mail, MapPin, Phone, Star, Utensils } from "lucide-react";
 import { DragonIcon, VikingHelmIcon } from "@/components/icons";
 import { ContactForm } from "@/components/contact-form";
 import { Gallery } from "@/components/gallery";
+import { CakesMenu } from "@/components/cakes-menu";
 
 const Header = () => (
   <header className="sticky top-0 z-50 w-full border-b border-border/40 bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60">
@@ -25,6 +26,7 @@ const Header = () => (
         <Link href="#gallery" className="text-foreground/60 transition-colors hover:text-foreground/80">Galeria</Link>
         <Link href="#setups" className="text-foreground/60 transition-colors hover:text-foreground/80">Opções</Link>
         <Link href="#packages" className="text-foreground/60 transition-colors hover:text-foreground/80">Pacote</Link>
+        <Link href="#cakes" className="text-foreground/60 transition-colors hover:text-foreground/80">Bolos</Link>
         <Link href="#testimonials" className="text-foreground/60 transition-colors hover:text-foreground/80">Depoimentos</Link>
         <Link href="#contact" className="text-foreground/60 transition-colors hover:text-foreground/80">Contato</Link>
       </nav>
@@ -220,6 +222,21 @@ const PackagesSection = () => (
   </section>
 );
 
+const CakesSection = () => (
+  <section id="cakes" className="py-16 md:py-24 bg-primary/5">
+    <div className="container">
+      <div className="text-center mb-12">
+        <h2 className="font-headline text-3xl md:text-5xl text-primary">Opções de Bolos</h2>
+        <p className="mt-4 max-w-2xl mx-auto text-lg text-foreground/80">
+          Escolha o bolo perfeito para a sua celebração.
+        </p>
+      </div>
+      <CakesMenu />
+    </div>
+  </section>
+);
+
+
 const testimonials = [
   { name: "Astrid H.", quote: "A melhor festa de aniversário que meu filho já teve! A atenção aos detalhes foi incrível, parecia que estávamos em Berk. Super recomendo!" },
   { name: "Stoick V.", quote: "Um banquete verdadeiramente grandioso! A equipe foi incrível e o local era perfeito. Voltaremos no próximo ano, com certeza. Digno de um chefe!" },
@@ -227,7 +244,7 @@ const testimonials = [
 ];
 
 const TestimonialsSection = () => (
-  <section id="testimonials" className="py-16 md:py-24 bg-primary/5">
+  <section id="testimonials" className="py-16 md:py-24">
     <div className="container">
       <div className="text-center mb-12">
         <h2 className="font-headline text-3xl md:text-5xl text-primary">Contos dos Nossos Vikings</h2>
@@ -278,7 +295,7 @@ const faqItems = [
 ];
 
 const FaqSection = () => (
-  <section id="faq" className="py-16 md:py-24">
+  <section id="faq" className="py-16 md:py-24 bg-primary/5">
     <div className="container">
       <div className="text-center mb-12">
         <h2 className="font-headline text-3xl md:text-5xl text-primary">Perguntas Frequentes</h2>
@@ -321,7 +338,7 @@ const ContactSection = () => (
             <div key={info.title} className="flex items-start gap-4">
               <div className="flex-shrink-0">{info.icon}</div>
               <div>
-                <h3 className="font-headline text-2xl text-primary">{info.title}</h3>
+                <h3 className="font-headline text-xl text-primary">{info.title}</h3>
                 <p className="text-foreground/80 text-lg">{info.value}</p>
               </div>
             </div>
@@ -370,6 +387,7 @@ export default function Home() {
         <VenueShowcaseSection />
         <CategorizedSetupsSection />
         <PackagesSection />
+        <CakesSection />
         <TestimonialsSection />
         <FaqSection />
         <ContactSection />
@@ -378,8 +396,3 @@ export default function Home() {
     </div>
   );
 }
-
-    
-    
-
-    
