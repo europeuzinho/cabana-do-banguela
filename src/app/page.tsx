@@ -283,7 +283,7 @@ const Footer = () => (
         </p>
       </div>
     </div>
-    <div className="absolute -bottom-4 -right-8 md:right-4 w-48 h-auto pointer-events-none">
+    <div className="absolute -bottom-3 -right-8 md:right-4 w-48 h-auto pointer-events-none">
        <Image
         src="https://static.wikia.nocookie.net/comotreinarseudragao/images/1/11/ToothlessHttyd2Remder.png/revision/latest?cb=20180531200115&path-prefix=pt-br"
         alt="Dragão Banguela"
