@@ -38,38 +38,41 @@ const Header = () => (
 );
 
 const HeroSection = () => {
-    const [opacity, setOpacity] = useState(1);
-  
-    useEffect(() => {
-      const handleScroll = () => {
-        const heroHeight = window.innerHeight * 0.6; 
-        const scrollY = window.scrollY;
-        const newOpacity = Math.max(0, 1 - scrollY / (heroHeight / 2));
-        setOpacity(newOpacity);
-      };
-  
-      window.addEventListener('scroll', handleScroll);
-  
-      return () => {
-        window.removeEventListener('scroll', handleScroll);
-      };
-    }, []);
+  const [opacity, setOpacity] = useState(1);
 
-  return(
-    <section className="relative h-[40vh] md:h-[60vh] w-full">
-    <Image
-      src="https://i.imgur.com/SnvAEUK.jpeg"
-      alt="Local decorado com o tema Como Treinar o Seu Dragão"
-      fill
-      objectFit="cover"
-      className="brightness-50"
-      style={{ opacity }}
-      data-ai-hint="fantasy dragon landscape"
-      priority
-    />
-  </section>
-  )
-  };
+  useEffect(() => {
+    const handleScroll = () => {
+      const heroHeight = window.innerHeight * 0.6;
+      const scrollY = window.scrollY;
+      const newOpacity = Math.max(0, 1 - scrollY / (heroHeight / 1.5));
+      setOpacity(newOpacity);
+    };
+
+    window.addEventListener('scroll', handleScroll);
+
+    return () => {
+      window.removeEventListener('scroll', handleScroll);
+    };
+  }, []);
+
+  return (
+    <section className="relative h-[40vh] md:h-[60vh] w-full flex items-center justify-center text-center">
+      <Image
+        src="https://i.imgur.com/SnvAEUK.jpeg"
+        alt="Local decorado com o tema Como Treinar o Seu Dragão"
+        fill
+        className="object-cover brightness-50"
+        style={{ opacity }}
+        data-ai-hint="fantasy dragon landscape"
+        priority
+      />
+      <div className="relative z-10 text-white" style={{ opacity }}>
+        <p className="text-xl md:text-2xl font-body mb-2">Bem vindo ao</p>
+        <h1 className="font-headline text-5xl md:text-7xl text-primary">Cabana do Banguela</h1>
+      </div>
+    </section>
+  );
+};
 
 const galleryImages = [
   { src: "https://i.imgur.com/IL8qWDj.jpeg", alt: "Decoração de parede com escudos Vikings", hint: "viking shields decoration" },
