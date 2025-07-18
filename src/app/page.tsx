@@ -13,17 +13,17 @@ const Header = () => (
     <div className="container flex h-14 items-center">
       <Link href="/" className="flex items-center gap-2 font-bold text-primary">
         <DragonIcon className="h-6 w-6" />
-        <span className="font-headline text-xl">Dragon's Lair Parties</span>
+        <span className="font-headline text-xl">Festas Covil do Dragão</span>
       </Link>
       <nav className="ml-auto hidden md:flex gap-6 text-sm font-medium">
-        <Link href="#gallery" className="text-foreground/60 transition-colors hover:text-foreground/80">Gallery</Link>
-        <Link href="#setups" className="text-foreground/60 transition-colors hover:text-foreground/80">Setups</Link>
-        <Link href="#packages" className="text-foreground/60 transition-colors hover:text-foreground/80">Packages</Link>
-        <Link href="#testimonials" className="text-foreground/60 transition-colors hover:text-foreground/80">Testimonials</Link>
-        <Link href="#contact" className="text-foreground/60 transition-colors hover:text-foreground/80">Contact</Link>
+        <Link href="#gallery" className="text-foreground/60 transition-colors hover:text-foreground/80">Galeria</Link>
+        <Link href="#setups" className="text-foreground/60 transition-colors hover:text-foreground/80">Opções</Link>
+        <Link href="#packages" className="text-foreground/60 transition-colors hover:text-foreground/80">Pacotes</Link>
+        <Link href="#testimonials" className="text-foreground/60 transition-colors hover:text-foreground/80">Depoimentos</Link>
+        <Link href="#contact" className="text-foreground/60 transition-colors hover:text-foreground/80">Contato</Link>
       </nav>
       <Button asChild className="ml-4 hidden bg-accent hover:bg-accent/90 text-accent-foreground md:flex">
-        <Link href="#contact">Book Now</Link>
+        <Link href="#contact">Reserve Agora</Link>
       </Button>
     </div>
   </header>
@@ -33,7 +33,7 @@ const HeroSection = () => (
   <section className="relative h-[60vh] md:h-[80vh] w-full">
     <Image
       src="https://placehold.co/1600x900.png"
-      alt="Venue decorated with How to Train Your Dragon theme"
+      alt="Local decorado com o tema Como Treinar o Seu Dragão"
       fill
       objectFit="cover"
       className="brightness-50"
@@ -42,33 +42,33 @@ const HeroSection = () => (
     />
     <div className="relative z-10 flex flex-col items-center justify-center h-full text-center text-white p-4">
       <h1 className="font-headline text-4xl md:text-7xl lg:text-8xl drop-shadow-lg">
-        Your Dragon Adventure Awaits
+        Sua Aventura com Dragões te Espera
       </h1>
       <p className="mt-4 max-w-2xl text-lg md:text-xl text-white/90">
-        Celebrate in a world of Vikings and dragons! Unforgettable themed parties at our one-of-a-kind venue.
+        Celebre em um mundo de Vikings e dragões! Festas temáticas inesquecíveis em nosso local exclusivo.
       </p>
       <Button asChild size="lg" className="mt-8 bg-accent hover:bg-accent/90 text-accent-foreground">
-        <Link href="#packages">Explore Packages</Link>
+        <Link href="#packages">Explore os Pacotes</Link>
       </Button>
     </div>
   </section>
 );
 
 const galleryImages = [
-  { src: "https://placehold.co/600x400.png", alt: "Main hall decorated as the Great Hall of Berk", hint: "viking hall interior" },
-  { src: "https://placehold.co/600x400.png", alt: "Dining tables with dragon-themed centerpieces", hint: "fantasy banquet" },
-  { src: "https://placehold.co/600x400.png", alt: "A Toothless-themed cake table", hint: "dragon cake" },
-  { src: "https://placehold.co/600x400.png", alt: "Dragon egg hunt area in the garden", hint: "mystical forest" },
-  { src: "https://placehold.co/600x400.png", alt: "Viking ship photo booth", hint: "viking ship" },
-  { src: "https://placehold.co/600x400.png", alt: "Party area lit with fairy lights and lanterns", hint: "magical lights" },
+  { src: "https://placehold.co/600x400.png", alt: "Salão principal decorado como o Grande Salão de Berk", hint: "viking hall interior" },
+  { src: "https://placehold.co/600x400.png", alt: "Mesas de jantar com centros de mesa temáticos de dragão", hint: "fantasy banquet" },
+  { src: "https://placehold.co/600x400.png", alt: "Mesa de bolo temática do Banguela", hint: "dragon cake" },
+  { src: "https://placehold.co/600x400.png", alt: "Área de caça aos ovos de dragão no jardim", hint: "mystical forest" },
+  { src: "https://placehold.co/600x400.png", alt: "Cabine de fotos de navio Viking", hint: "viking ship" },
+  { src: "https://placehold.co/600x400.png", alt: "Área de festa iluminada com luzes de fada e lanternas", hint: "magical lights" },
 ];
 
 const VenueShowcaseSection = () => (
   <section id="gallery" className="py-16 md:py-24 container">
     <div className="text-center mb-12">
-      <h2 className="font-headline text-3xl md:text-5xl text-primary">The Dragon's Den</h2>
+      <h2 className="font-headline text-3xl md:text-5xl text-primary">O Covil do Dragão</h2>
       <p className="mt-4 max-w-2xl mx-auto text-lg text-foreground/80">
-        Explore our venue, fully transformed into the mythical Isle of Berk.
+        Explore nosso local, totalmente transformado na mítica Ilha de Berk.
       </p>
     </div>
     <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
@@ -89,18 +89,18 @@ const VenueShowcaseSection = () => (
 );
 
 const setups = [
-  { title: "Birthday Bashes", description: "The ultimate dragon-rider birthday experience with games, decorations, and a special gift for the birthday Viking.", hint: "birthday party", icon: <VikingHelmIcon /> },
-  { title: "Themed Feasts", description: "A grand feast worthy of a chief, with a full-course meal and immersive 'Great Hall' decorations.", hint: "medieval feast", icon: <DragonIcon /> },
-  { title: "Corporate Quests", description: "Unique team-building events and corporate parties with a touch of Viking adventure and dragon-lore.", hint: "fantasy meeting", icon: <VikingHelmIcon /> },
+  { title: "Festas de Aniversário", description: "A melhor experiência de aniversário para cavaleiros de dragões com jogos, decorações e um presente especial para o Viking aniversariante.", hint: "birthday party", icon: <VikingHelmIcon /> },
+  { title: "Banquetes Temáticos", description: "Um grande banquete digno de um chefe, com uma refeição completa e decorações imersivas do 'Grande Salão'.", hint: "medieval feast", icon: <DragonIcon /> },
+  { title: "Missões Corporativas", description: "Eventos de team-building e festas corporativas únicos com um toque de aventura Viking e lore de dragões.", hint: "fantasy meeting", icon: <VikingHelmIcon /> },
 ];
 
 const CategorizedSetupsSection = () => (
   <section id="setups" className="py-16 md:py-24 bg-primary/5">
     <div className="container">
       <div className="text-center mb-12">
-        <h2 className="font-headline text-3xl md:text-5xl text-primary">Party Setups for Every Viking</h2>
+        <h2 className="font-headline text-3xl md:text-5xl text-primary">Opções de Festa para Cada Viking</h2>
         <p className="mt-4 max-w-2xl mx-auto text-lg text-foreground/80">
-          From birthdays to grand feasts, we have the perfect setup for your celebration.
+          De aniversários a grandes banquetes, temos a opção perfeita para sua celebração.
         </p>
       </div>
       <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
@@ -127,7 +127,7 @@ const TourSection = () => (
     <div className="relative w-full h-96 rounded-lg overflow-hidden group shadow-2xl">
       <Image
         src="https://placehold.co/1200x400.png"
-        alt="360 view of the venue"
+        alt="Visão 360 do local"
         fill
         objectFit="cover"
         className="transition-transform duration-500 group-hover:scale-105"
@@ -135,7 +135,7 @@ const TourSection = () => (
       />
       <div className="absolute inset-0 bg-black/50 flex items-center justify-center">
         <Button variant="outline" size="lg" className="bg-transparent border-2 border-white text-white hover:bg-white hover:text-primary">
-          Take a 360° Virtual Tour
+          Faça um Tour Virtual 360°
         </Button>
       </div>
     </div>
@@ -143,18 +143,18 @@ const TourSection = () => (
 );
 
 const packages = [
-  { title: "The Hatchling", content: "Perfect for young Vikings! Includes 2 hours of party time, themed decorations, a dragon egg hunt, and a dedicated party host." },
-  { title: "Dragon Rider", content: "The most popular choice. Includes everything in The Hatchling package, plus a 'dragon training' obstacle course, face painting, and a visit from a costumed character." },
-  { title: "Chief's Feast", content: "The ultimate legendary party. Includes 4 hours of exclusive venue use, a full Viking feast, professional photos, and premium party favors for all guests." },
+  { title: "O Filhote", content: "Perfeito para jovens Vikings! Inclui 2 horas de festa, decorações temáticas, caça aos ovos de dragão e um anfitrião dedicado." },
+  { title: "Cavaleiro de Dragão", content: "A escolha mais popular. Inclui tudo do pacote O Filhote, mais um percurso de obstáculos de 'treinamento de dragão', pintura facial e a visita de um personagem fantasiado." },
+  { title: "Banquete do Chefe", content: "A festa lendária definitiva. Inclui 4 horas de uso exclusivo do local, um banquete Viking completo, fotos profissionais e lembrancinhas premium para todos os convidados." },
 ];
 
 const PackagesSection = () => (
   <section id="packages" className="py-16 md:py-24 bg-primary/5">
     <div className="container">
       <div className="text-center mb-12">
-        <h2 className="font-headline text-3xl md:text-5xl text-primary">Choose Your Adventure</h2>
+        <h2 className="font-headline text-3xl md:text-5xl text-primary">Escolha Sua Aventura</h2>
         <p className="mt-4 max-w-2xl mx-auto text-lg text-foreground/80">
-          We offer a range of packages to make your dragon-themed party legendary.
+          Oferecemos uma variedade de pacotes para tornar sua festa temática de dragão lendária.
         </p>
       </div>
       <Accordion type="single" collapsible className="w-full max-w-4xl mx-auto">
@@ -170,17 +170,17 @@ const PackagesSection = () => (
 );
 
 const testimonials = [
-  { name: "Astrid H.", quote: "The best birthday party my son has ever had! The attention to detail was incredible, it really felt like we were on Berk. Highly recommended!" },
-  { name: "Stoick V.", quote: "A truly grand feast! The staff were amazing and the venue was perfect. We'll be back next year for sure. Worthy of a chief!" },
-  { name: "Gobber B.", quote: "I've seen many a party in my day, but this takes the cake! Or the mutton, rather. The dragon training course was a brilliant touch!" },
+  { name: "Astrid H.", quote: "A melhor festa de aniversário que meu filho já teve! A atenção aos detalhes foi incrível, parecia que estávamos em Berk. Super recomendo!" },
+  { name: "Stoick V.", quote: "Um banquete verdadeiramente grandioso! A equipe foi incrível e o local era perfeito. Voltaremos no próximo ano, com certeza. Digno de um chefe!" },
+  { name: "Gobber B.", quote: "Já vi muitas festas na minha vida, mas esta supera todas! Ou melhor, a carne de carneiro. O percurso de treinamento de dragão foi um toque brilhante!" },
 ];
 
 const TestimonialsSection = () => (
   <section id="testimonials" className="py-16 md:py-24 container">
     <div className="text-center mb-12">
-      <h2 className="font-headline text-3xl md:text-5xl text-primary">Tales from Our Vikings</h2>
+      <h2 className="font-headline text-3xl md:text-5xl text-primary">Contos dos Nossos Vikings</h2>
       <p className="mt-4 max-w-2xl mx-auto text-lg text-foreground/80">
-        Hear what our guests have to say about their adventures.
+        Ouça o que nossos convidados têm a dizer sobre suas aventuras.
       </p>
     </div>
     <Carousel className="w-full max-w-4xl mx-auto" opts={{ loop: true }}>
@@ -206,18 +206,18 @@ const TestimonialsSection = () => (
 );
 
 const contactInfo = [
-  { icon: <Phone className="h-6 w-6 text-accent" />, title: "Call Us", value: "(555) 123-4567" },
-  { icon: <Mail className="h-6 w-6 text-accent" />, title: "Email Us", value: "contact@dragonslair.com" },
-  { icon: <MapPin className="h-6 w-6 text-accent" />, title: "Find Us", value: "123 Dragon's Edge, Isle of Berk" },
+  { icon: <Phone className="h-6 w-6 text-accent" />, title: "Ligue para Nós", value: "(555) 123-4567" },
+  { icon: <Mail className="h-6 w-6 text-accent" />, title: "Envie um Email", value: "contato@covildodragao.com" },
+  { icon: <MapPin className="h-6 w-6 text-accent" />, title: "Encontre-nos", value: "123 Limite do Dragão, Ilha de Berk" },
 ];
 
 const ContactSection = () => (
   <section id="contact" className="py-16 md:py-24 bg-primary/5">
     <div className="container">
       <div className="text-center mb-12">
-        <h2 className="font-headline text-3xl md:text-5xl text-primary">Book Your Legendary Party</h2>
+        <h2 className="font-headline text-3xl md:text-5xl text-primary">Reserve Sua Festa Lendária</h2>
         <p className="mt-4 max-w-2xl mx-auto text-lg text-foreground/80">
-          Send a terror mail or use the form below to start planning your event.
+          Envie um correio-terror ou use o formulário abaixo para começar a planejar seu evento.
         </p>
       </div>
       <div className="grid md:grid-cols-2 gap-12 items-start">
@@ -245,10 +245,10 @@ const Footer = () => (
     <div className="container py-8 flex flex-col md:flex-row justify-between items-center gap-4 text-center md:text-left">
       <div className="flex items-center gap-2">
         <VikingHelmIcon className="h-6 w-6" />
-        <span className="font-headline text-lg">Dragon's Lair Parties &copy; {new Date().getFullYear()}</span>
+        <span className="font-headline text-lg">Festas Covil do Dragão &copy; {new Date().getFullYear()}</span>
       </div>
       <p className="text-sm text-primary-foreground/70">
-        Become a legend. Book your party today.
+        Torne-se uma lenda. Reserve sua festa hoje.
       </p>
     </div>
   </footer>

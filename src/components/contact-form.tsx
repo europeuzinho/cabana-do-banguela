@@ -10,10 +10,10 @@ import { Textarea } from "@/components/ui/textarea";
 import { useToast } from "@/hooks/use-toast";
 
 const formSchema = z.object({
-  name: z.string().min(2, { message: "Name must be at least 2 characters." }),
-  email: z.string().email({ message: "Please enter a valid email." }),
-  subject: z.string().min(5, { message: "Subject must be at least 5 characters." }),
-  message: z.string().min(10, { message: "Message must be at least 10 characters." }),
+  name: z.string().min(2, { message: "O nome deve ter pelo menos 2 caracteres." }),
+  email: z.string().email({ message: "Por favor, insira um email válido." }),
+  subject: z.string().min(5, { message: "O assunto deve ter pelo menos 5 caracteres." }),
+  message: z.string().min(10, { message: "A mensagem deve ter pelo menos 10 caracteres." }),
 });
 
 export function ContactForm() {
@@ -31,8 +31,8 @@ export function ContactForm() {
   function onSubmit(values: z.infer<typeof formSchema>) {
     console.log(values);
     toast({
-      title: "Message Sent!",
-      description: "We've received your message and will get back to you shortly.",
+      title: "Mensagem Enviada!",
+      description: "Recebemos sua mensagem e entraremos em contato em breve.",
     });
     form.reset();
   }
@@ -45,9 +45,9 @@ export function ContactForm() {
           name="name"
           render={({ field }) => (
             <FormItem>
-              <FormLabel>Your Name</FormLabel>
+              <FormLabel>Seu Nome</FormLabel>
               <FormControl>
-                <Input placeholder="Hiccup" {...field} />
+                <Input placeholder="Soluço" {...field} />
               </FormControl>
               <FormMessage />
             </FormItem>
@@ -58,9 +58,9 @@ export function ContactForm() {
           name="email"
           render={({ field }) => (
             <FormItem>
-              <FormLabel>Your Email</FormLabel>
+              <FormLabel>Seu Email</FormLabel>
               <FormControl>
-                <Input type="email" placeholder="hiccup@berk.com" {...field} />
+                <Input type="email" placeholder="soluco@berk.com" {...field} />
               </FormControl>
               <FormMessage />
             </FormItem>
@@ -71,9 +71,9 @@ export function ContactForm() {
           name="subject"
           render={({ field }) => (
             <FormItem>
-              <FormLabel>Subject</FormLabel>
+              <FormLabel>Assunto</FormLabel>
               <FormControl>
-                <Input placeholder="Booking a party for Toothless" {...field} />
+                <Input placeholder="Reservar uma festa para o Banguela" {...field} />
               </FormControl>
               <FormMessage />
             </FormItem>
@@ -84,16 +84,16 @@ export function ContactForm() {
           name="message"
           render={({ field }) => (
             <FormItem>
-              <FormLabel>Your Message</FormLabel>
+              <FormLabel>Sua Mensagem</FormLabel>
               <FormControl>
-                <Textarea placeholder="Tell us about your event..." className="min-h-[120px]" {...field} />
+                <Textarea placeholder="Conte-nos sobre seu evento..." className="min-h-[120px]" {...field} />
               </FormControl>
               <FormMessage />
             </FormItem>
           )}
         />
         <Button type="submit" className="w-full bg-accent hover:bg-accent/90 text-accent-foreground">
-          Send Terror Mail
+          Enviar Correio-Terror
         </Button>
       </form>
     </Form>
