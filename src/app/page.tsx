@@ -284,7 +284,7 @@ const Footer = () => (
       </div>
       <div className="absolute -right-4 -bottom-4 opacity-50 md:opacity-100 pointer-events-none w-48 h-48">
           <Image 
-            src="https://i.imgur.com/8Q5tW0H.png"
+            src="https://static.wikia.nocookie.net/comotreinarseudragao/images/1/11/ToothlessHttyd2Remder.png"
             alt="Banguela"
             fill
             style={{objectFit: "contain"}}
