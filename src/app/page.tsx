@@ -128,10 +128,7 @@ const mainPackage = {
     inclusions: [
       "4 horas de festa e uso exclusivo do local",
       "Decoração temática completa da Ilha de Berk",
-      "'Treinamento de dragão' (gincana interativa)",
       "Pintura facial Viking para todas as crianças",
-      "Visita de um personagem (Banguela ou Soluço)",
-      "Banquete Viking completo com cardápio personalizável",
       "Fotógrafo profissional para registrar os melhores momentos",
       "Lembrancinhas premium para todos os convidados"
     ],
