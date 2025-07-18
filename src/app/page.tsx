@@ -38,7 +38,7 @@ const Header = () => (
 const HeroSection = () => (
   <section className="relative h-[60vh] md:h-[80vh] w-full">
     <Image
-      src="https://i.imgur.com/0uA6j9G.jpeg"
+      src="https://i.imgur.com/SnvAEUK.jpeg"
       alt="Local decorado com o tema Como Treinar o Seu Dragão"
       fill
       objectFit="cover"
@@ -381,4 +381,5 @@ export default function Home() {
   );
 }
 
+    
     
