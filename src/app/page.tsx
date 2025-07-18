@@ -1,10 +1,14 @@
+"use client";
+
 import Image from "next/image";
 import Link from "next/link";
+import { useState } from "react";
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from "@/components/ui/card";
 import { Carousel, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious } from "@/components/ui/carousel";
-import { Mail, MapPin, Phone, Star } from "lucide-react";
+import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogTrigger, DialogDescription } from "@/components/ui/dialog";
+import { Mail, MapPin, Phone, Star, Utensils } from "lucide-react";
 import { DragonIcon, VikingHelmIcon } from "@/components/icons";
 import { ContactForm } from "@/components/contact-form";
 import { Gallery } from "@/components/gallery";
@@ -42,8 +46,8 @@ const HeroSection = () => (
       priority
     />
     <div className="absolute inset-0 z-[5] flex items-center justify-center pointer-events-none">
-      <Image 
-        src="https://i.imgur.com/gK7eUaL.png" 
+      <Image
+        src="https://i.imgur.com/gK7eUaL.png"
         alt="Logo da Cabana do Banguela"
         width={1000}
         height={750}
@@ -52,7 +56,6 @@ const HeroSection = () => (
       />
     </div>
     <div className="relative z-10 flex flex-col items-center justify-center h-full text-center text-white p-4">
-      {/* O H1 foi removido para dar lugar à logo */}
       <p className="mt-4 max-w-2xl text-lg md:text-xl text-white/90">
         Celebre em um mundo de Vikings e dragões! Festas temáticas inesquecíveis em nosso local exclusivo.
       </p>
@@ -118,9 +121,54 @@ const CategorizedSetupsSection = () => (
 );
 
 const packages = [
-  { title: "O Filhote", price: "R$ 999", description: "Perfeito para jovens Vikings! Inclui 2 horas de festa, decorações, caça aos ovos de dragão e um anfitrião dedicado.", featured: false },
-  { title: "Cavaleiro de Dragão", price: "R$ 1.899", description: "A escolha mais popular! Inclui tudo do pacote O Filhote, mais 'treinamento de dragão', pintura facial e a visita de um personagem.", featured: true },
-  { title: "Banquete do Chefe", price: "R$ 3.499", description: "A festa definitiva. 4 horas de uso exclusivo, banquete Viking completo, fotos profissionais e lembrancinhas premium.", featured: false },
+  { 
+    title: "O Filhote", 
+    price: "R$ 999", 
+    description: "Perfeito para jovens Vikings! Inclui 2 horas de festa, decorações, caça aos ovos de dragão e um anfitrião dedicado.", 
+    featured: false,
+    menu: {
+      title: "Cardápio do Filhote",
+      items: [
+        "Mini sanduíches de 'peixe'",
+        "Espetinhos de frutas do dragão",
+        "Sucos de 'poção' coloridos",
+        "Cupcakes de 'lava'",
+        "Bolo de aniversário temático"
+      ]
+    } 
+  },
+  { 
+    title: "Cavaleiro de Dragão", 
+    price: "R$ 1.899", 
+    description: "A escolha mais popular! Inclui tudo do pacote O Filhote, mais 'treinamento de dragão', pintura facial e a visita de um personagem.", 
+    featured: true,
+    menu: {
+      title: "Cardápio do Cavaleiro de Dragão",
+      items: [
+        "Tudo do pacote O Filhote",
+        "Asas de 'frango-dragão' (frango assado)",
+        "Mini pizzas de 'escudo' Viking",
+        "Poções de hidromel (não alcoólico)",
+        "Mesa de doces de Berk"
+      ]
+    }
+  },
+  { 
+    title: "Banquete do Chefe", 
+    price: "R$ 3.499", 
+    description: "A festa definitiva. 4 horas de uso exclusivo, banquete Viking completo, fotos profissionais e lembrancinhas premium.", 
+    featured: false,
+    menu: {
+      title: "Cardápio do Banquete do Chefe",
+      items: [
+        "Tudo do pacote Cavaleiro de Dragão",
+        "Pernil de 'javali' assado",
+        "Salmão defumado na lenha",
+        "Seleção de queijos e pães artesanais",
+        "Fonte de chocolate com frutas e marshmallows"
+      ]
+    }
+  },
 ];
 
 const PackagesSection = () => (
@@ -134,20 +182,41 @@ const PackagesSection = () => (
       </div>
       <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 items-start">
         {packages.map((pkg) => (
-          <Card key={pkg.title} className={`flex flex-col h-full ${pkg.featured ? 'border-primary border-2 shadow-lg' : ''}`}>
-            <CardHeader className="text-center">
-              <CardTitle className="font-headline text-2xl">{pkg.title}</CardTitle>
-            </CardHeader>
-            <CardContent className="flex-grow">
-              <p className="text-center text-4xl font-bold font-headline text-primary mb-4">{pkg.price}</p>
-              <p className="text-foreground/80 text-center">{pkg.description}</p>
-            </CardContent>
-            <CardFooter>
-              <Button asChild className="w-full" variant={pkg.featured ? 'default' : 'secondary'}>
-                <Link href="#contact">Reserve este pacote</Link>
-              </Button>
-            </CardFooter>
-          </Card>
+          <Dialog key={pkg.title}>
+            <Card className={`flex flex-col h-full ${pkg.featured ? 'border-primary border-2 shadow-lg' : ''}`}>
+              <CardHeader className="text-center">
+                <CardTitle className="font-headline text-2xl">{pkg.title}</CardTitle>
+              </CardHeader>
+              <CardContent className="flex-grow space-y-4">
+                <p className="text-center text-4xl font-bold font-headline text-primary">{pkg.price}</p>
+                <p className="text-foreground/80 text-center">{pkg.description}</p>
+              </CardContent>
+              <CardFooter className="flex-col gap-2">
+                 <DialogTrigger asChild>
+                  <Button variant="outline" className="w-full">
+                    <Utensils className="mr-2 h-4 w-4" />
+                    Ver Cardápio
+                  </Button>
+                </DialogTrigger>
+                <Button asChild className="w-full" variant={pkg.featured ? 'default' : 'secondary'}>
+                  <Link href="#contact">Reserve este pacote</Link>
+                </Button>
+              </CardFooter>
+            </Card>
+             <DialogContent>
+              <DialogHeader>
+                <DialogTitle className="font-headline text-2xl text-primary">{pkg.menu.title}</DialogTitle>
+                 <DialogDescription>
+                  Um banquete digno dos melhores Vikings!
+                </DialogDescription>
+              </DialogHeader>
+              <ul className="list-disc list-inside space-y-2 text-foreground/80 pl-4">
+                {pkg.menu.items.map((item, index) => (
+                  <li key={index}>{item}</li>
+                ))}
+              </ul>
+            </DialogContent>
+          </Dialog>
         ))}
       </div>
     </div>
@@ -312,3 +381,5 @@ export default function Home() {
     </div>
   );
 }
+
+    
