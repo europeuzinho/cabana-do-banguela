@@ -32,7 +32,7 @@ const Header = () => (
 const HeroSection = () => (
   <section className="relative h-[60vh] md:h-[80vh] w-full">
     <Image
-      src="https://placehold.co/1600x900/0c1f3e/f97316.png"
+      src="https://placehold.co/1600x900/0d1b2a/f97316.png"
       alt="Local decorado com o tema Como Treinar o Seu Dragão"
       fill
       objectFit="cover"
@@ -222,10 +222,6 @@ const faqItems = [
     question: "Vocês oferecem opções de comida e bebida?",
     answer: "Oferecemos um menu de banquete viking completo como um adicional. Também permitimos que os clientes tragam seu próprio buffet. Temos uma cozinha de apoio disponível para uso."
   },
-  {
-    question: "Há estacionamento disponível?",
-    answer: "Sim, dispomos de um estacionamento privativo e gratuito para todos os seus convidados bem ao lado da cabana."
-  }
 ];
 
 const FaqSection = () => (
