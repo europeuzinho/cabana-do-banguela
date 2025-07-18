@@ -32,7 +32,7 @@ const Header = () => (
 const HeroSection = () => (
   <section className="relative h-[60vh] md:h-[80vh] w-full">
     <Image
-      src="https://placehold.co/1600x900/0d1b2a/f97316.png"
+      src="https://i.imgur.com/0uA6j9G.jpeg"
       alt="Local decorado com o tema Como Treinar o Seu Dragão"
       fill
       objectFit="cover"
@@ -42,7 +42,7 @@ const HeroSection = () => (
     />
     <div className="absolute inset-0 z-[5] flex items-center justify-center pointer-events-none">
       <Image 
-        src="https://placehold.co/800x600/00000000/png.png" 
+        src="https://i.imgur.com/gK7eUaL.png" 
         alt="Logo da Cabana do Banguela"
         width={1000}
         height={750}
@@ -63,12 +63,12 @@ const HeroSection = () => (
 );
 
 const galleryImages = [
-  { src: "https://placehold.co/600x400.png", alt: "Salão principal decorado como o Grande Salão de Berk", hint: "viking hall interior" },
-  { src: "https://placehold.co/600x400.png", alt: "Mesas de jantar com centros de mesa temáticos de dragão", hint: "fantasy banquet" },
-  { src: "https://placehold.co/600x400.png", alt: "Mesa de bolo temática do Banguela", hint: "dragon cake" },
-  { src: "https://placehold.co/600x400.png", alt: "Área de caça aos ovos de dragão no jardim", hint: "mystical forest" },
-  { src: "https://placehold.co/600x400.png", alt: "Cabine de fotos de navio Viking", hint: "viking ship" },
-  { src: "https://placehold.co/600x400.png", alt: "Área de festa iluminada com luzes de fada e lanternas", hint: "magical lights" },
+  { src: "https://i.imgur.com/pXBq34t.jpeg", alt: "Salão principal decorado como o Grande Salão de Berk", hint: "viking hall interior" },
+  { src: "https://i.imgur.com/t4T7d6c.jpeg", alt: "Mesas de jantar com centros de mesa temáticos de dragão", hint: "fantasy banquet" },
+  { src: "https://i.imgur.com/n1h4yTT.jpeg", alt: "Mesa de bolo temática do Banguela", hint: "dragon cake" },
+  { src: "https://i.imgur.com/aIqS9Pl.jpeg", alt: "Área de caça aos ovos de dragão no jardim", hint: "mystical forest" },
+  { src: "https://i.imgur.com/p3Qx4uX.jpeg", alt: "Cabine de fotos de navio Viking", hint: "viking ship" },
+  { src: "https://i.imgur.com/nI4xG5I.jpeg", alt: "Área de festa iluminada com luzes de fada e lanternas", hint: "magical lights" },
 ];
 
 const VenueShowcaseSection = () => (
@@ -295,7 +295,7 @@ const Footer = () => (
     </div>
     <div className="absolute -right-8 -bottom-8 md:right-4 md:-bottom-4 opacity-50 md:opacity-100 pointer-events-none">
         <Image 
-          src="https://placehold.co/200x200.png"
+          src="https://i.imgur.com/vHq1F3W.png"
           alt="Banguela"
           width={200}
           height={200}
