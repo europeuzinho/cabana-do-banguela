@@ -271,25 +271,26 @@ const ContactSection = () => (
 );
 
 const Footer = () => (
-  <footer className="bg-primary text-primary-foreground relative overflow-hidden">
-    <div className="container py-8 flex flex-col md:flex-row justify-between items-center gap-4 text-center md:text-left">
-      <div className="flex items-center gap-2">
-        <VikingHelmIcon className="h-6 w-6" />
-        <span className="font-headline text-lg">Cabana do Banguela &copy; {new Date().getFullYear()}</span>
+  <footer className="bg-primary text-primary-foreground">
+    <div className="container relative py-8 flex flex-col md:flex-row justify-between items-center gap-4 text-center md:text-left">
+      <div className="z-10">
+        <div className="flex items-center gap-2">
+          <VikingHelmIcon className="h-6 w-6" />
+          <span className="font-headline text-lg">Cabana do Banguela &copy; {new Date().getFullYear()}</span>
+        </div>
+        <p className="text-sm text-primary-foreground/70 mt-2">
+          Torne-se uma lenda. Reserve sua festa hoje.
+        </p>
       </div>
-      <p className="text-sm text-primary-foreground/70">
-        Torne-se uma lenda. Reserve sua festa hoje.
-      </p>
-    </div>
-    <div className="absolute -right-8 -bottom-8 md:right-4 md:-bottom-4 opacity-50 md:opacity-100 pointer-events-none">
-        <Image 
-          src="https://static.wikia.nocookie.net/comotreinarseudragao/images/1/11/ToothlessHttyd2Remder.png/revision/latest"
-          alt="Banguela"
-          width={200}
-          height={200}
-          className="w-40 h-auto md:w-48"
-          data-ai-hint="dragon mascot"
-        />
+      <div className="absolute -right-4 -bottom-4 opacity-50 md:opacity-100 pointer-events-none w-48 h-48">
+          <Image 
+            src="https://i.imgur.com/8Q5tW0H.png"
+            alt="Banguela"
+            fill
+            style={{objectFit: "contain"}}
+            data-ai-hint="dragon mascot"
+          />
+      </div>
     </div>
   </footer>
 );
