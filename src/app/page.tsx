@@ -87,7 +87,6 @@ const VenueShowcaseSection = () => (
 const setups = [
   { title: "Festas de Aniversário", description: "A melhor experiência de aniversário para cavaleiros de dragões com jogos, decorações e um presente especial para o Viking aniversariante.", hint: "birthday party", icon: <VikingHelmIcon /> },
   { title: "Banquetes Temáticos", description: "Um grande banquete digno de um chefe, com uma refeição completa e decorações imersivas do 'Grande Salão'.", hint: "medieval feast", icon: <DragonIcon /> },
-  { title: "Missões Corporativas", description: "Eventos de team-building e festas corporativas únicos com um toque de aventura Viking e lore de dragões.", hint: "fantasy meeting", icon: <VikingHelmIcon /> },
 ];
 
 const CategorizedSetupsSection = () => (
@@ -99,7 +98,7 @@ const CategorizedSetupsSection = () => (
           De aniversários a grandes banquetes, temos a opção perfeita para sua celebração.
         </p>
       </div>
-      <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-4xl mx-auto">
         {setups.map((setup) => (
           <Card key={setup.title} className="text-center flex flex-col items-center">
             <CardHeader>
