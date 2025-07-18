@@ -1,5 +1,5 @@
-# Firebase Studio
+# Dragon Celebration Showcase
 
-This is a NextJS starter in Firebase Studio.
+This is a portfolio website for a "How to Train Your Dragon" themed party venue.
 
-To get started, take a look at src/app/page.tsx.
+Built with Next.js, TypeScript, and Tailwind CSS.
