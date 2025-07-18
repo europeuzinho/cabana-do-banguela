@@ -64,7 +64,7 @@ const HeroSection = () => (
 
 const galleryImages = [
   { src: "https://i.imgur.com/IL8qWDj.jpeg", alt: "Decoração de parede com escudos Vikings", hint: "viking shields decoration" },
-  { src: "https://i.imgur.com/t4T7d6c.jpeg", alt: "Mesas de jantar com centros de mesa temáticos de dragão", hint: "fantasy banquet" },
+  { src: "https://i.imgur.com/0WW80lS.jpeg", alt: "Mesas de jantar com centros de mesa temáticos de dragão", hint: "fantasy banquet" },
   { src: "https://i.imgur.com/n1h4yTT.jpeg", alt: "Mesa de bolo temática do Banguela", hint: "dragon cake" },
   { src: "https://i.imgur.com/aIqS9Pl.jpeg", alt: "Área de caça aos ovos de dragão no jardim", hint: "mystical forest" },
   { src: "https://i.imgur.com/p3Qx4uX.jpeg", alt: "Cabine de fotos de navio Viking", hint: "viking ship" },
