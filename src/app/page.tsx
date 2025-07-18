@@ -40,6 +40,16 @@ const HeroSection = () => (
       data-ai-hint="fantasy dragon landscape"
       priority
     />
+    <div className="absolute inset-0 z-[5] flex items-center justify-center pointer-events-none">
+      <Image 
+        src="https://placehold.co/800x600/00000000/png.png" 
+        alt="Banguela"
+        width={800}
+        height={600}
+        className="w-1/2 h-auto object-contain opacity-40"
+        data-ai-hint="toothless dragon"
+      />
+    </div>
     <div className="relative z-10 flex flex-col items-center justify-center h-full text-center text-white p-4">
       <h1 className="font-headline text-4xl md:text-7xl lg:text-8xl drop-shadow-lg">
         Sua Aventura com Dragões te Espera
