@@ -67,7 +67,7 @@ const HeroSection = () => {
         priority
       />
       <div className="relative z-10 text-white" style={{ opacity }}>
-        <p className="text-xl md:text-2xl font-body mb-2">Bem vindo ao</p>
+        <p className="text-xl md:text-2xl font-body mb-2">Seja bem-vindo ao</p>
         <h1 className="font-headline text-5xl md:text-7xl text-primary">Cabana do Banguela</h1>
       </div>
     </section>
@@ -443,5 +443,3 @@ export default function Home() {
     </div>
   );
 }
-
-    
