@@ -32,7 +32,7 @@ const Header = () => (
 const HeroSection = () => (
   <section className="relative h-[60vh] md:h-[80vh] w-full">
     <Image
-      src="https://placehold.co/1600x900/172554/f97316.png"
+      src="https://placehold.co/1600x900/0c1f3e/f97316.png"
       alt="Local decorado com o tema Como Treinar o Seu Dragão"
       fill
       objectFit="cover"
@@ -139,7 +139,7 @@ const packages = [
 ];
 
 const PackagesSection = () => (
-  <section id="packages" className="py-16 md:py-24 bg-primary/5">
+  <section id="packages" className="py-16 md:py-24">
     <div className="container">
       <div className="text-center mb-12">
         <h2 className="font-headline text-3xl md:text-5xl text-primary">Escolha Sua Aventura</h2>
@@ -176,32 +176,80 @@ const testimonials = [
 ];
 
 const TestimonialsSection = () => (
-  <section id="testimonials" className="py-16 md:py-24 container">
-    <div className="text-center mb-12">
-      <h2 className="font-headline text-3xl md:text-5xl text-primary">Contos dos Nossos Vikings</h2>
-      <p className="mt-4 max-w-2xl mx-auto text-lg text-foreground/80">
-        Ouça o que nossos convidados têm a dizer sobre suas aventuras.
-      </p>
+  <section id="testimonials" className="py-16 md:py-24 bg-primary/5">
+    <div className="container">
+      <div className="text-center mb-12">
+        <h2 className="font-headline text-3xl md:text-5xl text-primary">Contos dos Nossos Vikings</h2>
+        <p className="mt-4 max-w-2xl mx-auto text-lg text-foreground/80">
+          Ouça o que nossos convidados têm a dizer sobre suas aventuras.
+        </p>
+      </div>
+      <Carousel className="w-full max-w-4xl mx-auto" opts={{ loop: true }}>
+        <CarouselContent>
+          {testimonials.map((testimonial, index) => (
+            <CarouselItem key={index}>
+              <Card className="p-6">
+                <CardContent className="flex flex-col items-center text-center">
+                  <div className="flex gap-1 text-accent mb-4">
+                    {[...Array(5)].map((_, i) => <Star key={i} fill="currentColor" />)}
+                  </div>
+                  <p className="text-lg italic text-foreground/90">"{testimonial.quote}"</p>
+                  <p className="font-bold mt-4 text-primary">- {testimonial.name}</p>
+                </CardContent>
+              </Card>
+            </CarouselItem>
+          ))}
+        </CarouselContent>
+        <CarouselPrevious />
+        <CarouselNext />
+      </Carousel>
     </div>
-    <Carousel className="w-full max-w-4xl mx-auto" opts={{ loop: true }}>
-      <CarouselContent>
-        {testimonials.map((testimonial, index) => (
-          <CarouselItem key={index}>
-            <Card className="p-6">
-              <CardContent className="flex flex-col items-center text-center">
-                <div className="flex gap-1 text-accent mb-4">
-                  {[...Array(5)].map((_, i) => <Star key={i} fill="currentColor" />)}
-                </div>
-                <p className="text-lg italic text-foreground/90">"{testimonial.quote}"</p>
-                <p className="font-bold mt-4 text-primary">- {testimonial.name}</p>
-              </CardContent>
-            </Card>
-          </CarouselItem>
+  </section>
+);
+
+const faqItems = [
+  {
+    question: "O que está incluso nos pacotes de festa?",
+    answer: "Nossos pacotes incluem decoração temática completa, atividades e jogos de dragão, um anfitrião viking dedicado e lembrancinhas para os convidados. O buffet pode ser contratado à parte ou trazido pelo cliente."
+  },
+  {
+    question: "Qual a capacidade máxima do local?",
+    answer: "Nossa cabana comporta confortavelmente até 50 convidados, incluindo crianças e adultos, garantindo uma experiência imersiva e segura para todos."
+  },
+  {
+    question: "Posso personalizar a decoração ou as atividades?",
+    answer: "Sim! Adoramos tornar cada festa única. Entre em contato conosco para discutir suas ideias de personalização para decorações, atividades ou até mesmo no cardápio do banquete."
+  },
+  {
+    question: "Vocês oferecem opções de comida e bebida?",
+    answer: "Oferecemos um menu de banquete viking completo como um adicional. Também permitimos que os clientes tragam seu próprio buffet. Temos uma cozinha de apoio disponível para uso."
+  },
+  {
+    question: "Há estacionamento disponível?",
+    answer: "Sim, dispomos de um estacionamento privativo e gratuito para todos os seus convidados bem ao lado da cabana."
+  }
+];
+
+const FaqSection = () => (
+  <section id="faq" className="py-16 md:py-24">
+    <div className="container">
+      <div className="text-center mb-12">
+        <h2 className="font-headline text-3xl md:text-5xl text-primary">Perguntas Frequentes</h2>
+        <p className="mt-4 max-w-2xl mx-auto text-lg text-foreground/80">
+          Tire suas dúvidas sobre nossas aventuras vikings.
+        </p>
+      </div>
+      <Accordion type="single" collapsible className="w-full max-w-3xl mx-auto">
+        {faqItems.map((item, index) => (
+          <AccordionItem key={index} value={`item-${index}`}>
+            <AccordionTrigger className="text-left">{item.question}</AccordionTrigger>
+            <AccordionContent>
+              {item.answer}
+            </AccordionContent>
+          </AccordionItem>
         ))}
-      </CarouselContent>
-      <CarouselPrevious />
-      <CarouselNext />
-    </Carousel>
+      </Accordion>
+    </div>
   </section>
 );
 
@@ -273,9 +321,12 @@ export default function Home() {
         <CategorizedSetupsSection />
         <PackagesSection />
         <TestimonialsSection />
+        <FaqSection />
         <ContactSection />
       </main>
       <Footer />
     </div>
   );
 }
+
+    
