@@ -271,7 +271,7 @@ const ContactSection = () => (
 );
 
 const Footer = () => (
-  <footer className="bg-primary text-primary-foreground relative pt-8 pb-8 overflow-hidden">
+  <footer className="bg-primary text-primary-foreground relative pt-8 pb-8">
     <div className="container flex flex-col md:flex-row justify-between items-center gap-4 text-center md:text-left">
       <div>
         <div className="flex items-center gap-2">
