@@ -272,7 +272,7 @@ const ContactSection = () => (
 
 const Footer = () => (
   <footer className="bg-primary text-primary-foreground">
-    <div className="container relative py-8 flex flex-col md:flex-row justify-between items-center gap-4 text-center md:text-left">
+    <div className="container relative py-8 flex flex-col md:flex-row justify-between items-center gap-4 text-center md:text-left overflow-visible">
       <div className="z-10">
         <div className="flex items-center gap-2">
           <VikingHelmIcon className="h-6 w-6" />
