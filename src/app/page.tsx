@@ -127,8 +127,6 @@ const mainPackage = {
     description: "A experiência completa e definitiva da Cabana do Banguela para uma celebração inesquecível.",
     inclusions: [
       "4 horas de festa e uso exclusivo do local",
-      "Decoração temática completa da Ilha de Berk",
-      "Pintura facial Viking para todas as crianças",
       "Fotógrafo profissional para registrar os melhores momentos",
       "Lembrancinhas premium para todos os convidados"
     ],
@@ -382,4 +380,6 @@ export default function Home() {
 }
 
     
+    
+
     
