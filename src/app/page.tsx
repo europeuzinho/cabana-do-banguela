@@ -13,7 +13,7 @@ const Header = () => (
     <div className="container flex h-14 items-center">
       <Link href="/" className="flex items-center gap-2 font-bold text-primary">
         <DragonIcon className="h-6 w-6" />
-        <span className="font-headline text-xl">Festas Covil do Dragão</span>
+        <span className="font-headline text-xl">Cabana do Banguela</span>
       </Link>
       <nav className="ml-auto hidden md:flex gap-6 text-sm font-medium">
         <Link href="#gallery" className="text-foreground/60 transition-colors hover:text-foreground/80">Galeria</Link>
@@ -32,7 +32,7 @@ const Header = () => (
 const HeroSection = () => (
   <section className="relative h-[60vh] md:h-[80vh] w-full">
     <Image
-      src="https://placehold.co/1600x900.png"
+      src="https://placehold.co/1600x900/0f172a/ff9900.png"
       alt="Local decorado com o tema Como Treinar o Seu Dragão"
       fill
       objectFit="cover"
@@ -76,7 +76,7 @@ const galleryImages = [
 const VenueShowcaseSection = () => (
   <section id="gallery" className="py-16 md:py-24 container">
     <div className="text-center mb-12">
-      <h2 className="font-headline text-3xl md:text-5xl text-primary">O Covil do Dragão</h2>
+      <h2 className="font-headline text-3xl md:text-5xl text-primary">A Cabana do Banguela</h2>
       <p className="mt-4 max-w-2xl mx-auto text-lg text-foreground/80">
         Explore nosso local, totalmente transformado na mítica Ilha de Berk.
       </p>
@@ -217,7 +217,7 @@ const TestimonialsSection = () => (
 
 const contactInfo = [
   { icon: <Phone className="h-6 w-6 text-accent" />, title: "Ligue para Nós", value: "(555) 123-4567" },
-  { icon: <Mail className="h-6 w-6 text-accent" />, title: "Envie um Email", value: "contato@covildodragao.com" },
+  { icon: <Mail className="h-6 w-6 text-accent" />, title: "Envie um Email", value: "contato@cabanadobanguela.com" },
   { icon: <MapPin className="h-6 w-6 text-accent" />, title: "Encontre-nos", value: "123 Limite do Dragão, Ilha de Berk" },
 ];
 
@@ -255,7 +255,7 @@ const Footer = () => (
     <div className="container py-8 flex flex-col md:flex-row justify-between items-center gap-4 text-center md:text-left">
       <div className="flex items-center gap-2">
         <VikingHelmIcon className="h-6 w-6" />
-        <span className="font-headline text-lg">Festas Covil do Dragão &copy; {new Date().getFullYear()}</span>
+        <span className="font-headline text-lg">Cabana do Banguela &copy; {new Date().getFullYear()}</span>
       </div>
       <p className="text-sm text-primary-foreground/70">
         Torne-se uma lenda. Reserve sua festa hoje.

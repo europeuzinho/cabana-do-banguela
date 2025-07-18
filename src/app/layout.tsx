@@ -3,7 +3,7 @@ import "./globals.css";
 import { Toaster } from "@/components/ui/toaster";
 
 export const metadata: Metadata = {
-  title: "Festas Covil do Dragão",
+  title: "Cabana do Banguela",
   description: "Reserve sua festa temática de Como Treinar o Seu Dragão!",
 };
 

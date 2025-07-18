@@ -1,5 +1,5 @@
-# Dragon Celebration Showcase
+# Cabana do Banguela
 
-This is a portfolio website for a "How to Train Your Dragon" themed party venue.
+Este é o site da Cabana do Banguela, um local para festas temáticas de "Como Treinar o Seu Dragão".
 
-Built with Next.js, TypeScript, and Tailwind CSS.
+Construído com Next.js, TypeScript e Tailwind CSS.
