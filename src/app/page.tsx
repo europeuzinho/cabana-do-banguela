@@ -69,7 +69,7 @@ const HeroSection = () => {
       <div className="relative z-10 text-white flex flex-col items-center" style={{ opacity }}>
         <p className="text-xl md:text-2xl font-body mb-2">Seja bem-vindo ao</p>
         <h1 className="font-headline text-5xl md:text-7xl text-primary">Cabana do Banguela</h1>
-        <div className="mt-4 w-60 h-60 relative">
+        <div className="mt-4 w-80 h-80 relative">
           <Image
             src="https://static.wikia.nocookie.net/comotreinarseudragao/images/1/11/ToothlessHttyd2Remder.png/revision/latest?cb=20180531200115&path-prefix=pt-br"
             alt="Dragão Banguela"
@@ -452,3 +452,5 @@ export default function Home() {
     </div>
   );
 }
+
+    
