@@ -48,24 +48,6 @@ const HeroSection = () => (
       data-ai-hint="fantasy dragon landscape"
       priority
     />
-    <div className="absolute inset-0 z-[5] flex items-center justify-center pointer-events-none">
-      <Image
-        src="https://www.pngall.com/wp-content/uploads/8/How-To-Train-Your-Dragon-Toothless.png"
-        alt="Logo da Cabana do Banguela"
-        width={1000}
-        height={750}
-        className="w-1/3 h-auto object-contain opacity-80"
-        data-ai-hint="toothless dragon logo"
-      />
-    </div>
-    <div className="relative z-10 flex flex-col items-center justify-center h-full text-center text-white p-4">
-      <p className="mt-4 max-w-2xl text-lg md:text-xl text-white/90">
-        Celebre em um mundo de Vikings e dragões! Festas temáticas inesquecíveis em nosso local exclusivo.
-      </p>
-      <Button asChild size="lg" className="mt-8 bg-accent hover:bg-accent/90 text-accent-foreground">
-        <Link href="#packages">Conheça nosso pacote</Link>
-      </Button>
-    </div>
   </section>
 );
 
@@ -438,5 +420,7 @@ export default function Home() {
     </div>
   );
 }
+
+    
 
     
