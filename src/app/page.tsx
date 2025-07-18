@@ -66,9 +66,18 @@ const HeroSection = () => {
         data-ai-hint="fantasy dragon landscape"
         priority
       />
-      <div className="relative z-10 text-white" style={{ opacity }}>
+      <div className="relative z-10 text-white flex flex-col items-center" style={{ opacity }}>
         <p className="text-xl md:text-2xl font-body mb-2">Seja bem-vindo ao</p>
         <h1 className="font-headline text-5xl md:text-7xl text-primary">Cabana do Banguela</h1>
+        <div className="mt-4 w-40 h-40 relative">
+          <Image
+            src="https://www.pngall.com/wp-content/uploads/8/How-To-Train-Your-Dragon-Toothless.png"
+            alt="Dragão Banguela"
+            fill
+            className="object-contain"
+            data-ai-hint="dragon character"
+          />
+        </div>
       </div>
     </section>
   );
