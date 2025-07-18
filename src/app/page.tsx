@@ -2,7 +2,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
 import { Button } from "@/components/ui/button";
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
+import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from "@/components/ui/card";
 import { Carousel, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious } from "@/components/ui/carousel";
 import { Mail, MapPin, Phone, Star } from "lucide-react";
 import { DragonIcon, VikingHelmIcon } from "@/components/icons";
@@ -32,7 +32,7 @@ const Header = () => (
 const HeroSection = () => (
   <section className="relative h-[60vh] md:h-[80vh] w-full">
     <Image
-      src="https://placehold.co/1600x900/0f172a/ff9900.png"
+      src="https://placehold.co/1600x900/172554/f97316.png"
       alt="Local decorado com o tema Como Treinar o Seu Dragão"
       fill
       objectFit="cover"
@@ -153,9 +153,9 @@ const TourSection = () => (
 );
 
 const packages = [
-  { title: "O Filhote", content: "Perfeito para jovens Vikings! Inclui 2 horas de festa, decorações temáticas, caça aos ovos de dragão e um anfitrião dedicado." },
-  { title: "Cavaleiro de Dragão", content: "A escolha mais popular. Inclui tudo do pacote O Filhote, mais um percurso de obstáculos de 'treinamento de dragão', pintura facial e a visita de um personagem fantasiado." },
-  { title: "Banquete do Chefe", content: "A festa lendária definitiva. Inclui 4 horas de uso exclusivo do local, um banquete Viking completo, fotos profissionais e lembrancinhas premium para todos os convidados." },
+  { title: "O Filhote", price: "R$ 999", description: "Perfeito para jovens Vikings! Inclui 2 horas de festa, decorações, caça aos ovos de dragão e um anfitrião dedicado.", featured: false },
+  { title: "Cavaleiro de Dragão", price: "R$ 1.899", description: "A escolha mais popular! Inclui tudo do pacote O Filhote, mais 'treinamento de dragão', pintura facial e a visita de um personagem.", featured: true },
+  { title: "Banquete do Chefe", price: "R$ 3.499", description: "A festa definitiva. 4 horas de uso exclusivo, banquete Viking completo, fotos profissionais e lembrancinhas premium.", featured: false },
 ];
 
 const PackagesSection = () => (
@@ -167,14 +167,24 @@ const PackagesSection = () => (
           Oferecemos uma variedade de pacotes para tornar sua festa temática de dragão lendária.
         </p>
       </div>
-      <Accordion type="single" collapsible className="w-full max-w-4xl mx-auto">
-        {packages.map((pkg, index) => (
-          <AccordionItem key={index} value={`item-${index + 1}`}>
-            <AccordionTrigger className="font-headline text-xl">{pkg.title}</AccordionTrigger>
-            <AccordionContent className="text-base">{pkg.content}</AccordionContent>
-          </AccordionItem>
+      <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 items-start">
+        {packages.map((pkg) => (
+          <Card key={pkg.title} className={`flex flex-col h-full ${pkg.featured ? 'border-primary border-2 shadow-lg' : ''}`}>
+            <CardHeader className="text-center">
+              <CardTitle className="font-headline text-2xl">{pkg.title}</CardTitle>
+            </CardHeader>
+            <CardContent className="flex-grow">
+              <p className="text-center text-4xl font-bold font-headline text-primary mb-4">{pkg.price}</p>
+              <p className="text-foreground/80 text-center">{pkg.description}</p>
+            </CardContent>
+            <CardFooter>
+              <Button asChild className="w-full" variant={pkg.featured ? 'default' : 'secondary'}>
+                <Link href="#contact">Reserve este pacote</Link>
+              </Button>
+            </CardFooter>
+          </Card>
         ))}
-      </Accordion>
+      </div>
     </div>
   </section>
 );
