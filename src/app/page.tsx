@@ -7,6 +7,7 @@ import { Carousel, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious
 import { Mail, MapPin, Phone, Star } from "lucide-react";
 import { DragonIcon, VikingHelmIcon } from "@/components/icons";
 import { ContactForm } from "@/components/contact-form";
+import { Gallery } from "@/components/gallery";
 
 const Header = () => (
   <header className="sticky top-0 z-50 w-full border-b border-border/40 bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60">
@@ -79,20 +80,7 @@ const VenueShowcaseSection = () => (
         Explore nosso local, totalmente transformado na mítica Ilha de Berk.
       </p>
     </div>
-    <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-      {galleryImages.map((image, index) => (
-        <Card key={index} className="overflow-hidden transition-all hover:shadow-xl hover:-translate-y-1">
-          <Image
-            src={image.src}
-            alt={image.alt}
-            width={600}
-            height={400}
-            className="w-full h-auto object-cover"
-            data-ai-hint={image.hint}
-          />
-        </Card>
-      ))}
-    </div>
+    <Gallery images={galleryImages} />
   </section>
 );
 
