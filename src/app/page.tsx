@@ -323,8 +323,8 @@ const ContactSection = () => (
             <div key={info.title} className="flex items-start gap-4">
               <div className="flex-shrink-0">{info.icon}</div>
               <div>
-                <h3 className="font-headline text-xl text-primary">{info.title}</h3>
-                <p className="text-foreground/80">{info.value}</p>
+                <h3 className="font-headline text-2xl text-primary">{info.title}</h3>
+                <p className="text-foreground/80 text-lg">{info.value}</p>
               </div>
             </div>
           ))}
@@ -380,3 +380,5 @@ export default function Home() {
     </div>
   );
 }
+
+    
