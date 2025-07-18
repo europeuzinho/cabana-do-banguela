@@ -271,7 +271,7 @@ const ContactSection = () => (
 );
 
 const Footer = () => (
-  <footer className="bg-primary text-primary-foreground relative overflow-visible">
+  <footer className="bg-primary text-primary-foreground relative">
     <div className="container py-8 flex flex-col md:flex-row justify-between items-center gap-4 text-center md:text-left">
       <div>
         <div className="flex items-center gap-2">
