@@ -283,7 +283,7 @@ const Footer = () => (
     </div>
     <div className="absolute -right-8 -bottom-8 md:right-4 md:-bottom-4 opacity-50 md:opacity-100 pointer-events-none">
         <Image 
-          src="https://i.imgur.com/vHq1F3W.png"
+          src="https://static.wikia.nocookie.net/comotreinarseudragao/images/1/11/ToothlessHttyd2Remder.png/revision/latest"
           alt="Banguela"
           width={200}
           height={200}
