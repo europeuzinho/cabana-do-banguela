@@ -23,7 +23,7 @@ const Header = () => (
       <nav className="ml-auto hidden md:flex gap-6 text-sm font-medium">
         <Link href="#gallery" className="text-foreground/60 transition-colors hover:text-foreground/80">Galeria</Link>
         <Link href="#setups" className="text-foreground/60 transition-colors hover:text-foreground/80">Opções</Link>
-        <Link href="#packages" className="text-foreground/60 transition-colors hover:text-foreground/80">Pacotes</Link>
+        <Link href="#packages" className="text-foreground/60 transition-colors hover:text-foreground/80">Pacote</Link>
         <Link href="#testimonials" className="text-foreground/60 transition-colors hover:text-foreground/80">Depoimentos</Link>
         <Link href="#contact" className="text-foreground/60 transition-colors hover:text-foreground/80">Contato</Link>
       </nav>
@@ -60,7 +60,7 @@ const HeroSection = () => (
         Celebre em um mundo de Vikings e dragões! Festas temáticas inesquecíveis em nosso local exclusivo.
       </p>
       <Button asChild size="lg" className="mt-8 bg-accent hover:bg-accent/90 text-accent-foreground">
-        <Link href="#packages">Explore os Pacotes</Link>
+        <Link href="#packages">Conheça nosso pacote</Link>
       </Button>
     </div>
   </section>
@@ -120,105 +120,60 @@ const CategorizedSetupsSection = () => (
   </section>
 );
 
-const packages = [
-  { 
-    title: "O Filhote", 
-    price: "R$ 999", 
-    description: "Ideal para grupos menores e celebrações mais curtas.",
+const mainPackage = {
+    title: "Pacote Lendário",
+    price: "Consulte",
+    description: "A experiência completa e definitiva da Cabana do Banguela para uma celebração inesquecível.",
     inclusions: [
-      "2 horas de festa",
-      "Decoração temática",
-      "Caça aos ovos de dragão",
-      "Anfitrião dedicado"
+      "4 horas de festa e uso exclusivo do local",
+      "Decoração temática completa da Ilha de Berk",
+      "'Treinamento de dragão' (gincana interativa)",
+      "Pintura facial Viking para todas as crianças",
+      "Visita de um personagem (Banguela ou Soluço)",
+      "Banquete Viking completo com cardápio personalizável",
+      "Fotógrafo profissional para registrar os melhores momentos",
+      "Lembrancinhas premium para todos os convidados"
     ],
-    featured: false,
     menu: {
-      title: "Cardápio do Filhote",
+      title: "Cardápio do Banquete Lendário",
       items: [
-        "Mini sanduíches de 'peixe'",
-        "Espetinhos de frutas do dragão",
-        "Sucos de 'poção' coloridos",
-        "Cupcakes de 'lava'",
-        "Bolo de aniversário temático"
-      ]
-    } 
-  },
-  { 
-    title: "Cavaleiro de Dragão", 
-    price: "R$ 1.899", 
-    description: "A experiência completa para uma festa inesquecível.",
-    inclusions: [
-      "Tudo do pacote O Filhote",
-      "Duração de 3 horas",
-      "'Treinamento de dragão' (gincana)",
-      "Pintura facial Viking",
-      "Visita de um personagem (Banguela ou Soluço)"
-    ],
-    featured: true,
-    menu: {
-      title: "Cardápio do Cavaleiro de Dragão",
-      items: [
-        "Tudo do pacote O Filhote",
+        "Mini Salgadinhos Fritos (4 variedades)",
+        "Mini Assados (2 variedades)",
         "Asas de 'frango-dragão' (frango assado)",
         "Mini pizzas de 'escudo' Viking",
         "Poções de hidromel (não alcoólico)",
-        "Mesa de doces de Berk"
-      ]
-    }
-  },
-  { 
-    title: "Banquete do Chefe", 
-    price: "R$ 3.499", 
-    description: "A celebração definitiva com exclusividade e luxo.",
-    inclusions: [
-      "Tudo do pacote Cavaleiro de Dragão",
-      "4 horas de uso exclusivo do local",
-      "Banquete Viking completo",
-      "Fotógrafo profissional",
-      "Lembrancinhas premium para todos os convidados"
-    ],
-    featured: false,
-    menu: {
-      title: "Cardápio do Banquete do Chefe",
-      items: [
-        "Tudo do pacote Cavaleiro de Dragão",
+        "Mesa de doces de Berk",
         "Pernil de 'javali' assado",
         "Salmão defumado na lenha",
         "Seleção de queijos e pães artesanais",
-        "Fonte de chocolate com frutas e marshmallows"
+        "Fonte de chocolate com frutas e marshmallows",
+        "Bolo de aniversário temático"
       ]
     }
-  },
-];
-
-const additionalServices = [
-    { name: "Garçom Adicional", price: "R$ 150", description: "Para garantir que seus convidados sejam servidos com agilidade (1 para cada 20 pessoas recomendado)." },
-    { name: "Monitor para Aniversariante", price: "R$ 200", description: "Um monitor dedicado para acompanhar o aniversariante, garantindo sua diversão e segurança." },
-    { name: "Hora Extra de Festa", price: "R$ 500", description: "Prolongue a aventura por mais uma hora." },
-];
+};
 
 const PackagesSection = () => (
   <section id="packages" className="py-16 md:py-24">
     <div className="container">
       <div className="text-center mb-12">
-        <h2 className="font-headline text-3xl md:text-5xl text-primary">Escolha Sua Aventura</h2>
+        <h2 className="font-headline text-3xl md:text-5xl text-primary">Nossa Aventura Completa</h2>
         <p className="mt-4 max-w-2xl mx-auto text-lg text-foreground/80">
-          Oferecemos uma variedade de pacotes para tornar sua festa temática de dragão lendária.
+          Oferecemos um pacote único para tornar sua festa temática de dragão verdadeiramente lendária.
         </p>
       </div>
-      <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 items-stretch">
-        {packages.map((pkg) => (
-          <Dialog key={pkg.title}>
-            <Card className={`flex flex-col h-full ${pkg.featured ? 'border-primary border-2 shadow-lg relative' : 'border'}`}>
-              {pkg.featured && <div className="absolute top-0 -translate-y-1/2 left-1/2 -translate-x-1/2 bg-primary text-primary-foreground px-3 py-1 text-sm font-semibold rounded-full">Mais Popular</div>}
+      <div className="flex justify-center">
+        <Dialog>
+          <div className="w-full max-w-md">
+            <Card className="flex flex-col h-full border-primary border-2 shadow-lg relative">
+              <div className="absolute top-0 -translate-y-1/2 left-1/2 -translate-x-1/2 bg-primary text-primary-foreground px-3 py-1 text-sm font-semibold rounded-full">Pacote Exclusivo</div>
               <CardHeader className="text-center pt-8">
-                <CardTitle className="font-headline text-2xl">{pkg.title}</CardTitle>
-                <CardDescription>{pkg.description}</CardDescription>
+                <CardTitle className="font-headline text-2xl">{mainPackage.title}</CardTitle>
+                <CardDescription>{mainPackage.description}</CardDescription>
               </CardHeader>
               <CardContent className="flex-grow space-y-4">
-                <p className="text-center text-4xl font-bold font-headline text-primary">{pkg.price}</p>
+                <p className="text-center text-4xl font-bold font-headline text-primary">{mainPackage.price}</p>
                  <ul className="space-y-2 text-sm text-foreground/80">
-                  {pkg.inclusions.map((item, index) => (
+                  {mainPackage.inclusions.map((item, index) => (
                     <li key={index} className="flex items-start gap-2">
                       <CheckCircle className="h-5 w-5 text-green-500 mt-0.5 flex-shrink-0" />
                       <span>{item}</span>
@@ -230,53 +185,30 @@ const PackagesSection = () => (
                  <DialogTrigger asChild>
                   <Button variant="outline" className="w-full">
                     <Utensils className="mr-2 h-4 w-4" />
-                    Ver Cardápio
+                    Ver Cardápio Completo
                   </Button>
                 </DialogTrigger>
-                <Button asChild className="w-full" variant={pkg.featured ? 'default' : 'secondary'}>
+                <Button asChild className="w-full">
                   <Link href="#contact">Reserve este pacote</Link>
                 </Button>
               </CardFooter>
             </Card>
-             <DialogContent>
-              <DialogHeader>
-                <DialogTitle className="font-headline text-2xl text-primary">{pkg.menu.title}</DialogTitle>
-                 <DialogDescription>
-                  Um banquete digno dos melhores Vikings!
-                </DialogDescription>
-              </DialogHeader>
-              <ul className="list-disc list-inside space-y-2 text-foreground/80 pl-4">
-                {pkg.menu.items.map((item, index) => (
-                  <li key={index}>{item}</li>
-                ))}
-              </ul>
-            </DialogContent>
-          </Dialog>
-        ))}
+          </div>
+           <DialogContent>
+            <DialogHeader>
+              <DialogTitle className="font-headline text-2xl text-primary">{mainPackage.menu.title}</DialogTitle>
+               <DialogDescription>
+                Um banquete digno dos melhores Vikings!
+              </DialogDescription>
+            </DialogHeader>
+            <ul className="list-disc list-inside space-y-2 text-foreground/80 pl-4">
+              {mainPackage.menu.items.map((item, index) => (
+                <li key={index}>{item}</li>
+              ))}
+            </ul>
+          </DialogContent>
+        </Dialog>
       </div>
-
-      <div className="mt-20">
-        <div className="text-center mb-12">
-            <h3 className="font-headline text-3xl md:text-4xl text-primary">Serviços Adicionais</h3>
-            <p className="mt-4 max-w-2xl mx-auto text-lg text-foreground/80">
-            Personalize sua festa com nossos extras para uma experiência ainda mais completa.
-            </p>
-        </div>
-        <div className="max-w-2xl mx-auto grid grid-cols-1 md:grid-cols-1 gap-4">
-            {additionalServices.map((service) => (
-            <Card key={service.name} className="flex flex-col md:flex-row items-center justify-between p-4">
-                <div>
-                    <h4 className="font-bold text-lg text-primary">{service.name}</h4>
-                    <p className="text-sm text-foreground/70">{service.description}</p>
-                </div>
-                <div className="font-bold text-lg text-accent mt-2 md:mt-0 whitespace-nowrap">
-                    {service.price}
-                </div>
-            </Card>
-            ))}
-        </div>
-      </div>
-
     </div>
   </section>
 );
@@ -321,8 +253,8 @@ const TestimonialsSection = () => (
 
 const faqItems = [
   {
-    question: "O que está incluso nos pacotes de festa?",
-    answer: "Nossos pacotes incluem decoração temática completa, atividades e jogos de dragão, um anfitrião viking dedicado e lembrancinhas para os convidados. O buffet pode ser contratado à parte ou trazido pelo cliente."
+    question: "O que está incluso no pacote de festa?",
+    answer: "Nosso pacote inclui decoração temática completa, atividades e jogos de dragão, um anfitrião viking dedicado, buffet completo e lembrancinhas para os convidados. Tudo para uma experiência completa!"
   },
   {
     question: "Qual a capacidade máxima do local?",
@@ -333,8 +265,8 @@ const faqItems = [
     answer: "Sim! Adoramos tornar cada festa única. Entre em contato conosco para discutir suas ideias de personalização para decorações, atividades ou até mesmo no cardápio do banquete."
   },
   {
-    question: "Vocês oferecem opções de comida e bebida?",
-    answer: "Oferecemos um menu de banquete viking completo como um adicional. Também permitimos que os clientes tragam seu próprio buffet. Temos uma cozinha de apoio disponível para uso."
+    question: "O que preciso levar?",
+    answer: "Absolutamente nada! Nosso pacote é completo e inclui comida, bebida, decoração e entretenimento. Apenas traga seus convidados e a vontade de se aventurar!"
   },
 ];
 
@@ -439,5 +371,3 @@ export default function Home() {
     </div>
   );
 }
-
-    
