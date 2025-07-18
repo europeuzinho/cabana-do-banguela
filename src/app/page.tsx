@@ -3,7 +3,7 @@
 
 import Image from "next/image";
 import Link from "next/link";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from "@/components/ui/card";
@@ -37,19 +37,39 @@ const Header = () => (
   </header>
 );
 
-const HeroSection = () => (
-  <section className="relative h-[60vh] md:h-[80vh] w-full">
+const HeroSection = () => {
+    const [opacity, setOpacity] = useState(1);
+  
+    useEffect(() => {
+      const handleScroll = () => {
+        const heroHeight = window.innerHeight * 0.8; 
+        const scrollY = window.scrollY;
+        const newOpacity = Math.max(0, 1 - scrollY / (heroHeight / 2));
+        setOpacity(newOpacity);
+      };
+  
+      window.addEventListener('scroll', handleScroll);
+  
+      return () => {
+        window.removeEventListener('scroll', handleScroll);
+      };
+    }, []);
+
+  return(
+    <section className="relative h-[60vh] md:h-[80vh] w-full">
     <Image
       src="https://i.imgur.com/SnvAEUK.jpeg"
       alt="Local decorado com o tema Como Treinar o Seu Dragão"
       fill
       objectFit="cover"
       className="brightness-50"
+      style={{ opacity }}
       data-ai-hint="fantasy dragon landscape"
       priority
     />
   </section>
-);
+  )
+  };
 
 const galleryImages = [
   { src: "https://i.imgur.com/IL8qWDj.jpeg", alt: "Decoração de parede com escudos Vikings", hint: "viking shields decoration" },
