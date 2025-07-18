@@ -222,6 +222,45 @@ const PackagesSection = () => (
   </section>
 );
 
+const additionalServices = [
+  {
+    title: "Garçom para Servir",
+    description: "Contrate um garçom dedicado para servir seus convidados com agilidade e cortesia durante toda a festa."
+  },
+  {
+    title: "Monitor para o Aniversariante",
+    description: "Um monitor exclusivo para acompanhar o aniversariante, garantindo sua diversão e segurança em todas as atividades."
+  }
+];
+
+const AdditionalServicesSection = () => (
+  <section id="additional-services" className="py-16 md:py-24 bg-primary/5">
+    <div className="container">
+      <div className="text-center mb-12">
+        <h2 className="font-headline text-3xl md:text-5xl text-primary">Serviços Adicionais</h2>
+        <p className="mt-4 max-w-2xl mx-auto text-lg text-foreground/80">
+          Personalize sua festa com nossos serviços opcionais.
+        </p>
+      </div>
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-4xl mx-auto">
+        {additionalServices.map((service) => (
+          <Card key={service.title} className="text-center">
+            <CardHeader>
+              <CardTitle className="font-headline">{service.title}</CardTitle>
+            </CardHeader>
+            <CardContent>
+              <p className="text-foreground/80">{service.description}</p>
+            </CardContent>
+            <CardFooter className="justify-center">
+                 <p className="text-lg font-bold font-headline text-primary">Consulte</p>
+            </CardFooter>
+          </Card>
+        ))}
+      </div>
+    </div>
+  </section>
+);
+
 const CakesSection = () => (
   <section id="cakes" className="py-16 md:py-24 bg-primary/5">
     <div className="container">
@@ -387,6 +426,7 @@ export default function Home() {
         <VenueShowcaseSection />
         <CategorizedSetupsSection />
         <PackagesSection />
+        <AdditionalServicesSection />
         <CakesSection />
         <TestimonialsSection />
         <FaqSection />
