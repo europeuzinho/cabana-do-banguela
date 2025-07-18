@@ -271,8 +271,8 @@ const ContactSection = () => (
 );
 
 const Footer = () => (
-  <footer className="bg-primary text-primary-foreground">
-    <div className="container relative py-8 flex flex-col md:flex-row justify-between items-center gap-4 text-center md:text-left">
+  <footer className="bg-primary text-primary-foreground relative overflow-hidden">
+    <div className="container py-8 flex flex-col md:flex-row justify-between items-center gap-4 text-center md:text-left">
       <div className="z-10">
         <div className="flex items-center gap-2">
           <VikingHelmIcon className="h-6 w-6" />
@@ -282,15 +282,15 @@ const Footer = () => (
           Torne-se uma lenda. Reserve sua festa hoje.
         </p>
       </div>
-      <div className="absolute -right-4 -bottom-4 opacity-50 md:opacity-100 pointer-events-none w-48 h-48">
-          <Image 
-            src="https://static.wikia.nocookie.net/comotreinarseudragao/images/1/11/ToothlessHttyd2Remder.png"
-            alt="Banguela"
-            fill
-            style={{objectFit: "contain"}}
-            data-ai-hint="dragon mascot"
-          />
-      </div>
+    </div>
+    <div className="absolute -right-4 -bottom-4 opacity-50 md:opacity-100 pointer-events-none w-48 h-48 z-0">
+        <Image 
+          src="https://static.wikia.nocookie.net/comotreinarseudragao/images/1/11/ToothlessHttyd2Remder.png"
+          alt="Banguela"
+          fill
+          style={{objectFit: "contain"}}
+          data-ai-hint="dragon mascot"
+        />
     </div>
   </footer>
 );
