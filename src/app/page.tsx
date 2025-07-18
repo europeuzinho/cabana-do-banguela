@@ -137,17 +137,13 @@ const mainPackage = {
     menu: {
       title: "Cardápio do Banquete Lendário",
       items: [
-        "Mini Salgadinhos Fritos (4 variedades)",
-        "Mini Assados (2 variedades)",
-        "Asas de 'frango-dragão' (frango assado)",
-        "Mini pizzas de 'escudo' Viking",
-        "Poções de hidromel (não alcoólico)",
-        "Mesa de doces de Berk",
-        "Pernil de 'javali' assado",
-        "Salmão defumado na lenha",
-        "Seleção de queijos e pães artesanais",
-        "Fonte de chocolate com frutas e marshmallows",
+        "Mini Salgadinhos Fritos (Escolha 4 variedades: bolinha de queijo, travesseirinho de pizza, pastelzinho de carne, coxinha de frango, quibe, enroladinho de salsicha)",
+        "Mini Assados (Escolha 2 variedades: mini esfirra de frango ou carne, mini croissant de pizza ou frango, mini empadinha de frango ou palmito, pastelzinho de carne ou frango, mini folhado de frango, palmito, calabresa ou salsicha)",
         "Bolo de aniversário temático"
+      ],
+      extras: [
+          "Mini Sanduíches Naturais (Mini pãozinho, patê de frango, alface e maionese) - R$5,00/unidade",
+          "Mini Cachorro Quente (Mini pãozinho, molho, salsicha e batata palha) - R$5,00/unidade"
       ]
     }
 };
@@ -201,11 +197,26 @@ const PackagesSection = () => (
                 Um banquete digno dos melhores Vikings!
               </DialogDescription>
             </DialogHeader>
-            <ul className="list-disc list-inside space-y-2 text-foreground/80 pl-4">
-              {mainPackage.menu.items.map((item, index) => (
-                <li key={index}>{item}</li>
-              ))}
-            </ul>
+            <div className="space-y-4">
+                <div>
+                    <h4 className="font-semibold text-foreground mb-2">Itens Inclusos</h4>
+                    <ul className="list-disc list-inside space-y-2 text-foreground/80 pl-4">
+                        {mainPackage.menu.items.map((item, index) => (
+                            <li key={index}>{item}</li>
+                        ))}
+                    </ul>
+                </div>
+                {mainPackage.menu.extras && (
+                <div>
+                    <h4 className="font-semibold text-foreground mt-4 mb-2">Itens Extras (Opcional)</h4>
+                    <ul className="list-disc list-inside space-y-2 text-foreground/80 pl-4">
+                    {mainPackage.menu.extras.map((item, index) => (
+                        <li key={index}>{item}</li>
+                    ))}
+                    </ul>
+                </div>
+                )}
+            </div>
           </DialogContent>
         </Dialog>
       </div>
