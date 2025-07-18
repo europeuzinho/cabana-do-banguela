@@ -295,11 +295,12 @@ const Footer = () => (
     </div>
     <div className="absolute -right-8 -bottom-8 md:right-4 md:-bottom-4 opacity-50 md:opacity-100 pointer-events-none">
         <Image 
-          src="https://static.wikia.nocookie.net/comotreinarseudragao/images/1/11/ToothlessHttyd2Remder.png/revision/latest?cb=20180531200115&path-prefix=pt-br" 
+          src="https://placehold.co/200x200.png"
           alt="Banguela"
           width={200}
           height={200}
           className="w-40 h-auto md:w-48"
+          data-ai-hint="dragon mascot"
         />
     </div>
   </footer>

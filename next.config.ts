@@ -18,7 +18,7 @@ const nextConfig: NextConfig = {
       },
       {
         protocol: 'https',
-        hostname: 'static.wikia.nocookie.net',
+        hostname: 'i.imgur.com',
         port: '',
         pathname: '/**',
       }
