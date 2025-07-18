@@ -54,7 +54,7 @@ const HeroSection = () => (
         alt="Logo da Cabana do Banguela"
         width={1000}
         height={750}
-        className="w-1/2 h-auto object-contain opacity-80"
+        className="w-1/3 h-auto object-contain opacity-80"
         data-ai-hint="toothless dragon logo"
       />
     </div>
@@ -379,8 +379,8 @@ const ContactSection = () => (
             <div key={info.title} className="flex items-start gap-4">
               <div className="flex-shrink-0">{info.icon}</div>
               <div>
-                <h3 className="font-headline text-xl text-primary">{info.title}</h3>
-                <p className="text-foreground/80 text-lg">{info.value}</p>
+                <h3 className="font-headline text-2xl text-primary">{info.title}</h3>
+                <p className="text-foreground/80 text-xl">{info.value}</p>
               </div>
             </div>
           ))}
@@ -438,3 +438,5 @@ export default function Home() {
     </div>
   );
 }
+
+    
