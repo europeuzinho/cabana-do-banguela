@@ -71,7 +71,7 @@ const galleryImages = [
   { src: "https://i.imgur.com/0WW80lS.jpeg", alt: "Mesas de jantar com centros de mesa temáticos de dragão", hint: "fantasy banquet" },
   { src: "https://i.imgur.com/pqSKARY.jpeg", alt: "Mesa de bolo temática do Banguela", hint: "dragon cake" },
   { src: "https://i.imgur.com/C9InKMu.jpeg", alt: "Área de caça aos ovos de dragão no jardim", hint: "mystical forest" },
-  { src: "https://i.imgur.com/p3Qx4uX.jpeg", alt: "Cabine de fotos de navio Viking", hint: "viking ship" },
+  { src: "https://i.imgur.com/hFtZkDj.jpeg", alt: "Cabine de fotos de navio Viking", hint: "viking ship" },
   { src: "https://i.imgur.com/nI4xG5I.jpeg", alt: "Área de festa iluminada com luzes de fada e lanternas", hint: "magical lights" },
 ];
 
@@ -381,5 +381,3 @@ export default function Home() {
     </div>
   );
 }
-
-    
