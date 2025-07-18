@@ -50,7 +50,7 @@ const HeroSection = () => (
     />
     <div className="absolute inset-0 z-[5] flex items-center justify-center pointer-events-none">
       <Image
-        src="https://i.imgur.com/gK7eUaL.png"
+        src="https://i.imgur.com/vlC4QVU.jpeg"
         alt="Logo da Cabana do Banguela"
         width={1000}
         height={750}
