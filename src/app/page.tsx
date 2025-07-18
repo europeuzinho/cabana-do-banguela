@@ -54,7 +54,7 @@ const HeroSection = () => (
         alt="Logo da Cabana do Banguela"
         width={1000}
         height={750}
-        className="w-2/3 h-auto object-contain opacity-80"
+        className="w-1/2 h-auto object-contain opacity-80"
         data-ai-hint="toothless dragon logo"
       />
     </div>
