@@ -50,7 +50,7 @@ const HeroSection = () => (
     />
     <div className="absolute inset-0 z-[5] flex items-center justify-center pointer-events-none">
       <Image
-        src="https://i.imgur.com/vlC4QVU.jpeg"
+        src="https://www.pngall.com/wp-content/uploads/8/How-To-Train-Your-Dragon-Toothless.png"
         alt="Logo da Cabana do Banguela"
         width={1000}
         height={750}
