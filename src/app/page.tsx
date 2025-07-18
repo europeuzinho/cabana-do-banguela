@@ -71,7 +71,7 @@ const HeroSection = () => {
         <h1 className="font-headline text-5xl md:text-7xl text-primary">Cabana do Banguela</h1>
         <div className="mt-4 w-40 h-40 relative">
           <Image
-            src="https://www.pngall.com/wp-content/uploads/8/How-To-Train-Your-Dragon-Toothless.png"
+            src="https://static.wikia.nocookie.net/comotreinarseudragao/images/1/11/ToothlessHttyd2Remder.png/revision/latest?cb=20180531200115&path-prefix=pt-br"
             alt="Dragão Banguela"
             fill
             className="object-contain"
@@ -452,3 +452,5 @@ export default function Home() {
     </div>
   );
 }
+
+    

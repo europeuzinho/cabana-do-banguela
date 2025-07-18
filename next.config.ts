@@ -33,9 +33,11 @@ const nextConfig: NextConfig = {
         hostname: 'www.pngall.com',
         port: '',
         pathname: '/**',
-      }
+      },
     ],
   },
 };
 
 export default nextConfig;
+
+    
