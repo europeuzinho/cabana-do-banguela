@@ -4,7 +4,7 @@
 import { useState } from "react";
 import Image from "next/image";
 import { Card } from "@/components/ui/card";
-import { Dialog, DialogContent } from "@/components/ui/dialog";
+import { Dialog, DialogContent, DialogDescription, DialogTitle } from "@/components/ui/dialog";
 
 type ImageProps = {
   src: string;
@@ -15,6 +15,14 @@ type ImageProps = {
 interface GalleryProps {
   images: ImageProps[];
 }
+
+// Component to visually hide elements while keeping them accessible to screen readers
+const VisuallyHidden = ({ children }: { children: React.ReactNode }) => (
+    <div className="sr-only">
+        {children}
+    </div>
+);
+
 
 export function Gallery({ images }: GalleryProps) {
   const [selectedImage, setSelectedImage] = useState<ImageProps | null>(null);
@@ -53,14 +61,22 @@ export function Gallery({ images }: GalleryProps) {
       <Dialog open={!!selectedImage} onOpenChange={(isOpen) => !isOpen && closeDialog()}>
         <DialogContent className="max-w-4xl w-auto p-0 bg-transparent border-0">
           {selectedImage && (
-             <Image
-                src={selectedImage.src}
-                alt={selectedImage.alt}
-                width={1920}
-                height={1080}
-                className="w-full h-auto object-contain rounded-lg"
-                sizes="(max-width: 768px) 100vw, (max-width: 1200px) 80vw, 1000px"
-              />
+            <>
+                <VisuallyHidden>
+                    <DialogTitle>Imagem Ampliada</DialogTitle>
+                    <DialogDescription>
+                        Visualização ampliada da imagem: {selectedImage.alt}
+                    </DialogDescription>
+                </VisuallyHidden>
+                <Image
+                    src={selectedImage.src}
+                    alt={selectedImage.alt}
+                    width={1920}
+                    height={1080}
+                    className="w-full h-auto object-contain rounded-lg"
+                    sizes="(max-width: 768px) 100vw, (max-width: 1200px) 80vw, 1000px"
+                />
+            </>
           )}
         </DialogContent>
       </Dialog>
