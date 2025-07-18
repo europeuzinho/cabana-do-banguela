@@ -132,26 +132,6 @@ const CategorizedSetupsSection = () => (
   </section>
 );
 
-const TourSection = () => (
-  <section id="tour" className="py-16 md:py-24 container">
-    <div className="relative w-full h-96 rounded-lg overflow-hidden group shadow-2xl">
-      <Image
-        src="https://placehold.co/1200x400.png"
-        alt="Visão 360 do local"
-        fill
-        objectFit="cover"
-        className="transition-transform duration-500 group-hover:scale-105"
-        data-ai-hint="panoramic fantasy landscape"
-      />
-      <div className="absolute inset-0 bg-black/50 flex items-center justify-center">
-        <Button variant="outline" size="lg" className="bg-transparent border-2 border-white text-white hover:bg-white hover:text-primary">
-          Faça um Tour Virtual 360°
-        </Button>
-      </div>
-    </div>
-  </section>
-);
-
 const packages = [
   { title: "O Filhote", price: "R$ 999", description: "Perfeito para jovens Vikings! Inclui 2 horas de festa, decorações, caça aos ovos de dragão e um anfitrião dedicado.", featured: false },
   { title: "Cavaleiro de Dragão", price: "R$ 1.899", description: "A escolha mais popular! Inclui tudo do pacote O Filhote, mais 'treinamento de dragão', pintura facial e a visita de um personagem.", featured: true },
@@ -291,7 +271,6 @@ export default function Home() {
         <HeroSection />
         <VenueShowcaseSection />
         <CategorizedSetupsSection />
-        <TourSection />
         <PackagesSection />
         <TestimonialsSection />
         <ContactSection />
