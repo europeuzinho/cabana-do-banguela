@@ -8,7 +8,7 @@ import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from "@/components/ui/card";
 import { Carousel, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious } from "@/components/ui/carousel";
 import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogTrigger, DialogDescription } from "@/components/ui/dialog";
-import { Mail, MapPin, Phone, Star, Utensils } from "lucide-react";
+import { CheckCircle, Mail, MapPin, Phone, Star, Utensils } from "lucide-react";
 import { DragonIcon, VikingHelmIcon } from "@/components/icons";
 import { ContactForm } from "@/components/contact-form";
 import { Gallery } from "@/components/gallery";
@@ -124,7 +124,13 @@ const packages = [
   { 
     title: "O Filhote", 
     price: "R$ 999", 
-    description: "Perfeito para jovens Vikings! Inclui 2 horas de festa, decorações, caça aos ovos de dragão e um anfitrião dedicado.", 
+    description: "Ideal para grupos menores e celebrações mais curtas.",
+    inclusions: [
+      "2 horas de festa",
+      "Decoração temática",
+      "Caça aos ovos de dragão",
+      "Anfitrião dedicado"
+    ],
     featured: false,
     menu: {
       title: "Cardápio do Filhote",
@@ -140,7 +146,14 @@ const packages = [
   { 
     title: "Cavaleiro de Dragão", 
     price: "R$ 1.899", 
-    description: "A escolha mais popular! Inclui tudo do pacote O Filhote, mais 'treinamento de dragão', pintura facial e a visita de um personagem.", 
+    description: "A experiência completa para uma festa inesquecível.",
+    inclusions: [
+      "Tudo do pacote O Filhote",
+      "Duração de 3 horas",
+      "'Treinamento de dragão' (gincana)",
+      "Pintura facial Viking",
+      "Visita de um personagem (Banguela ou Soluço)"
+    ],
     featured: true,
     menu: {
       title: "Cardápio do Cavaleiro de Dragão",
@@ -156,7 +169,14 @@ const packages = [
   { 
     title: "Banquete do Chefe", 
     price: "R$ 3.499", 
-    description: "A festa definitiva. 4 horas de uso exclusivo, banquete Viking completo, fotos profissionais e lembrancinhas premium.", 
+    description: "A celebração definitiva com exclusividade e luxo.",
+    inclusions: [
+      "Tudo do pacote Cavaleiro de Dragão",
+      "4 horas de uso exclusivo do local",
+      "Banquete Viking completo",
+      "Fotógrafo profissional",
+      "Lembrancinhas premium para todos os convidados"
+    ],
     featured: false,
     menu: {
       title: "Cardápio do Banquete do Chefe",
@@ -171,6 +191,12 @@ const packages = [
   },
 ];
 
+const additionalServices = [
+    { name: "Garçom Adicional", price: "R$ 150", description: "Para garantir que seus convidados sejam servidos com agilidade (1 para cada 20 pessoas recomendado)." },
+    { name: "Monitor para Aniversariante", price: "R$ 200", description: "Um monitor dedicado para acompanhar o aniversariante, garantindo sua diversão e segurança." },
+    { name: "Hora Extra de Festa", price: "R$ 500", description: "Prolongue a aventura por mais uma hora." },
+];
+
 const PackagesSection = () => (
   <section id="packages" className="py-16 md:py-24">
     <div className="container">
@@ -180,16 +206,25 @@ const PackagesSection = () => (
           Oferecemos uma variedade de pacotes para tornar sua festa temática de dragão lendária.
         </p>
       </div>
-      <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 items-start">
+      <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 items-stretch">
         {packages.map((pkg) => (
           <Dialog key={pkg.title}>
-            <Card className={`flex flex-col h-full ${pkg.featured ? 'border-primary border-2 shadow-lg' : ''}`}>
-              <CardHeader className="text-center">
+            <Card className={`flex flex-col h-full ${pkg.featured ? 'border-primary border-2 shadow-lg relative' : 'border'}`}>
+              {pkg.featured && <div className="absolute top-0 -translate-y-1/2 left-1/2 -translate-x-1/2 bg-primary text-primary-foreground px-3 py-1 text-sm font-semibold rounded-full">Mais Popular</div>}
+              <CardHeader className="text-center pt-8">
                 <CardTitle className="font-headline text-2xl">{pkg.title}</CardTitle>
+                <CardDescription>{pkg.description}</CardDescription>
               </CardHeader>
               <CardContent className="flex-grow space-y-4">
                 <p className="text-center text-4xl font-bold font-headline text-primary">{pkg.price}</p>
-                <p className="text-foreground/80 text-center">{pkg.description}</p>
+                 <ul className="space-y-2 text-sm text-foreground/80">
+                  {pkg.inclusions.map((item, index) => (
+                    <li key={index} className="flex items-start gap-2">
+                      <CheckCircle className="h-5 w-5 text-green-500 mt-0.5 flex-shrink-0" />
+                      <span>{item}</span>
+                    </li>
+                  ))}
+                </ul>
               </CardContent>
               <CardFooter className="flex-col gap-2">
                  <DialogTrigger asChild>
@@ -219,6 +254,29 @@ const PackagesSection = () => (
           </Dialog>
         ))}
       </div>
+
+      <div className="mt-20">
+        <div className="text-center mb-12">
+            <h3 className="font-headline text-3xl md:text-4xl text-primary">Serviços Adicionais</h3>
+            <p className="mt-4 max-w-2xl mx-auto text-lg text-foreground/80">
+            Personalize sua festa com nossos extras para uma experiência ainda mais completa.
+            </p>
+        </div>
+        <div className="max-w-2xl mx-auto grid grid-cols-1 md:grid-cols-1 gap-4">
+            {additionalServices.map((service) => (
+            <Card key={service.name} className="flex flex-col md:flex-row items-center justify-between p-4">
+                <div>
+                    <h4 className="font-bold text-lg text-primary">{service.name}</h4>
+                    <p className="text-sm text-foreground/70">{service.description}</p>
+                </div>
+                <div className="font-bold text-lg text-accent mt-2 md:mt-0 whitespace-nowrap">
+                    {service.price}
+                </div>
+            </Card>
+            ))}
+        </div>
+      </div>
+
     </div>
   </section>
 );
@@ -339,30 +397,30 @@ const ContactSection = () => (
 );
 
 const Footer = () => (
-  <footer className="bg-primary text-primary-foreground relative pt-8 pb-8">
-    <div className="container flex flex-col md:flex-row justify-between items-center gap-4 text-center md:text-left">
-      <div>
-        <div className="flex items-center gap-2">
-          <VikingHelmIcon className="h-6 w-6" />
-          <span className="font-headline text-lg">Cabana do Banguela &copy; {new Date().getFullYear()}</span>
+    <footer className="bg-primary text-primary-foreground relative pt-8 pb-8">
+      <div className="container flex flex-col md:flex-row justify-between items-center gap-4 text-center md:text-left">
+        <div>
+          <div className="flex items-center gap-2 justify-center md:justify-start">
+            <VikingHelmIcon className="h-6 w-6" />
+            <span className="font-headline text-lg">Cabana do Banguela &copy; {new Date().getFullYear()}</span>
+          </div>
+          <p className="text-sm text-primary-foreground/70 mt-2">
+            Torne-se uma lenda. Reserve sua festa hoje.
+          </p>
         </div>
-        <p className="text-sm text-primary-foreground/70 mt-2">
-          Torne-se uma lenda. Reserve sua festa hoje.
-        </p>
       </div>
-    </div>
-    <div className="absolute -bottom-3 -right-8 md:right-4 w-48 h-auto pointer-events-none">
-       <Image
-        src="https://static.wikia.nocookie.net/comotreinarseudragao/images/1/11/ToothlessHttyd2Remder.png/revision/latest?cb=20180531200115&path-prefix=pt-br"
-        alt="Dragão Banguela"
-        width={250}
-        height={250}
-        className="w-full h-auto object-contain"
-        data-ai-hint="dragon character"
-      />
-    </div>
-  </footer>
-);
+      <div className="absolute -bottom-3 -right-8 md:right-4 w-48 h-auto pointer-events-none">
+         <Image
+          src="https://static.wikia.nocookie.net/comotreinarseudragao/images/1/11/ToothlessHttyd2Remder.png/revision/latest?cb=20180531200115&path-prefix=pt-br"
+          alt="Dragão Banguela"
+          width={250}
+          height={250}
+          className="w-full h-auto object-contain"
+          data-ai-hint="dragon character"
+        />
+      </div>
+    </footer>
+  );
 
 export default function Home() {
   return (
@@ -381,3 +439,5 @@ export default function Home() {
     </div>
   );
 }
+
+    
