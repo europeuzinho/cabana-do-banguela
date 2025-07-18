@@ -1,3 +1,4 @@
+
 "use client";
 
 import Image from "next/image";
@@ -200,7 +201,7 @@ const PackagesSection = () => (
             <div className="space-y-4">
                 <div>
                     <h4 className="font-semibold text-foreground mb-2">Itens Inclusos</h4>
-                    <ul className="list-disc list-inside space-y-2 text-foreground/80 pl-4">
+                    <ul className="list-disc list-inside space-y-2 text-foreground/80 pl-4 text-base">
                         {mainPackage.menu.items.map((item, index) => (
                             <li key={index}>{item}</li>
                         ))}
@@ -209,7 +210,7 @@ const PackagesSection = () => (
                 {mainPackage.menu.extras && (
                 <div>
                     <h4 className="font-semibold text-foreground mt-4 mb-2">Itens Extras (Opcional)</h4>
-                    <ul className="list-disc list-inside space-y-2 text-foreground/80 pl-4">
+                    <ul className="list-disc list-inside space-y-2 text-foreground/80 pl-4 text-base">
                     {mainPackage.menu.extras.map((item, index) => (
                         <li key={index}>{item}</li>
                     ))}
