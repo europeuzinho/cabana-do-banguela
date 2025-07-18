@@ -51,17 +51,16 @@ export function Gallery({ images }: GalleryProps) {
       </div>
 
       <Dialog open={!!selectedImage} onOpenChange={(isOpen) => !isOpen && closeDialog()}>
-        <DialogContent className="max-w-3xl p-0">
+        <DialogContent className="max-w-4xl w-auto p-0 bg-transparent border-0">
           {selectedImage && (
-            <div className="relative aspect-video">
-              <Image
+             <Image
                 src={selectedImage.src}
                 alt={selectedImage.alt}
-                fill
-                className="object-contain"
-                sizes="100vw"
+                width={1920}
+                height={1080}
+                className="w-full h-auto object-contain rounded-lg"
+                sizes="(max-width: 768px) 100vw, (max-width: 1200px) 80vw, 1000px"
               />
-            </div>
           )}
         </DialogContent>
       </Dialog>
