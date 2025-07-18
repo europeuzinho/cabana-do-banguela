@@ -130,7 +130,9 @@ const mainPackage = {
     inclusions: [
       "4 horas de festa e uso exclusivo do local",
       "Fotógrafo profissional para registrar os melhores momentos",
-      "Lembrancinhas premium para todos os convidados"
+      "Lembrancinhas premium para todos os convidados",
+      "Parquinho ao ar livre para crianças",
+      "Mesas ao ar livre com grande espaço",
     ],
     menu: {
       title: "Cardápio do Banquete Lendário",
