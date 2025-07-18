@@ -42,7 +42,7 @@ const HeroSection = () => {
   
     useEffect(() => {
       const handleScroll = () => {
-        const heroHeight = window.innerHeight * 0.8; 
+        const heroHeight = window.innerHeight * 0.6; 
         const scrollY = window.scrollY;
         const newOpacity = Math.max(0, 1 - scrollY / (heroHeight / 2));
         setOpacity(newOpacity);
@@ -56,7 +56,7 @@ const HeroSection = () => {
     }, []);
 
   return(
-    <section className="relative h-[60vh] md:h-[80vh] w-full">
+    <section className="relative h-[40vh] md:h-[60vh] w-full">
     <Image
       src="https://i.imgur.com/SnvAEUK.jpeg"
       alt="Local decorado com o tema Como Treinar o Seu Dragão"
@@ -266,7 +266,7 @@ const AdditionalServicesSection = () => (
 );
 
 const CakesSection = () => (
-  <section id="cakes" className="py-16 md:py-24 bg-primary/5">
+  <section id="cakes" className="py-16 md:py-24">
     <div className="container">
       <div className="text-center mb-12">
         <h2 className="font-headline text-3xl md:text-5xl text-primary">Opções de Bolos</h2>
@@ -367,7 +367,7 @@ const contactInfo = [
 ];
 
 const ContactSection = () => (
-  <section id="contact" className="py-16 md:py-24 bg-primary/5">
+  <section id="contact" className="py-16 md:py-24">
     <div className="container">
       <div className="text-center mb-12">
         <h2 className="font-headline text-3xl md:text-5xl text-primary">Reserve Sua Festa Lendária</h2>
@@ -442,6 +442,3 @@ export default function Home() {
 }
 
     
-
-    
-

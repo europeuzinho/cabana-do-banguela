@@ -92,10 +92,12 @@ export function ContactForm() {
             </FormItem>
           )}
         />
-        <Button type="submit" className="w-full bg-accent hover:bg-accent/90 text-accent-foreground">
+        <Button type="submit" className="w-full">
           Enviar Correio-Terror
         </Button>
       </form>
     </Form>
   );
 }
+
+    
