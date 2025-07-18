@@ -253,8 +253,8 @@ const FaqSection = () => (
 
 const contactInfo = [
   { icon: <Phone className="h-6 w-6 text-accent" />, title: "Ligue para Nós", value: "+55 (45) 9 9844-1759" },
-  { icon: <Mail className="h-6 w-6 text-accent" />, title: "Envie um Email", value: "contato@cabanadobanguela.com" },
-  { icon: <MapPin className="h-6 w-6 text-accent" />, title: "Encontre-nos", value: "123 Limite do Dragão, Ilha de Berk" },
+  { icon: <Mail className="h-6 w-6 text-accent" />, title: "Envie um Email", value: "Camilakoval14@outlook.com" },
+  { icon: <MapPin className="h-6 w-6 text-accent" />, title: "Encontre-nos", value: "Rua Fortaleza, 729 - Centro, Cascavel - PR" },
 ];
 
 const ContactSection = () => (
