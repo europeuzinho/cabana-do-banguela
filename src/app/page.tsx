@@ -8,7 +8,7 @@ import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from "@/components/ui/card";
 import { Carousel, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious } from "@/components/ui/carousel";
-import { CheckCircle, Mail, MapPin, Phone, Star } from "lucide-react";
+import { CheckCircle, Mail, MapPin, Phone, Star, Shield, Utensils, Users } from "lucide-react";
 import { DragonIcon, VikingHelmIcon } from "@/components/icons";
 import { ContactForm } from "@/components/contact-form";
 import { Gallery } from "@/components/gallery";
@@ -21,8 +21,8 @@ const Header = () => (
         <span className="font-headline text-xl">Cabana do Banguela</span>
       </Link>
       <nav className="ml-auto hidden md:flex gap-6 text-sm font-medium">
+        <Link href="#features" className="text-foreground/60 transition-colors hover:text-foreground/80">Diferenciais</Link>
         <Link href="#gallery" className="text-foreground/60 transition-colors hover:text-foreground/80">Galeria</Link>
-        <Link href="#setups" className="text-foreground/60 transition-colors hover:text-foreground/80">Opções</Link>
         <Link href="#packages" className="text-foreground/60 transition-colors hover:text-foreground/80">Pacotes</Link>
         <Link href="#testimonials" className="text-foreground/60 transition-colors hover:text-foreground/80">Depoimentos</Link>
         <Link href="#contact" className="text-foreground/60 transition-colors hover:text-foreground/80">Contato</Link>
@@ -39,7 +39,7 @@ const HeroSection = () => {
 
   useEffect(() => {
     const handleScroll = () => {
-      const heroHeight = window.innerHeight * 0.6;
+      const heroHeight = window.innerHeight * 0.7;
       const scrollY = window.scrollY;
       const newOpacity = Math.max(0, 1 - scrollY / (heroHeight / 1.5));
       setOpacity(newOpacity);
@@ -53,7 +53,7 @@ const HeroSection = () => {
   }, []);
 
   return (
-    <section className="relative h-[40vh] md:h-[60vh] w-full flex items-center justify-center text-center">
+    <section className="relative h-[70vh] md:h-[80vh] w-full flex items-center justify-center text-center overflow-hidden">
       <Image
         src="https://i.imgur.com/SnvAEUK.jpeg"
         alt="Local decorado com o tema Como Treinar o Seu Dragão"
@@ -63,22 +63,43 @@ const HeroSection = () => {
         data-ai-hint="fantasy dragon landscape"
         priority
       />
-      <div className="relative z-10 text-white flex flex-col items-center pt-32 md:pt-48" style={{ opacity }}>
-        <p className="text-xl md:text-2xl font-body mb-2">Seja bem-vindo ao</p>
+      <div className="relative z-10 text-white flex flex-col items-center" style={{ opacity }}>
+        <p className="text-xl md:text-2xl font-body mb-2">Bem-vindo à Aventura Viking Definitiva</p>
         <h1 className="font-headline text-5xl md:text-7xl text-primary">Cabana do Banguela</h1>
-        <div className="w-[40rem] h-[40rem] relative">
-          <Image
-            src="https://static.wikia.nocookie.net/comotreinarseudragao/images/1/11/ToothlessHttyd2Remder.png/revision/latest?cb=20180531200115&path-prefix=pt-br"
-            alt="Dragão Banguela"
-            fill
-            className="object-contain"
-            data-ai-hint="dragon character"
-          />
+        <p className="mt-4 text-lg md:text-xl max-w-2xl text-foreground/80">Onde festas de aniversário se tornam lendas.</p>
+        <div className="mt-8">
+            <Button asChild size="lg" className="bg-primary hover:bg-primary/90 text-primary-foreground">
+                <Link href="#packages">Ver Pacotes de Festa</Link>
+            </Button>
         </div>
       </div>
     </section>
   );
 };
+
+
+const features = [
+  { title: "Decoração Imersiva", description: "Transformamos nosso espaço na Ilha de Berk, com detalhes que encantam.", icon: <Shield className="h-8 w-8 text-primary" /> },
+  { title: "Buffet Completo", description: "Delícias temáticas para vikings de todas as idades, com opções variadas.", icon: <Utensils className="h-8 w-8 text-primary" /> },
+  { title: "Equipe Especializada", description: "Nossa equipe garante que sua festa seja perfeita do início ao fim.", icon: <Users className="h-8 w-8 text-primary" /> },
+];
+
+const FeaturesSection = () => (
+  <section id="features" className="py-16 md:py-24 bg-background">
+    <div className="container">
+      <div className="grid grid-cols-1 md:grid-cols-3 gap-8 text-center">
+        {features.map((feature) => (
+          <div key={feature.title} className="flex flex-col items-center p-6">
+            <div className="mb-4">{feature.icon}</div>
+            <h3 className="font-headline text-2xl mb-2">{feature.title}</h3>
+            <p className="text-foreground/80">{feature.description}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+);
+
 
 const galleryImages = [
   { src: "https://i.imgur.com/IL8qWDj.jpeg", alt: "Decoração de parede com escudos Vikings", hint: "viking shields decoration" },
@@ -90,46 +111,15 @@ const galleryImages = [
 ];
 
 const VenueShowcaseSection = () => (
-  <section id="gallery" className="py-16 md:py-24 container">
-    <div className="text-center mb-12">
-      <h2 className="font-headline text-3xl md:text-5xl text-primary">A Cabana do Banguela</h2>
-      <p className="mt-4 max-w-2xl mx-auto text-lg text-foreground/80">
-        Explore nosso local, totalmente transformado na mítica Ilha de Berk.
-      </p>
-    </div>
-    <Gallery images={galleryImages} />
-  </section>
-);
-
-const setups = [
-  { title: "Festas de Aniversário", description: "A melhor experiência de aniversário para cavaleiros de dragões com jogos, decorações e um presente especial para o Viking aniversariante.", hint: "birthday party", icon: <VikingHelmIcon /> },
-  { title: "Banquetes Temáticos", description: "Um grande banquete digno de um chefe, com uma refeição completa e decorações imersivas do 'Grande Salão'.", hint: "medieval feast", icon: <DragonIcon /> },
-];
-
-const CategorizedSetupsSection = () => (
-  <section id="setups" className="py-16 md:py-24 bg-primary/5">
+  <section id="gallery" className="py-16 md:py-24 bg-primary/5">
     <div className="container">
       <div className="text-center mb-12">
-        <h2 className="font-headline text-3xl md:text-5xl text-primary">Opções de Festa para Cada Viking</h2>
+        <h2 className="font-headline text-3xl md:text-5xl text-primary">Explore a Cabana</h2>
         <p className="mt-4 max-w-2xl mx-auto text-lg text-foreground/80">
-          De aniversários a grandes banquetes, temos a opção perfeita para sua celebração.
+          Cada canto do nosso espaço é pensado para uma imersão completa no mundo dos dragões.
         </p>
       </div>
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-4xl mx-auto">
-        {setups.map((setup) => (
-          <Card key={setup.title} className="text-center flex flex-col items-center">
-            <CardHeader>
-              <div className="mx-auto bg-accent text-accent-foreground rounded-full w-16 h-16 flex items-center justify-center">
-                <div className="w-8 h-8">{setup.icon}</div>
-              </div>
-              <CardTitle className="font-headline pt-4">{setup.title}</CardTitle>
-            </CardHeader>
-            <CardContent>
-              <CardDescription>{setup.description}</CardDescription>
-            </CardContent>
-          </Card>
-        ))}
-      </div>
+      <Gallery images={galleryImages} />
     </div>
   </section>
 );
@@ -250,17 +240,17 @@ const packages = [
 ];
 
 const PackagesSection = () => (
-  <section id="packages" className="py-16 md:py-24">
+  <section id="packages" className="py-16 md:py-24 bg-background">
     <div className="container">
       <div className="text-center mb-12">
-        <h2 className="font-headline text-3xl md:text-5xl text-primary">Nossas Aventuras Completas</h2>
+        <h2 className="font-headline text-3xl md:text-5xl text-primary">Nossas Aventuras Lendárias</h2>
         <p className="mt-4 max-w-2xl mx-auto text-lg text-foreground/80">
-          Oferecemos pacotes para tornar sua festa temática de dragão verdadeiramente lendária.
+          Escolha o pacote ideal para forjar memórias inesquecíveis.
         </p>
       </div>
       <div className="grid grid-cols-1 md:grid-cols-2 gap-8 items-start max-w-6xl mx-auto">
         {packages.map((pkg) => (
-          <Card key={pkg.title} className={`flex flex-col h-full ${pkg.isFeatured ? 'border-primary border-2 shadow-lg relative' : ''}`}>
+          <Card key={pkg.title} className={`flex flex-col h-full ${pkg.isFeatured ? 'border-primary border-2 shadow-lg shadow-primary/20 relative' : ''}`}>
             {pkg.isFeatured && (
               <div className="absolute top-0 -translate-y-1/2 left-1/2 -translate-x-1/2 bg-primary text-primary-foreground px-3 py-1 text-sm font-semibold rounded-full">Mais Popular</div>
             )}
@@ -277,7 +267,7 @@ const PackagesSection = () => (
                     ))}
                 </ul>
               </div>
-              <ul className="space-y-2 text-sm text-foreground/80">
+              <ul className="space-y-2 text-sm text-foreground/80 pt-4 border-t border-border">
                 {pkg.inclusions.map((item, index) => (
                   <li key={index} className="flex items-start gap-2">
                     <CheckCircle className="h-5 w-5 text-green-500 mt-0.5 flex-shrink-0" />
@@ -293,7 +283,7 @@ const PackagesSection = () => (
                             Ver todos os detalhes
                         </AccordionTrigger>
                         <AccordionContent className="p-6 pt-4">
-                            <div className="space-y-6 max-h-[70vh] overflow-y-auto pr-4">
+                            <div className="space-y-6 max-h-[60vh] overflow-y-auto pr-4">
                                 {pkg.details.map((section, index) => (
                                     <div key={index}>
                                         <h4 className="font-semibold text-foreground mb-2 border-b pb-1">{section.title}</h4>
@@ -333,17 +323,17 @@ const TestimonialsSection = () => (
       <div className="text-center mb-12">
         <h2 className="font-headline text-3xl md:text-5xl text-primary">Contos dos Nossos Vikings</h2>
         <p className="mt-4 max-w-2xl mx-auto text-lg text-foreground/80">
-          Ouça o que nossos convidados têm a dizer sobre suas aventuras.
+          Ouça o que nossos convidados têm a dizer sobre suas aventuras lendárias.
         </p>
       </div>
       <Carousel className="w-full max-w-4xl mx-auto" opts={{ loop: true }}>
         <CarouselContent>
           {testimonials.map((testimonial, index) => (
             <CarouselItem key={index}>
-              <Card className="p-6">
+              <Card className="p-6 bg-background">
                 <CardContent className="flex flex-col items-center text-center">
                   <div className="flex gap-1 text-accent mb-4">
-                    {[...Array(5)].map((_, i) => <Star key={i} fill="currentColor" />)}
+                    {[...Array(5)].map((_, i) => <Star key={i} fill="currentColor" className="h-5 w-5" />)}
                   </div>
                   <p className="text-lg italic text-foreground/90">"{testimonial.quote}"</p>
                   <p className="font-bold mt-4 text-primary">- {testimonial.name}</p>
@@ -416,19 +406,19 @@ const ContactSection = () => (
           Envie um correio-terror ou use o formulário abaixo para começar a planejar seu evento.
         </p>
       </div>
-      <div className="grid md:grid-cols-2 gap-12 items-start">
+      <div className="grid md:grid-cols-2 gap-12 items-start max-w-6xl mx-auto">
         <div className="space-y-8">
           {contactInfo.map((info) => (
             <div key={info.title} className="flex items-start gap-4">
-              <div className="flex-shrink-0">{info.icon}</div>
+              <div className="flex-shrink-0 pt-1">{info.icon}</div>
               <div>
-                <h3 className="font-headline text-2xl text-primary">{info.title}</h3>
-                <p className="text-foreground/80 text-xl">{info.value}</p>
+                <h3 className="font-headline text-xl text-primary">{info.title}</h3>
+                <p className="text-foreground/80 text-lg">{info.value}</p>
               </div>
             </div>
           ))}
         </div>
-        <Card className="p-6 md:p-8">
+        <Card className="p-6 md:p-8 bg-background">
           <ContactForm />
         </Card>
       </div>
@@ -437,30 +427,26 @@ const ContactSection = () => (
 );
 
 const Footer = () => (
-    <footer className="bg-primary text-primary-foreground relative pt-8 pb-8">
-      <div className="container flex flex-col md:flex-row justify-between items-center gap-4 text-center md:text-left">
-        <div>
-          <div className="flex items-center gap-2 justify-center md:justify-start">
-            <VikingHelmIcon className="h-6 w-6" />
-            <span className="font-headline text-lg">Cabana do Banguela &copy; {new Date().getFullYear()}</span>
-          </div>
-          <p className="text-sm text-primary-foreground/70 mt-2">
-            Torne-se uma lenda. Reserve sua festa hoje.
-          </p>
+    <footer className="bg-background border-t">
+        <div className="container py-8 flex flex-col md:flex-row justify-between items-center gap-6">
+            <div>
+                <div className="flex items-center gap-2 justify-center md:justify-start">
+                    <DragonIcon className="h-6 w-6 text-primary" />
+                    <span className="font-headline text-lg">Cabana do Banguela</span>
+                </div>
+                <p className="text-sm text-foreground/70 mt-2">
+                    © {new Date().getFullYear()} Todos os direitos reservados.
+                </p>
+            </div>
+            <nav className="flex gap-4">
+                <Link href="#features" className="text-sm text-foreground/60 transition-colors hover:text-foreground/80">Diferenciais</Link>
+                <Link href="#gallery" className="text-sm text-foreground/60 transition-colors hover:text-foreground/80">Galeria</Link>
+                <Link href="#packages" className="text-sm text-foreground/60 transition-colors hover:text-foreground/80">Pacotes</Link>
+                <Link href="#contact" className="text-sm text-foreground/60 transition-colors hover:text-foreground/80">Contato</Link>
+            </nav>
         </div>
-      </div>
-      <div className="absolute -bottom-3 -right-8 md:right-4 w-48 h-auto pointer-events-none">
-         <Image
-          src="https://www.pngall.com/wp-content/uploads/8/How-To-Train-Your-Dragon-Toothless.png"
-          alt="Dragão Banguela"
-          width={250}
-          height={250}
-          className="w-full h-auto object-contain"
-          data-ai-hint="dragon character"
-        />
-      </div>
     </footer>
-  );
+);
 
 export default function Home() {
   return (
@@ -468,8 +454,8 @@ export default function Home() {
       <Header />
       <main className="flex-1">
         <HeroSection />
+        <FeaturesSection />
         <VenueShowcaseSection />
-        <CategorizedSetupsSection />
         <PackagesSection />
         <TestimonialsSection />
         <FaqSection />
