@@ -322,9 +322,9 @@ const PackagesSection = () => (
   );
 
 const testimonials = [
-  { name: "Ana S.", quote: "A melhor festa de aniversário que meu filho já teve! A atenção aos detalhes foi incrível, parecia que estávamos em Berk. Super recomendo!" },
-  { name: "João P.", quote: "Um banquete verdadeiramente grandioso! A equipe foi incrível e o local era perfeito. Voltaremos no próximo ano, com certeza. Digno de um chefe!" },
-  { name: "Carlos M.", quote: "Já vi muitas festas na minha vida, mas esta supera todas! Ou melhor, a carne de carneiro. O percurso de treinamento de dragão foi um toque brilhante!" },
+  { name: "Ana S.", quote: "A melhor festa de aniversário que meu filho já teve! A atenção aos detalhes foi incrível e a equipe foi muito atenciosa. Super recomendo!" },
+  { name: "João P.", quote: "O buffet estava delicioso e a decoração deixou todos de queixo caído. Um lugar mágico que com certeza voltaremos a visitar!" },
+  { name: "Carlos M.", quote: "Serviço impecável do início ao fim. As crianças se divertiram muito com os monitores e o espaço é perfeito para os pais relaxarem. Nota 10!" },
 ];
 
 const TestimonialsSection = () => (
