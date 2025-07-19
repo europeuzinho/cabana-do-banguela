@@ -376,6 +376,10 @@ const faqItems = [
     question: "Posso levar minha própria bebida, como chopp?",
     answer: "Sim! Você pode trazer seu próprio chopp sem nenhuma taxa de serviço adicional. Apenas pedimos que o barril seja retirado até as 11h do dia seguinte ao evento."
   },
+  {
+    question: "Qual a capacidade máxima do local?",
+    answer: "Nossa cabana comporta confortavelmente até 50 convidados, incluindo crianças e adultos, garantindo uma experiência imersiva e segura para todos."
+  },
 ];
 
 const FaqSection = () => (
