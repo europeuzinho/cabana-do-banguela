@@ -25,7 +25,7 @@ const Header = () => (
       <nav className="ml-auto hidden md:flex gap-6 text-sm font-medium">
         <Link href="#gallery" className="text-foreground/60 transition-colors hover:text-foreground/80">Galeria</Link>
         <Link href="#setups" className="text-foreground/60 transition-colors hover:text-foreground/80">Opções</Link>
-        <Link href="#packages" className="text-foreground/60 transition-colors hover:text-foreground/80">Pacote</Link>
+        <Link href="#packages" className="text-foreground/60 transition-colors hover:text-foreground/80">Pacotes</Link>
         <Link href="#cakes" className="text-foreground/60 transition-colors hover:text-foreground/80">Bolos</Link>
         <Link href="#testimonials" className="text-foreground/60 transition-colors hover:text-foreground/80">Depoimentos</Link>
         <Link href="#contact" className="text-foreground/60 transition-colors hover:text-foreground/80">Contato</Link>
@@ -137,106 +137,138 @@ const CategorizedSetupsSection = () => (
   </section>
 );
 
-const mainPackage = {
-    title: "Pacote Lendário",
+const packages = [
+  {
+    title: "Prata Completo",
     price: "Consulte",
-    description: "A experiência completa e definitiva da Cabana do Banguela para uma celebração inesquecível.",
+    description: "Uma aventura fantástica com tudo o que você precisa para uma ótima festa.",
+    isFeatured: false,
+    inclusions: [
+      "3 horas de festa e uso exclusivo do local",
+      "Lembrancinhas padrão para todos os convidados",
+      "Parquinho ao ar livre para crianças",
+      "Mesas ao ar livre com grande espaço",
+    ],
+    menu: {
+      title: "Cardápio do Banquete Prata",
+      items: [
+        "Mini Salgadinhos Fritos (Escolha 3 variedades)",
+        "Mini Assados (Escolha 1 variedade)",
+        "Bolo de aniversário temático (Sabor padrão)",
+        "Refrigerantes e sucos"
+      ],
+      extras: [
+          "Mini Sanduíches Naturais - R$5,00/unidade",
+          "Mini Cachorro Quente - R$5,00/unidade"
+      ]
+    }
+  },
+  {
+    title: "Ouro Completo",
+    price: "Consulte",
+    description: "A experiência definitiva da Cabana do Banguela para uma celebração inesquecível.",
+    isFeatured: true,
     inclusions: [
       "4 horas de festa e uso exclusivo do local",
       "Fotógrafo profissional para registrar os melhores momentos",
       "Lembrancinhas premium para todos os convidados",
       "Parquinho ao ar livre para crianças",
       "Mesas ao ar livre com grande espaço",
+      "Monitor para o aniversariante",
     ],
     menu: {
-      title: "Cardápio do Banquete Lendário",
+      title: "Cardápio do Banquete Ouro",
       items: [
-        "Mini Salgadinhos Fritos (Escolha 4 variedades: bolinha de queijo, travesseirinho de pizza, pastelzinho de carne, coxinha de frango, quibe, enroladinho de salsicha)",
-        "Mini Assados (Escolha 2 variedades: mini esfirra de frango ou carne, mini croissant de pizza ou frango, mini empadinha de frango ou palmito, pastelzinho de carne ou frango, mini folhado de frango, palmito, calabresa ou salsicha)",
-        "Bolo de aniversário temático"
+        "Mini Salgadinhos Fritos (Escolha 5 variedades)",
+        "Mini Assados (Escolha 2 variedades)",
+        "Bolo de aniversário temático (Qualquer sabor do cardápio)",
+        "Mini Sanduíches Naturais e Mini Cachorro Quente",
+        "Refrigerantes, sucos e água"
       ],
-      extras: [
-          "Mini Sanduíches Naturais (Mini pãozinho, patê de frango, alface e maionese) - R$5,00/unidade",
-          "Mini Cachorro Quente (Mini pãozinho, molho, salsicha e batata palha) - R$5,00/unidade"
-      ]
     }
-};
+  }
+];
 
 const PackagesSection = () => (
   <section id="packages" className="py-16 md:py-24">
     <div className="container">
       <div className="text-center mb-12">
-        <h2 className="font-headline text-3xl md:text-5xl text-primary">Nossa Aventura Completa</h2>
+        <h2 className="font-headline text-3xl md:text-5xl text-primary">Nossas Aventuras Completas</h2>
         <p className="mt-4 max-w-2xl mx-auto text-lg text-foreground/80">
-          Oferecemos um pacote único para tornar sua festa temática de dragão verdadeiramente lendária.
+          Oferecemos pacotes para tornar sua festa temática de dragão verdadeiramente lendária.
         </p>
       </div>
-      <div className="flex justify-center">
-        <Dialog>
-          <div className="w-full max-w-md">
-            <Card className="flex flex-col h-full border-primary border-2 shadow-lg relative">
-              <div className="absolute top-0 -translate-y-1/2 left-1/2 -translate-x-1/2 bg-primary text-primary-foreground px-3 py-1 text-sm font-semibold rounded-full">Pacote Exclusivo</div>
-              <CardHeader className="text-center pt-8">
-                <CardTitle className="font-headline text-2xl">{mainPackage.title}</CardTitle>
-                <CardDescription>{mainPackage.description}</CardDescription>
-              </CardHeader>
-              <CardContent className="flex-grow space-y-4">
-                <p className="text-center text-4xl font-bold font-headline text-primary">{mainPackage.price}</p>
-                 <ul className="space-y-2 text-sm text-foreground/80">
-                  {mainPackage.inclusions.map((item, index) => (
-                    <li key={index} className="flex items-start gap-2">
-                      <CheckCircle className="h-5 w-5 text-green-500 mt-0.5 flex-shrink-0" />
-                      <span>{item}</span>
-                    </li>
-                  ))}
-                </ul>
-              </CardContent>
-              <CardFooter className="flex-col gap-2">
-                 <DialogTrigger asChild>
-                  <Button variant="outline" className="w-full">
-                    <Utensils className="mr-2 h-4 w-4" />
-                    Ver Cardápio Completo
-                  </Button>
-                </DialogTrigger>
-                <Button asChild className="w-full">
-                  <Link href="#contact">Reserve este pacote</Link>
-                </Button>
-              </CardFooter>
-            </Card>
-          </div>
-           <DialogContent>
-            <DialogHeader>
-              <DialogTitle className="font-headline text-2xl text-primary">{mainPackage.menu.title}</DialogTitle>
-               <DialogDescription>
-                Um banquete digno dos melhores Vikings!
-              </DialogDescription>
-            </DialogHeader>
-            <div className="space-y-4">
-                <div>
-                    <h4 className="font-semibold text-foreground mb-2">Itens Inclusos</h4>
-                    <ul className="list-disc list-inside space-y-2 text-foreground/80 pl-4 text-base">
-                        {mainPackage.menu.items.map((item, index) => (
-                            <li key={index}>{item}</li>
-                        ))}
-                    </ul>
-                </div>
-                {mainPackage.menu.extras && (
-                <div>
-                    <h4 className="font-semibold text-foreground mt-4 mb-2">Itens Extras (Opcional)</h4>
-                    <ul className="list-disc list-inside space-y-2 text-foreground/80 pl-4 text-base">
-                    {mainPackage.menu.extras.map((item, index) => (
-                        <li key={index}>{item}</li>
-                    ))}
-                    </ul>
-                </div>
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-8 items-stretch max-w-5xl mx-auto">
+        {packages.map((pkg) => (
+          <Dialog key={pkg.title}>
+            <div className="w-full h-full">
+              <Card className={`flex flex-col h-full ${pkg.isFeatured ? 'border-primary border-2 shadow-lg relative' : ''}`}>
+                {pkg.isFeatured && (
+                  <div className="absolute top-0 -translate-y-1/2 left-1/2 -translate-x-1/2 bg-primary text-primary-foreground px-3 py-1 text-sm font-semibold rounded-full">Mais Popular</div>
                 )}
+                <CardHeader className="text-center pt-8">
+                  <CardTitle className="font-headline text-2xl">{pkg.title}</CardTitle>
+                  <CardDescription>{pkg.description}</CardDescription>
+                </CardHeader>
+                <CardContent className="flex-grow space-y-4">
+                  <p className="text-center text-4xl font-bold font-headline text-primary">{pkg.price}</p>
+                   <ul className="space-y-2 text-sm text-foreground/80">
+                    {pkg.inclusions.map((item, index) => (
+                      <li key={index} className="flex items-start gap-2">
+                        <CheckCircle className="h-5 w-5 text-green-500 mt-0.5 flex-shrink-0" />
+                        <span>{item}</span>
+                      </li>
+                    ))}
+                  </ul>
+                </CardContent>
+                <CardFooter className="flex-col gap-2">
+                   <DialogTrigger asChild>
+                    <Button variant="outline" className="w-full">
+                      <Utensils className="mr-2 h-4 w-4" />
+                      Ver Cardápio Completo
+                    </Button>
+                  </DialogTrigger>
+                  <Button asChild className="w-full">
+                    <Link href="#contact">Reserve este pacote</Link>
+                  </Button>
+                </CardFooter>
+              </Card>
             </div>
-          </DialogContent>
-        </Dialog>
+             <DialogContent>
+              <DialogHeader>
+                <DialogTitle className="font-headline text-2xl text-primary">{pkg.menu.title}</DialogTitle>
+                 <DialogDescription>
+                  Um banquete digno dos melhores Vikings!
+                </DialogDescription>
+              </DialogHeader>
+              <div className="space-y-4">
+                  <div>
+                      <h4 className="font-semibold text-foreground mb-2">Itens Inclusos</h4>
+                      <ul className="list-disc list-inside space-y-2 text-foreground/80 pl-4 text-base">
+                          {pkg.menu.items.map((item, index) => (
+                              <li key={index}>{item}</li>
+                          ))}
+                      </ul>
+                  </div>
+                  {pkg.menu.extras && (
+                  <div>
+                      <h4 className="font-semibold text-foreground mt-4 mb-2">Itens Extras (Opcional)</h4>
+                      <ul className="list-disc list-inside space-y-2 text-foreground/80 pl-4 text-base">
+                      {pkg.menu.extras.map((item, index) => (
+                          <li key={index}>{item}</li>
+                      ))}
+                      </ul>
+                  </div>
+                  )}
+              </div>
+            </DialogContent>
+          </Dialog>
+        ))}
       </div>
     </div>
   </section>
 );
+
 
 const additionalServices = [
   {
@@ -333,7 +365,7 @@ const TestimonialsSection = () => (
 const faqItems = [
   {
     question: "O que está incluso no pacote de festa?",
-    answer: "Nosso pacote inclui decoração temática completa, atividades e jogos de dragão, um anfitrião viking dedicado, buffet completo e lembrancinhas para os convidados. Tudo para uma experiência completa!"
+    answer: "Nossos pacotes incluem decoração temática completa, atividades e jogos de dragão, um anfitrião viking dedicado, buffet completo e lembrancinhas para os convidados. Veja os detalhes de cada pacote para mais informações!"
   },
   {
     question: "Qual a capacidade máxima do local?",
@@ -345,7 +377,7 @@ const faqItems = [
   },
   {
     question: "O que preciso levar?",
-    answer: "Absolutamente nada! Nosso pacote é completo e inclui comida, bebida, decoração e entretenimento. Apenas traga seus convidados e a vontade de se aventurar!"
+    answer: "Absolutamente nada! Nossos pacotes são completos e incluem comida, bebida, decoração e entretenimento. Apenas traga seus convidados e a vontade de se aventurar!"
   },
 ];
 
