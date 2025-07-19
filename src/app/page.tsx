@@ -13,7 +13,6 @@ import { CheckCircle, Mail, MapPin, Phone, Star, Utensils } from "lucide-react";
 import { DragonIcon, VikingHelmIcon } from "@/components/icons";
 import { ContactForm } from "@/components/contact-form";
 import { Gallery } from "@/components/gallery";
-import { CakesMenu } from "@/components/cakes-menu";
 
 const Header = () => (
   <header className="sticky top-0 z-50 w-full border-b border-border/40 bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60">
@@ -26,7 +25,6 @@ const Header = () => (
         <Link href="#gallery" className="text-foreground/60 transition-colors hover:text-foreground/80">Galeria</Link>
         <Link href="#setups" className="text-foreground/60 transition-colors hover:text-foreground/80">Opções</Link>
         <Link href="#packages" className="text-foreground/60 transition-colors hover:text-foreground/80">Pacotes</Link>
-        <Link href="#cakes" className="text-foreground/60 transition-colors hover:text-foreground/80">Bolos</Link>
         <Link href="#testimonials" className="text-foreground/60 transition-colors hover:text-foreground/80">Depoimentos</Link>
         <Link href="#contact" className="text-foreground/60 transition-colors hover:text-foreground/80">Contato</Link>
       </nav>
@@ -154,9 +152,13 @@ const packages = [
       title: "Detalhes do Pacote Prata",
       buffet: [
         "Salgados fritos, assados e folhados",
-        "Pipoca, Bolinha de queijo, Travesseiro de pizza",
-        "Pastelzinho de carne, Enroladinho de salsicha ou Kibe",
-        "Mini empada de palmito, Folhado de frango"
+        "Pipoca",
+        "Bolinha de queijo",
+        "Travesseiro de pizza",
+        "Pastelzinho de carne",
+        "Enroladinho de salsicha ou Kibe",
+        "Mini empada de palmito",
+        "Folhado de frango"
       ],
       docinhos: [
         "Brigadeiro, brigadeiro power, beijinho e casadinho"
@@ -169,11 +171,11 @@ const packages = [
     },
     staff: "1 recepcionista, 2 monitores, 2 garçons a cada 20 convidados.",
     decoracao: [
-      "Decoração tradicional com painel de fundo",
+      "Decoração tradicional com painel de fundo em tecido",
       "Bolo cenográfico (conforme disponibilidade)",
       "04 suportes com balões simples",
       "Toalhas de mesa e arranjos em MDF",
-      "Hall de entrada com aparador e baú para presentes"
+      "Hall de entrada com estantes, aparador e baú para presentes"
     ],
     pricing: [
         {guests: 20, price: "3.000,00"},
@@ -233,7 +235,7 @@ const packages = [
     decoracao: [
         "Decoração luxo com painel de fundo em tecido",
         "Bolo cenográfico (conforme disponibilidade)",
-        "Balões duplos ou desconstruídos",
+        "Balões duplos/desconstruídos",
         "Tags personalizadas para os doces e forminhas trabalhadas",
         "Arranjos de mesa com balões duplos",
         "Souplat de MDF, guardanapos de tecido e amarradores personalizados",
@@ -374,61 +376,6 @@ const PackagesSection = () => (
   </section>
 );
 
-
-const additionalServices = [
-  {
-    title: "Garçom para Servir",
-    description: "Contrate um garçom dedicado para servir seus convidados com agilidade e cortesia durante toda a festa."
-  },
-  {
-    title: "Monitor para o Aniversariante",
-    description: "Um monitor exclusivo para acompanhar o aniversariante, garantindo sua diversão e segurança em todas as atividades."
-  }
-];
-
-const AdditionalServicesSection = () => (
-  <section id="additional-services" className="py-16 md:py-24 bg-primary/5">
-    <div className="container">
-      <div className="text-center mb-12">
-        <h2 className="font-headline text-3xl md:text-5xl text-primary">Serviços Adicionais</h2>
-        <p className="mt-4 max-w-2xl mx-auto text-lg text-foreground/80">
-          Personalize sua festa com nossos serviços opcionais.
-        </p>
-      </div>
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-4xl mx-auto">
-        {additionalServices.map((service) => (
-          <Card key={service.title} className="text-center">
-            <CardHeader>
-              <CardTitle className="font-headline">{service.title}</CardTitle>
-            </CardHeader>
-            <CardContent>
-              <p className="text-foreground/80">{service.description}</p>
-            </CardContent>
-            <CardFooter className="justify-center">
-                 <p className="text-lg font-bold font-headline text-primary">Consulte</p>
-            </CardFooter>
-          </Card>
-        ))}
-      </div>
-    </div>
-  </section>
-);
-
-const CakesSection = () => (
-  <section id="cakes" className="py-16 md:py-24">
-    <div className="container">
-      <div className="text-center mb-12">
-        <h2 className="font-headline text-3xl md:text-5xl text-primary">Opções de Bolos</h2>
-        <p className="mt-4 max-w-2xl mx-auto text-lg text-foreground/80">
-          Escolha o bolo perfeito para a sua celebração.
-        </p>
-      </div>
-      <CakesMenu />
-    </div>
-  </section>
-);
-
-
 const testimonials = [
   { name: "Astrid H.", quote: "A melhor festa de aniversário que meu filho já teve! A atenção aos detalhes foi incrível, parecia que estávamos em Berk. Super recomendo!" },
   { name: "Stoick V.", quote: "Um banquete verdadeiramente grandioso! A equipe foi incrível e o local era perfeito. Voltaremos no próximo ano, com certeza. Digno de um chefe!" },
@@ -436,7 +383,7 @@ const testimonials = [
 ];
 
 const TestimonialsSection = () => (
-  <section id="testimonials" className="py-16 md:py-24">
+  <section id="testimonials" className="py-16 md:py-24 bg-primary/5">
     <div className="container">
       <div className="text-center mb-12">
         <h2 className="font-headline text-3xl md:text-5xl text-primary">Contos dos Nossos Vikings</h2>
@@ -487,7 +434,7 @@ const faqItems = [
 ];
 
 const FaqSection = () => (
-  <section id="faq" className="py-16 md:py-24 bg-primary/5">
+  <section id="faq" className="py-16 md:py-24">
     <div className="container">
       <div className="text-center mb-12">
         <h2 className="font-headline text-3xl md:text-5xl text-primary">Perguntas Frequentes</h2>
@@ -516,7 +463,7 @@ const contactInfo = [
 ];
 
 const ContactSection = () => (
-  <section id="contact" className="py-16 md:py-24">
+  <section id="contact" className="py-16 md:py-24 bg-primary/5">
     <div className="container">
       <div className="text-center mb-12">
         <h2 className="font-headline text-3xl md:text-5xl text-primary">Reserve Sua Festa Lendária</h2>
@@ -579,8 +526,6 @@ export default function Home() {
         <VenueShowcaseSection />
         <CategorizedSetupsSection />
         <PackagesSection />
-        <AdditionalServicesSection />
-        <CakesSection />
         <TestimonialsSection />
         <FaqSection />
         <ContactSection />
@@ -589,5 +534,3 @@ export default function Home() {
     </div>
   );
 }
-
-    
