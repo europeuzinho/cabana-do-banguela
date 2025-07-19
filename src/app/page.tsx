@@ -144,24 +144,51 @@ const packages = [
     description: "Uma aventura fantástica com tudo o que você precisa para uma ótima festa.",
     isFeatured: false,
     inclusions: [
-      "3 horas de festa e uso exclusivo do local",
-      "Lembrancinhas padrão para todos os convidados",
-      "Parquinho ao ar livre para crianças",
-      "Mesas ao ar livre com grande espaço",
+      "3 horas e 30 minutos de festa",
+      "Buffet completo (Salgados, Doces e Bebidas)",
+      "Bolo da Sodiê Doces",
+      "Decoração tradicional completa",
+      "1 recepcionista, 2 monitores e garçons"
     ],
     menu: {
-      title: "Cardápio do Banquete Prata",
-      items: [
-        "Mini Salgadinhos Fritos (Escolha 3 variedades)",
-        "Mini Assados (Escolha 1 variedade)",
-        "Bolo de aniversário temático (Sabor padrão)",
-        "Refrigerantes e sucos"
+      title: "Detalhes do Pacote Prata",
+      buffet: [
+        "Salgados fritos, assados e folhados",
+        "Pipoca, Bolinha de queijo, Travesseiro de pizza",
+        "Pastelzinho de carne, Enroladinho de salsicha ou Kibe",
+        "Mini empada de palmito, Folhado de frango"
       ],
-      extras: [
-          "Mini Sanduíches Naturais - R$5,00/unidade",
-          "Mini Cachorro Quente - R$5,00/unidade"
+      docinhos: [
+        "Brigadeiro, brigadeiro power, beijinho e casadinho"
+      ],
+      bolo: "Bolo da SODIE DOCES (verificar sabores)",
+      bebidas: [
+        "Coca-cola, Guaraná, Coca-cola Zero",
+        "Água natural, Suco de uva"
       ]
-    }
+    },
+    staff: "1 recepcionista, 2 monitores, 2 garçons a cada 20 convidados.",
+    decoracao: [
+      "Decoração tradicional com painel de fundo",
+      "Bolo cenográfico (conforme disponibilidade)",
+      "04 suportes com balões simples",
+      "Toalhas de mesa e arranjos em MDF",
+      "Hall de entrada com aparador e baú para presentes"
+    ],
+    pricing: [
+        {guests: 20, price: "3.000,00"},
+        {guests: 30, price: "3.700,00"},
+        {guests: 40, price: "4.400,00"},
+        {guests: 50, price: "5.100,00"},
+    ],
+    observacoes: [
+        "Duração da festa: 3 horas e 30 minutos.",
+        "Hora adicional: R$ 250,00.",
+        "Convidado adicional (antecipado): R$ 30,00.",
+        "Convidado adicional (no dia): R$ 60,00.",
+        "Crianças a partir de 5 anos pagam (exceto aniversariante).",
+        "Cliente pode trazer chopp sem taxa de serviço (retirar até 11h do dia seguinte)."
+    ]
   },
   {
     title: "Ouro Completo",
@@ -170,22 +197,50 @@ const packages = [
     isFeatured: true,
     inclusions: [
       "4 horas de festa e uso exclusivo do local",
-      "Fotógrafo profissional para registrar os melhores momentos",
+      "Fotógrafo profissional",
+      "Buffet Premium com mais variedades",
       "Lembrancinhas premium para todos os convidados",
-      "Parquinho ao ar livre para crianças",
-      "Mesas ao ar livre com grande espaço",
-      "Monitor para o aniversariante",
+      "Decoração temática de luxo",
+      "Monitor exclusivo para o aniversariante"
     ],
-    menu: {
-      title: "Cardápio do Banquete Ouro",
-      items: [
-        "Mini Salgadinhos Fritos (Escolha 5 variedades)",
-        "Mini Assados (Escolha 2 variedades)",
-        "Bolo de aniversário temático (Qualquer sabor do cardápio)",
-        "Mini Sanduíches Naturais e Mini Cachorro Quente",
-        "Refrigerantes, sucos e água"
+     menu: {
+      title: "Detalhes do Pacote Ouro",
+      buffet: [
+        "Seleção premium de salgados fritos, assados e folhados",
+        "Mesa de frios e antepastos",
+        "Mini sanduíches gourmet e wraps",
+        "Estação de mini-hambúrgueres"
       ],
-    }
+      docinhos: [
+        "Doces finos e personalizados",
+        "Cascata de chocolate com frutas"
+      ],
+      bolo: "Bolo da SODIE DOCES (qualquer sabor do cardápio)",
+      bebidas: [
+        "Todas as bebidas do pacote Prata",
+        "Sucos naturais variados e água de coco"
+      ]
+    },
+    staff: "Equipe completa com coordenador de evento, 1 recepcionista, 3 monitores e garçons.",
+    decoracao: [
+        "Decoração de luxo personalizada",
+        "Peças e arranjos florais nobres",
+        "Iluminação cênica e efeitos especiais",
+        "Hall de entrada personalizado"
+    ],
+    pricing: [
+        {guests: 20, price: "4.500,00"},
+        {guests: 30, price: "5.500,00"},
+        {guests: 40, price: "6.500,00"},
+        {guests: 50, price: "7.500,00"},
+    ],
+    observacoes: [
+        "Duração da festa: 4 horas.",
+        "Hora adicional: R$ 350,00.",
+        "Convidado adicional (antecipado): R$ 45,00.",
+        "Convidado adicional (no dia): R$ 80,00.",
+        "Crianças a partir de 4 anos pagam (exceto aniversariante).",
+    ]
   }
 ];
 
@@ -225,7 +280,7 @@ const PackagesSection = () => (
                    <DialogTrigger asChild>
                     <Button variant="outline" className="w-full">
                       <Utensils className="mr-2 h-4 w-4" />
-                      Ver Cardápio Completo
+                      Ver Cardápio e Detalhes
                     </Button>
                   </DialogTrigger>
                   <Button asChild className="w-full">
@@ -234,32 +289,70 @@ const PackagesSection = () => (
                 </CardFooter>
               </Card>
             </div>
-             <DialogContent>
+             <DialogContent className="max-w-3xl">
               <DialogHeader>
                 <DialogTitle className="font-headline text-2xl text-primary">{pkg.menu.title}</DialogTitle>
                  <DialogDescription>
                   Um banquete digno dos melhores Vikings!
                 </DialogDescription>
               </DialogHeader>
-              <div className="space-y-4">
+              <div className="space-y-6 max-h-[70vh] overflow-y-auto pr-4">
                   <div>
-                      <h4 className="font-semibold text-foreground mb-2">Itens Inclusos</h4>
-                      <ul className="list-disc list-inside space-y-2 text-foreground/80 pl-4 text-base">
-                          {pkg.menu.items.map((item, index) => (
+                      <h4 className="font-semibold text-foreground mb-2 border-b pb-1">Buffet</h4>
+                      <ul className="list-disc list-inside space-y-1 text-foreground/80 pl-4 text-base">
+                          {pkg.menu.buffet.map((item, index) => (
                               <li key={index}>{item}</li>
                           ))}
                       </ul>
                   </div>
-                  {pkg.menu.extras && (
-                  <div>
-                      <h4 className="font-semibold text-foreground mt-4 mb-2">Itens Extras (Opcional)</h4>
-                      <ul className="list-disc list-inside space-y-2 text-foreground/80 pl-4 text-base">
-                      {pkg.menu.extras.map((item, index) => (
-                          <li key={index}>{item}</li>
-                      ))}
+                   <div>
+                      <h4 className="font-semibold text-foreground mb-2 border-b pb-1">Docinhos</h4>
+                      <ul className="list-disc list-inside space-y-1 text-foreground/80 pl-4 text-base">
+                          {pkg.menu.docinhos.map((item, index) => (
+                              <li key={index}>{item}</li>
+                          ))}
                       </ul>
                   </div>
-                  )}
+                  <div>
+                      <h4 className="font-semibold text-foreground mb-2 border-b pb-1">Bolo</h4>
+                      <p className="text-foreground/80 pl-4">{pkg.menu.bolo}</p>
+                  </div>
+                   <div>
+                      <h4 className="font-semibold text-foreground mb-2 border-b pb-1">Bebidas</h4>
+                      <ul className="list-disc list-inside space-y-1 text-foreground/80 pl-4 text-base">
+                          {pkg.menu.bebidas.map((item, index) => (
+                              <li key={index}>{item}</li>
+                          ))}
+                      </ul>
+                  </div>
+                  <div>
+                      <h4 className="font-semibold text-foreground mb-2 border-b pb-1">Preços por Convidado</h4>
+                      <ul className="list-disc list-inside space-y-1 text-foreground/80 pl-4 text-base">
+                          {pkg.pricing.map((item, index) => (
+                              <li key={index}>{item.guests} pessoas: R$ {item.price}</li>
+                          ))}
+                      </ul>
+                  </div>
+                  <div>
+                      <h4 className="font-semibold text-foreground mb-2 border-b pb-1">Equipe</h4>
+                      <p className="text-foreground/80 pl-4">{pkg.staff}</p>
+                  </div>
+                  <div>
+                      <h4 className="font-semibold text-foreground mb-2 border-b pb-1">Decoração</h4>
+                      <ul className="list-disc list-inside space-y-1 text-foreground/80 pl-4 text-base">
+                          {pkg.decoracao.map((item, index) => (
+                              <li key={index}>{item}</li>
+                          ))}
+                      </ul>
+                  </div>
+                  <div>
+                      <h4 className="font-semibold text-foreground mb-2 border-b pb-1">Observações</h4>
+                      <ul className="list-disc list-inside space-y-1 text-foreground/80 pl-4 text-base">
+                          {pkg.observacoes.map((item, index) => (
+                              <li key={index}>{item}</li>
+                          ))}
+                      </ul>
+                  </div>
               </div>
             </DialogContent>
           </Dialog>
@@ -484,5 +577,3 @@ export default function Home() {
     </div>
   );
 }
-
-    
