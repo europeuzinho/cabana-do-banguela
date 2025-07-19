@@ -9,9 +9,10 @@ import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from "@/components/ui/card";
 import { Carousel, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious } from "@/components/ui/carousel";
 import { CheckCircle, Mail, MapPin, Phone, Star, Shield, Utensils, Users } from "lucide-react";
-import { DragonIcon, VikingHelmIcon } from "@/components/icons";
+import { DragonIcon } from "@/components/icons";
 import { ContactForm } from "@/components/contact-form";
 import { Gallery } from "@/components/gallery";
+import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 
 const Header = () => (
   <header className="sticky top-0 z-50 w-full border-b border-border/40 bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60">
@@ -126,6 +127,7 @@ const VenueShowcaseSection = () => (
 
 const packages = [
   {
+    id: "prata",
     title: "Prata Completo",
     price: "Consulte",
     description: "Uma aventura fantástica com tudo o que você precisa para uma ótima festa.",
@@ -182,6 +184,7 @@ const packages = [
     ]
   },
   {
+    id: "ouro",
     title: "Ouro Completo",
     price: "Consulte",
     description: "A experiência definitiva da Cabana do Banguela para uma celebração inesquecível.",
@@ -240,76 +243,84 @@ const packages = [
 ];
 
 const PackagesSection = () => (
-  <section id="packages" className="py-16 md:py-24 bg-background">
-    <div className="container">
-      <div className="text-center mb-12">
-        <h2 className="font-headline text-3xl md:text-5xl text-primary">Nossas Aventuras Lendárias</h2>
-        <p className="mt-4 max-w-2xl mx-auto text-lg text-foreground/80">
-          Escolha o pacote ideal para forjar memórias inesquecíveis.
-        </p>
-      </div>
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-8 items-start max-w-6xl mx-auto">
-        {packages.map((pkg) => (
-          <Card key={pkg.title} className={`flex flex-col h-full ${pkg.isFeatured ? 'border-primary border-2 shadow-lg shadow-primary/20 relative' : ''}`}>
-            {pkg.isFeatured && (
-              <div className="absolute top-0 -translate-y-1/2 left-1/2 -translate-x-1/2 bg-primary text-primary-foreground px-3 py-1 text-sm font-semibold rounded-full">Mais Popular</div>
-            )}
-            <CardHeader className="text-center pt-8">
-              <CardTitle className="font-headline text-2xl">{pkg.title}</CardTitle>
-              <CardDescription>{pkg.description}</CardDescription>
-            </CardHeader>
-            <CardContent className="flex-grow space-y-4">
-              <div className="space-y-2">
-                <h4 className="font-semibold text-center text-foreground">{pkg.pricing.title}</h4>
-                <ul className="text-center text-foreground/80 text-sm space-y-1">
-                    {pkg.pricing.items.map((item, itemIndex) => (
-                        <li key={itemIndex}>{item}</li>
+    <section id="packages" className="py-16 md:py-24 bg-background">
+      <div className="container">
+        <div className="text-center mb-12">
+          <h2 className="font-headline text-3xl md:text-5xl text-primary">Nossas Aventuras Lendárias</h2>
+          <p className="mt-4 max-w-2xl mx-auto text-lg text-foreground/80">
+            Escolha o pacote ideal para forjar memórias inesquecíveis.
+          </p>
+        </div>
+        
+        <Tabs defaultValue="ouro" className="w-full max-w-6xl mx-auto">
+          <TabsList className="grid w-full grid-cols-2">
+            {packages.map(pkg => (
+              <TabsTrigger key={pkg.id} value={pkg.id}>
+                {pkg.isFeatured && <Star className="w-4 h-4 mr-2 text-accent" fill="currentColor" />}
+                {pkg.title}
+              </TabsTrigger>
+            ))}
+          </TabsList>
+          {packages.map(pkg => (
+            <TabsContent key={pkg.id} value={pkg.id}>
+              <Card className="border-2 border-transparent data-[state=active]:border-primary transition-all">
+                <CardHeader className="text-center">
+                   <CardTitle className="font-headline text-2xl md:text-3xl">{pkg.title}</CardTitle>
+                   <CardDescription>{pkg.description}</CardDescription>
+                </CardHeader>
+                <CardContent className="grid md:grid-cols-2 gap-8 md:gap-12 p-6 md:p-8">
+                  {/* Coluna da Esquerda: Inclusões e Preços */}
+                  <div className="space-y-6">
+                    <div>
+                      <h4 className="font-semibold text-lg text-foreground mb-3">{pkg.pricing.title}</h4>
+                      <ul className="text-foreground/80 space-y-2">
+                          {pkg.pricing.items.map((item, itemIndex) => (
+                              <li key={itemIndex} className="flex justify-between border-b border-dashed pb-1">
+                                <span>{item.split(':')[0]}</span>
+                                <span className="font-medium">{item.split(':')[1]}</span>
+                              </li>
+                          ))}
+                      </ul>
+                    </div>
+                    <div>
+                      <h4 className="font-semibold text-lg text-foreground mb-3">Principais Inclusões</h4>
+                      <ul className="space-y-2 text-sm text-foreground/80">
+                        {pkg.inclusions.map((item, index) => (
+                          <li key={index} className="flex items-start gap-2">
+                            <CheckCircle className="h-5 w-5 text-green-500 mt-0.5 flex-shrink-0" />
+                            <span>{item}</span>
+                          </li>
+                        ))}
+                      </ul>
+                    </div>
+                  </div>
+
+                  {/* Coluna da Direita: Detalhes Completos */}
+                  <div className="space-y-6">
+                    {pkg.details.map((section, index) => (
+                      <div key={index}>
+                          <h4 className="font-semibold text-foreground mb-2 border-b pb-1 text-lg">{section.title}</h4>
+                          <ul className="list-disc list-inside space-y-1 text-foreground/80 pl-2 text-sm">
+                              {section.items.map((item, itemIndex) => (
+                                  <li key={itemIndex}>{item}</li>
+                              ))}
+                          </ul>
+                      </div>
                     ))}
-                </ul>
-              </div>
-              <ul className="space-y-2 text-sm text-foreground/80 pt-4 border-t border-border">
-                {pkg.inclusions.map((item, index) => (
-                  <li key={index} className="flex items-start gap-2">
-                    <CheckCircle className="h-5 w-5 text-green-500 mt-0.5 flex-shrink-0" />
-                    <span>{item}</span>
-                  </li>
-                ))}
-              </ul>
-            </CardContent>
-            <CardFooter className="flex-col gap-2 !p-0">
-                <Accordion type="single" collapsible className="w-full">
-                    <AccordionItem value="item-1" className="border-b-0">
-                        <AccordionTrigger className="w-full border-t border-b hover:no-underline justify-center py-3">
-                            Ver todos os detalhes
-                        </AccordionTrigger>
-                        <AccordionContent className="p-6 pt-4">
-                            <div className="space-y-6 max-h-[60vh] overflow-y-auto pr-4">
-                                {pkg.details.map((section, index) => (
-                                    <div key={index}>
-                                        <h4 className="font-semibold text-foreground mb-2 border-b pb-1">{section.title}</h4>
-                                        <ul className="list-disc list-inside space-y-1 text-foreground/80 pl-4 text-sm">
-                                            {section.items.map((item, itemIndex) => (
-                                                <li key={itemIndex}>{item}</li>
-                                            ))}
-                                        </ul>
-                                    </div>
-                                ))}
-                            </div>
-                        </AccordionContent>
-                    </AccordionItem>
-                </Accordion>
-                <div className="p-6 pt-0 w-full">
-                    <Button asChild className="w-full">
+                  </div>
+                </CardContent>
+                <CardFooter>
+                    <Button asChild className="w-full" size="lg">
                         <Link href="#contact">Reserve este pacote</Link>
                     </Button>
-                </div>
-            </CardFooter>
-          </Card>
-        ))}
+                </CardFooter>
+              </Card>
+            </TabsContent>
+          ))}
+        </Tabs>
       </div>
-    </div>
-  </section>
-);
+    </section>
+  );
 
 const testimonials = [
   { name: "Astrid H.", quote: "A melhor festa de aniversário que meu filho já teve! A atenção aos detalhes foi incrível, parecia que estávamos em Berk. Super recomendo!" },
@@ -465,3 +476,5 @@ export default function Home() {
     </div>
   );
 }
+
+    
