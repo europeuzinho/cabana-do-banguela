@@ -66,7 +66,7 @@ const HeroSection = () => {
       <div className="relative z-10 text-white flex flex-col items-center" style={{ opacity }}>
         <p className="text-xl md:text-2xl font-body mb-2">Bem-vindo à Aventura Viking Definitiva</p>
         <h1 className="font-headline text-5xl md:text-7xl text-primary">Cabana do Banguela</h1>
-        <p className="mt-4 text-lg md:text-xl max-w-2xl text-foreground/80">Onde festas de aniversário se tornam lendas.</p>
+        <p className="mt-4 text-lg md:text-xl max-w-2xl text-white">Onde festas de aniversário se tornam lendas.</p>
         <div className="mt-8">
             <Button asChild size="lg" className="bg-primary hover:bg-primary/90 text-primary-foreground">
                 <Link href="#packages">Ver Pacotes de Festa</Link>
