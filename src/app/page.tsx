@@ -8,10 +8,12 @@ import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from "@/components/ui/card";
 import { Carousel, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious } from "@/components/ui/carousel";
-import { CheckCircle, Mail, MapPin, Phone, Star, Shield, Utensils, Users } from "lucide-react";
-import { ContactForm } from "@/components/contact-form";
+import { CheckCircle, Mail, MapPin, Phone, Star, Shield, Utensils, Users, MessageCircle } from "lucide-react";
 import { Gallery } from "@/components/gallery";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
+
+const phoneNumber = "5545998441759";
+const baseWhatsAppUrl = `https://wa.me/${phoneNumber}?text=`;
 
 const Header = () => (
   <header className="sticky top-0 z-50 w-full border-b border-border/40 bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60">
@@ -28,7 +30,7 @@ const Header = () => (
         <Link href="#contact" className="text-foreground/60 transition-colors hover:text-foreground/80">Contato</Link>
       </nav>
       <Button asChild className="ml-4 hidden bg-accent hover:bg-accent/90 text-accent-foreground md:flex">
-        <Link href="#contact">Reserve Agora</Link>
+        <a href={`${baseWhatsAppUrl}${encodeURIComponent("Olá! Tenho interesse em reservar uma festa.")}`} target="_blank" rel="noopener noreferrer">Reserve Agora</a>
       </Button>
     </div>
   </header>
@@ -309,9 +311,11 @@ const PackagesSection = () => (
                   </div>
                 </CardContent>
                 <CardFooter>
-                    <Button asChild className="w-full" size="lg">
-                        <Link href="#contact">Reserve este pacote</Link>
-                    </Button>
+                  <Button asChild className="w-full" size="lg">
+                    <a href={`${baseWhatsAppUrl}${encodeURIComponent(`Olá! Tenho interesse no pacote ${pkg.title}. Gostaria de mais informações.`)}`} target="_blank" rel="noopener noreferrer">
+                        Reserve este pacote
+                    </a>
+                  </Button>
                 </CardFooter>
               </Card>
             </TabsContent>
@@ -417,24 +421,29 @@ const ContactSection = () => (
       <div className="text-center mb-12">
         <h2 className="font-headline text-3xl md:text-5xl text-primary">Reserve Sua Festa Lendária</h2>
         <p className="mt-4 max-w-2xl mx-auto text-lg text-foreground/80">
-          Envie um correio-terror ou use o formulário abaixo para começar a planejar seu evento.
+          Entre em contato pelo WhatsApp para começar a planejar seu evento!
         </p>
       </div>
-      <div className="grid md:grid-cols-2 gap-12 items-start max-w-6xl mx-auto">
-        <div className="space-y-8">
-          {contactInfo.map((info) => (
-            <div key={info.title} className="flex items-start gap-4">
-              <div className="flex-shrink-0 pt-1">{info.icon}</div>
-              <div>
-                <h3 className="font-headline text-xl text-primary">{info.title}</h3>
-                <p className="text-foreground/80 text-lg">{info.value}</p>
+      <div className="max-w-4xl mx-auto">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+            {contactInfo.map((info) => (
+              <div key={info.title} className="flex flex-col items-center text-center gap-4 p-4">
+                <div className="flex-shrink-0">{info.icon}</div>
+                <div>
+                  <h3 className="font-headline text-xl text-primary">{info.title}</h3>
+                  <p className="text-foreground/80 text-lg">{info.value}</p>
+                </div>
               </div>
-            </div>
-          ))}
+            ))}
         </div>
-        <Card className="p-6 md:p-8 bg-background">
-          <ContactForm />
-        </Card>
+        <div className="mt-12 text-center">
+             <Button asChild size="lg">
+                <a href={`${baseWhatsAppUrl}${encodeURIComponent("Olá! Gostaria de saber mais sobre os pacotes de festa.")}`} target="_blank" rel="noopener noreferrer" className="flex items-center gap-2">
+                    <MessageCircle className="h-5 w-5" />
+                    Fale Conosco no WhatsApp
+                </a>
+            </Button>
+        </div>
       </div>
     </div>
   </section>
@@ -462,6 +471,19 @@ const Footer = () => (
     </footer>
 );
 
+const WhatsAppButton = () => (
+    <a 
+        href={`${baseWhatsAppUrl}${encodeURIComponent("Olá! Tenho interesse nos pacotes da Cabana do Banguela.")}`} 
+        target="_blank" 
+        rel="noopener noreferrer"
+        className="fixed bottom-6 right-6 z-50 bg-green-500 text-white p-4 rounded-full shadow-lg hover:bg-green-600 transition-transform hover:scale-110 flex items-center gap-2"
+        aria-label="Fale conosco no WhatsApp"
+    >
+        <MessageCircle className="h-6 w-6" />
+    </a>
+);
+
+
 export default function Home() {
   return (
     <div className="flex flex-col min-h-dvh bg-background">
@@ -476,6 +498,9 @@ export default function Home() {
         <ContactSection />
       </main>
       <Footer />
+      <WhatsAppButton />
     </div>
   );
 }
+
+    
