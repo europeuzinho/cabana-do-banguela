@@ -9,7 +9,6 @@ import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from "@/components/ui/card";
 import { Carousel, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious } from "@/components/ui/carousel";
 import { CheckCircle, Mail, MapPin, Phone, Star, Shield, Utensils, Users } from "lucide-react";
-import { DragonIcon } from "@/components/icons";
 import { ContactForm } from "@/components/contact-form";
 import { Gallery } from "@/components/gallery";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
@@ -18,7 +17,7 @@ const Header = () => (
   <header className="sticky top-0 z-50 w-full border-b border-border/40 bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60">
     <div className="container flex h-14 items-center">
       <Link href="/" className="flex items-center gap-2 font-bold text-primary">
-        <DragonIcon className="h-6 w-6" />
+        <Image src="https://www.pngall.com/wp-content/uploads/8/How-To-Train-Your-Dragon-Toothless.png" alt="Logo Banguela" width={24} height={24} className="h-6 w-6" />
         <span className="font-headline text-xl">Cabana do Banguela</span>
       </Link>
       <nav className="ml-auto hidden md:flex gap-6 text-sm font-medium">
@@ -442,7 +441,7 @@ const Footer = () => (
         <div className="container py-8 flex flex-col md:flex-row justify-between items-center gap-6">
             <div>
                 <div className="flex items-center gap-2 justify-center md:justify-start">
-                    <DragonIcon className="h-6 w-6 text-primary" />
+                    <Image src="https://www.pngall.com/wp-content/uploads/8/How-To-Train-Your-Dragon-Toothless.png" alt="Logo Banguela" width={24} height={24} className="h-6 w-6" />
                     <span className="font-headline text-lg">Cabana do Banguela</span>
                 </div>
                 <p className="text-sm text-foreground/70 mt-2">
@@ -476,5 +475,3 @@ export default function Home() {
     </div>
   );
 }
-
-    
