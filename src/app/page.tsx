@@ -184,7 +184,7 @@ const packages = [
     observacoes: [
         "Duração da festa: 3 horas e 30 minutos.",
         "Hora adicional: R$ 250,00.",
-        "Convidado adicional (antecipado): R$ 30,00.",
+        "Convidado adicional (até 10 dias antes): R$ 30,00.",
         "Convidado adicional (no dia): R$ 60,00.",
         "Crianças a partir de 5 anos pagam (exceto aniversariante).",
         "Cliente pode trazer chopp sem taxa de serviço (retirar até 11h do dia seguinte)."
@@ -196,50 +196,62 @@ const packages = [
     description: "A experiência definitiva da Cabana do Banguela para uma celebração inesquecível.",
     isFeatured: true,
     inclusions: [
-      "4 horas de festa e uso exclusivo do local",
-      "Fotógrafo profissional",
+      "3 horas e 30 minutos de festa",
       "Buffet Premium com mais variedades",
-      "Lembrancinhas premium para todos os convidados",
-      "Decoração temática de luxo",
-      "Monitor exclusivo para o aniversariante"
+      "Decoração temática de luxo personalizada",
+      "Equipe completa com 1 recepcionista e 2 monitores",
+      "Lembrancinhas personalizadas",
     ],
      menu: {
       title: "Detalhes do Pacote Ouro",
       buffet: [
-        "Seleção premium de salgados fritos, assados e folhados",
-        "Mesa de frios e antepastos",
-        "Mini sanduíches gourmet e wraps",
-        "Estação de mini-hambúrgueres"
+        "Salgados fritos, assados, e folhados",
+        "Pipoca",
+        "Bolinha de queijo",
+        "Travesseiro de pizza",
+        "Pastelzinho de carne",
+        "Enroladinho de salsicha",
+        "Kibe",
+        "Mini empada de palmito",
+        "Mini empada de frango",
+        "Folhado de frango",
+        "Mini pizza",
+        "Mini cachorro quente",
+        "Batata frita",
       ],
       docinhos: [
-        "Doces finos e personalizados",
-        "Cascata de chocolate com frutas"
+        "Brigadeiro, brigadeiro power, beijinho, casadinho",
+        "Carolina, churros médio, brigadeiro ninho com nutella",
       ],
-      bolo: "Bolo da SODIE DOCES (qualquer sabor do cardápio)",
+      bolo: "Bolo da SODIE DOCES (verificar sabores)",
       bebidas: [
-        "Todas as bebidas do pacote Prata",
-        "Sucos naturais variados e água de coco"
+        "Coca-cola, Guaraná, Coca-cola Zero",
+        "Água natural, Suco de uva, Suco de laranja",
       ]
     },
-    staff: "Equipe completa com coordenador de evento, 1 recepcionista, 3 monitores e garçons.",
+    staff: "1 recepcionista, 2 monitores, 2 garçons a cada 20 convidados.",
     decoracao: [
-        "Decoração de luxo personalizada",
-        "Peças e arranjos florais nobres",
-        "Iluminação cênica e efeitos especiais",
-        "Hall de entrada personalizado"
+        "Decoração luxo com painel de fundo em tecido",
+        "Bolo cenográfico (conforme disponibilidade)",
+        "Balões duplos ou desconstruídos",
+        "Tags personalizadas para os doces e forminhas trabalhadas",
+        "Arranjos de mesa com balões duplos",
+        "Souplat de MDF, guardanapos de tecido e amarradores personalizados",
+        "Hall de entrada decorado e personalizado no tema",
     ],
     pricing: [
-        {guests: 20, price: "4.500,00"},
-        {guests: 30, price: "5.500,00"},
-        {guests: 40, price: "6.500,00"},
-        {guests: 50, price: "7.500,00"},
+        {guests: 20, price: "4.000,00"},
+        {guests: 30, price: "4.700,00"},
+        {guests: 40, price: "5.500,00"},
+        {guests: 50, price: "6.300,00"},
     ],
     observacoes: [
-        "Duração da festa: 4 horas.",
-        "Hora adicional: R$ 350,00.",
-        "Convidado adicional (antecipado): R$ 45,00.",
-        "Convidado adicional (no dia): R$ 80,00.",
-        "Crianças a partir de 4 anos pagam (exceto aniversariante).",
+        "Duração da festa: 3 horas e 30 minutos.",
+        "Hora adicional: R$ 250,00.",
+        "Convidado adicional (até 10 dias antes): R$ 30,00.",
+        "Convidado adicional (no dia): R$ 60,00.",
+        "Crianças a partir de 5 anos pagam (exceto aniversariante).",
+        "Cliente pode trazer chopp sem taxa de serviço (retirar até 11h do dia seguinte).",
     ]
   }
 ];
@@ -577,3 +589,5 @@ export default function Home() {
     </div>
   );
 }
+
+    
