@@ -361,20 +361,20 @@ const TestimonialsSection = () => (
 
 const faqItems = [
   {
-    question: "O que está incluso no pacote de festa?",
-    answer: "Nossos pacotes incluem decoração temática completa, atividades e jogos de dragão, um anfitrião viking dedicado, buffet completo e lembrancinhas para os convidados. Veja os detalhes de cada pacote para mais informações!"
+    question: "O que está incluso nos pacotes de festa?",
+    answer: "Nossos pacotes incluem decoração temática, buffet completo com salgados, doces e bebidas, bolo, e equipe de suporte. O pacote Ouro oferece um buffet premium e decoração de luxo. Veja todos os detalhes na seção de pacotes!"
   },
   {
-    question: "Qual a capacidade máxima do local?",
-    answer: "Nossa cabana comporta confortavelmente até 50 convidados, incluindo crianças e adultos, garantindo uma experiência imersiva e segura para todos."
+    question: "Qual a duração da festa e qual o valor da hora adicional?",
+    answer: "A festa tem duração de 3 horas e 30 minutos. Caso deseje estender a celebração, o valor da hora adicional é de R$ 250,00."
   },
   {
-    question: "Posso personalizar a decoração ou as atividades?",
-    answer: "Sim! Adoramos tornar cada festa única. Entre em contato conosco para discutir suas ideias de personalização para decorações, atividades ou até mesmo no cardápio do banquete."
+    question: "Como funciona a cobrança para crianças e convidados extras?",
+    answer: "Crianças a partir de 5 anos contam como pagantes, com exceção do aniversariante. O valor do convidado adicional varia se for informado com antecedência ou no dia da festa. Consulte os detalhes nos pacotes."
   },
   {
-    question: "O que preciso levar?",
-    answer: "Absolutamente nada! Nossos pacotes são completos e incluem comida, bebida, decoração e entretenimento. Apenas traga seus convidados e a vontade de se aventurar!"
+    question: "Posso levar minha própria bebida, como chopp?",
+    answer: "Sim! Você pode trazer seu próprio chopp sem nenhuma taxa de serviço adicional. Apenas pedimos que o barril seja retirado até as 11h do dia seguinte ao evento."
   },
 ];
 
