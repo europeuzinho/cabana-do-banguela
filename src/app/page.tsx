@@ -8,8 +8,7 @@ import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from "@/components/ui/card";
 import { Carousel, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious } from "@/components/ui/carousel";
-import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogTrigger, DialogDescription } from "@/components/ui/dialog";
-import { CheckCircle, Mail, MapPin, Phone, Star, Utensils } from "lucide-react";
+import { CheckCircle, Mail, MapPin, Phone, Star } from "lucide-react";
 import { DragonIcon, VikingHelmIcon } from "@/components/icons";
 import { ContactForm } from "@/components/contact-form";
 import { Gallery } from "@/components/gallery";
@@ -148,48 +147,45 @@ const packages = [
       "Decoração tradicional completa",
       "1 recepcionista, 2 monitores e garçons"
     ],
-    menu: {
-      title: "Detalhes do Pacote Prata",
-      buffet: [
-        "Salgados fritos, assados e folhados",
-        "Pipoca",
-        "Bolinha de queijo",
-        "Travesseiro de pizza",
-        "Pastelzinho de carne",
-        "Enroladinho de salsicha ou Kibe",
-        "Mini empada de palmito",
-        "Folhado de frango"
-      ],
-      docinhos: [
-        "Brigadeiro, brigadeiro power, beijinho e casadinho"
-      ],
-      bolo: "Bolo da SODIE DOCES (verificar sabores)",
-      bebidas: [
-        "Coca-cola, Guaraná, Coca-cola Zero",
-        "Água natural, Suco de uva"
-      ]
-    },
-    staff: "1 recepcionista, 2 monitores, 2 garçons a cada 20 convidados.",
-    decoracao: [
-      "Decoração tradicional com painel de fundo em tecido",
-      "Bolo cenográfico (conforme disponibilidade)",
-      "04 suportes com balões simples",
-      "Toalhas de mesa e arranjos em MDF",
-      "Hall de entrada com estantes, aparador e baú para presentes"
-    ],
-    pricing: [
-        {guests: 20, price: "3.000,00"},
-        {guests: 30, price: "3.700,00"},
-        {guests: 40, price: "4.400,00"},
-        {guests: 50, price: "5.100,00"},
-    ],
-    observacoes: [
-        "Duração da festa: 3 horas e 30 minutos.",
-        "Hora adicional: R$ 250,00.",
-        "Convidado adicional (até 10 dias antes): R$ 30,00.",
-        "Convidado adicional (no dia): R$ 60,00.",
-        "Crianças a partir de 5 anos pagam (exceto aniversariante).",
-        "Cliente pode trazer chopp sem taxa de serviço (retirar até 11h do dia seguinte)."
+    details: [
+        { 
+            title: "Buffet", 
+            items: [
+                "Salgados fritos, assados e folhados", "Pipoca", "Bolinha de queijo", "Travesseiro de pizza", "Pastelzinho de carne", "Enroladinho de salsicha ou Kibe", "Mini empada de palmito", "Folhado de frango"
+            ] 
+        },
+        { 
+            title: "Docinhos", 
+            items: [
+                "Brigadeiro, brigadeiro power, beijinho e casadinho"
+            ] 
+        },
+        { title: "Bolo", items: ["Bolo da SODIE DOCES (verificar sabores)"] },
+        { 
+            title: "Bebidas", 
+            items: [
+                "Coca-cola, Guaraná, Coca-cola Zero", "Água natural, Suco de uva"
+            ] 
+        },
+        { 
+            title: "Preços por Convidado", 
+            items: [
+                "20 pessoas: R$ 3.000,00", "30 pessoas: R$ 3.700,00", "40 pessoas: R$ 4.400,00", "50 pessoas: R$ 5.100,00"
+            ] 
+        },
+        { title: "Equipe", items: ["1 recepcionista, 2 monitores, 2 garçons a cada 20 convidados."] },
+        { 
+            title: "Decoração", 
+            items: [
+                "Decoração tradicional com painel de fundo em tecido", "Bolo cenográfico (conforme disponibilidade)", "04 suportes com balões simples", "Toalhas de mesa e arranjos em MDF", "Hall de entrada com estantes, aparador e baú para presentes"
+            ] 
+        },
+        { 
+            title: "Observações", 
+            items: [
+                "Duração da festa: 3 horas e 30 minutos.", "Hora adicional: R$ 250,00.", "Convidado adicional (até 10 dias antes): R$ 30,00.", "Convidado adicional (no dia): R$ 60,00.", "Crianças a partir de 5 anos pagam (exceto aniversariante).", "Cliente pode trazer chopp sem taxa de serviço (retirar até 11h do dia seguinte)."
+            ] 
+        }
     ]
   },
   {
@@ -204,56 +200,45 @@ const packages = [
       "Equipe completa com 1 recepcionista e 2 monitores",
       "Lembrancinhas personalizadas",
     ],
-     menu: {
-      title: "Detalhes do Pacote Ouro",
-      buffet: [
-        "Salgados fritos, assados, e folhados",
-        "Pipoca",
-        "Bolinha de queijo",
-        "Travesseiro de pizza",
-        "Pastelzinho de carne",
-        "Enroladinho de salsicha",
-        "Kibe",
-        "Mini empada de palmito",
-        "Mini empada de frango",
-        "Folhado de frango",
-        "Mini pizza",
-        "Mini cachorro quente",
-        "Batata frita",
-      ],
-      docinhos: [
-        "Brigadeiro, brigadeiro power, beijinho, casadinho",
-        "Carolina, churros médio, brigadeiro ninho com nutella",
-      ],
-      bolo: "Bolo da SODIE DOCES (verificar sabores)",
-      bebidas: [
-        "Coca-cola, Guaraná, Coca-cola Zero",
-        "Água natural, Suco de uva, Suco de laranja",
-      ]
-    },
-    staff: "1 recepcionista, 2 monitores, 2 garçons a cada 20 convidados.",
-    decoracao: [
-        "Decoração luxo com painel de fundo em tecido",
-        "Bolo cenográfico (conforme disponibilidade)",
-        "Balões duplos/desconstruídos",
-        "Tags personalizadas para os doces e forminhas trabalhadas",
-        "Arranjos de mesa com balões duplos",
-        "Souplat de MDF, guardanapos de tecido e amarradores personalizados",
-        "Hall de entrada decorado e personalizado no tema",
-    ],
-    pricing: [
-        {guests: 20, price: "4.000,00"},
-        {guests: 30, price: "4.700,00"},
-        {guests: 40, price: "5.500,00"},
-        {guests: 50, price: "6.300,00"},
-    ],
-    observacoes: [
-        "Duração da festa: 3 horas e 30 minutos.",
-        "Hora adicional: R$ 250,00.",
-        "Convidado adicional (até 10 dias antes): R$ 30,00.",
-        "Convidado adicional (no dia): R$ 60,00.",
-        "Crianças a partir de 5 anos pagam (exceto aniversariante).",
-        "Cliente pode trazer chopp sem taxa de serviço (retirar até 11h do dia seguinte).",
+    details: [
+        { 
+            title: "Buffet", 
+            items: [
+                "Salgados fritos, assados, e folhados", "Pipoca", "Bolinha de queijo", "Travesseiro de pizza", "Pastelzinho de carne", "Enroladinho de salsicha", "Kibe", "Mini empada de palmito", "Mini empada de frango", "Folhado de frango", "Mini pizza", "Mini cachorro quente", "Batata frita"
+            ] 
+        },
+        { 
+            title: "Docinhos", 
+            items: [
+                "Brigadeiro, brigadeiro power, beijinho, casadinho", "Carolina, churros médio, brigadeiro ninho com nutella"
+            ] 
+        },
+        { title: "Bolo", items: ["Bolo da SODIE DOCES (verificar sabores)"] },
+        { 
+            title: "Bebidas", 
+            items: [
+                "Coca-cola, Guaraná, Coca-cola Zero", "Água natural, Suco de uva, Suco de laranja"
+            ] 
+        },
+        { 
+            title: "Preços por Convidado", 
+            items: [
+                "20 pessoas: R$ 4.000,00", "30 pessoas: R$ 4.700,00", "40 pessoas: R$ 5.500,00", "50 pessoas: R$ 6.300,00"
+            ] 
+        },
+        { title: "Equipe", items: ["1 recepcionista, 2 monitores, 2 garçons a cada 20 convidados."] },
+        { 
+            title: "Decoração", 
+            items: [
+                "Decoração luxo com painel de fundo em tecido", "Bolo cenográfico (conforme disponibilidade)", "Balões duplos/desconstruídos", "Tags personalizadas para os doces e forminhas trabalhadas", "Arranjos de mesa com balões duplos", "Souplat de MDF, guardanapos de tecido e amarradores personalizados", "Hall de entrada decorado e personalizado no tema"
+            ] 
+        },
+        { 
+            title: "Observações", 
+            items: [
+                "Duração da festa: 3 horas e 30 minutos.", "Hora adicional: R$ 250,00.", "Convidado adicional (até 10 dias antes): R$ 30,00.", "Convidado adicional (no dia): R$ 60,00.", "Crianças a partir de 5 anos pagam (exceto aniversariante).", "Cliente pode trazer chopp sem taxa de serviço (retirar até 11h do dia seguinte)."
+            ] 
+        }
     ]
   }
 ];
@@ -267,109 +252,56 @@ const PackagesSection = () => (
           Oferecemos pacotes para tornar sua festa temática de dragão verdadeiramente lendária.
         </p>
       </div>
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-8 items-stretch max-w-5xl mx-auto">
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-8 items-start max-w-6xl mx-auto">
         {packages.map((pkg) => (
-          <Dialog key={pkg.title}>
-            <div className="w-full h-full">
-              <Card className={`flex flex-col h-full ${pkg.isFeatured ? 'border-primary border-2 shadow-lg relative' : ''}`}>
-                {pkg.isFeatured && (
-                  <div className="absolute top-0 -translate-y-1/2 left-1/2 -translate-x-1/2 bg-primary text-primary-foreground px-3 py-1 text-sm font-semibold rounded-full">Mais Popular</div>
-                )}
-                <CardHeader className="text-center pt-8">
-                  <CardTitle className="font-headline text-2xl">{pkg.title}</CardTitle>
-                  <CardDescription>{pkg.description}</CardDescription>
-                </CardHeader>
-                <CardContent className="flex-grow space-y-4">
-                  <p className="text-center text-4xl font-bold font-headline text-primary">{pkg.price}</p>
-                   <ul className="space-y-2 text-sm text-foreground/80">
-                    {pkg.inclusions.map((item, index) => (
-                      <li key={index} className="flex items-start gap-2">
-                        <CheckCircle className="h-5 w-5 text-green-500 mt-0.5 flex-shrink-0" />
-                        <span>{item}</span>
-                      </li>
-                    ))}
-                  </ul>
-                </CardContent>
-                <CardFooter className="flex-col gap-2">
-                   <DialogTrigger asChild>
-                    <Button variant="outline" className="w-full">
-                      <Utensils className="mr-2 h-4 w-4" />
-                      Ver Cardápio e Detalhes
+          <Card key={pkg.title} className={`flex flex-col h-full ${pkg.isFeatured ? 'border-primary border-2 shadow-lg relative' : ''}`}>
+            {pkg.isFeatured && (
+              <div className="absolute top-0 -translate-y-1/2 left-1/2 -translate-x-1/2 bg-primary text-primary-foreground px-3 py-1 text-sm font-semibold rounded-full">Mais Popular</div>
+            )}
+            <CardHeader className="text-center pt-8">
+              <CardTitle className="font-headline text-2xl">{pkg.title}</CardTitle>
+              <CardDescription>{pkg.description}</CardDescription>
+            </CardHeader>
+            <CardContent className="flex-grow space-y-4">
+              <p className="text-center text-4xl font-bold font-headline text-primary">{pkg.price}</p>
+              <ul className="space-y-2 text-sm text-foreground/80">
+                {pkg.inclusions.map((item, index) => (
+                  <li key={index} className="flex items-start gap-2">
+                    <CheckCircle className="h-5 w-5 text-green-500 mt-0.5 flex-shrink-0" />
+                    <span>{item}</span>
+                  </li>
+                ))}
+              </ul>
+            </CardContent>
+            <CardFooter className="flex-col gap-2 !p-0">
+                <Accordion type="single" collapsible className="w-full">
+                    <AccordionItem value="item-1" className="border-b-0">
+                        <AccordionTrigger className="w-full border-t border-b hover:no-underline justify-center py-3">
+                            Ver todos os detalhes
+                        </AccordionTrigger>
+                        <AccordionContent className="p-6 pt-4">
+                            <div className="space-y-6 max-h-[70vh] overflow-y-auto pr-4">
+                                {pkg.details.map((section, index) => (
+                                    <div key={index}>
+                                        <h4 className="font-semibold text-foreground mb-2 border-b pb-1">{section.title}</h4>
+                                        <ul className="list-disc list-inside space-y-1 text-foreground/80 pl-4 text-sm">
+                                            {section.items.map((item, itemIndex) => (
+                                                <li key={itemIndex}>{item}</li>
+                                            ))}
+                                        </ul>
+                                    </div>
+                                ))}
+                            </div>
+                        </AccordionContent>
+                    </AccordionItem>
+                </Accordion>
+                <div className="p-6 pt-0 w-full">
+                    <Button asChild className="w-full">
+                        <Link href="#contact">Reserve este pacote</Link>
                     </Button>
-                  </DialogTrigger>
-                  <Button asChild className="w-full">
-                    <Link href="#contact">Reserve este pacote</Link>
-                  </Button>
-                </CardFooter>
-              </Card>
-            </div>
-             <DialogContent className="max-w-3xl">
-              <DialogHeader>
-                <DialogTitle className="font-headline text-2xl text-primary">{pkg.menu.title}</DialogTitle>
-                 <DialogDescription>
-                  Um banquete digno dos melhores Vikings!
-                </DialogDescription>
-              </DialogHeader>
-              <div className="space-y-6 max-h-[70vh] overflow-y-auto pr-4">
-                  <div>
-                      <h4 className="font-semibold text-foreground mb-2 border-b pb-1">Buffet</h4>
-                      <ul className="list-disc list-inside space-y-1 text-foreground/80 pl-4 text-base">
-                          {pkg.menu.buffet.map((item, index) => (
-                              <li key={index}>{item}</li>
-                          ))}
-                      </ul>
-                  </div>
-                   <div>
-                      <h4 className="font-semibold text-foreground mb-2 border-b pb-1">Docinhos</h4>
-                      <ul className="list-disc list-inside space-y-1 text-foreground/80 pl-4 text-base">
-                          {pkg.menu.docinhos.map((item, index) => (
-                              <li key={index}>{item}</li>
-                          ))}
-                      </ul>
-                  </div>
-                  <div>
-                      <h4 className="font-semibold text-foreground mb-2 border-b pb-1">Bolo</h4>
-                      <p className="text-foreground/80 pl-4">{pkg.menu.bolo}</p>
-                  </div>
-                   <div>
-                      <h4 className="font-semibold text-foreground mb-2 border-b pb-1">Bebidas</h4>
-                      <ul className="list-disc list-inside space-y-1 text-foreground/80 pl-4 text-base">
-                          {pkg.menu.bebidas.map((item, index) => (
-                              <li key={index}>{item}</li>
-                          ))}
-                      </ul>
-                  </div>
-                  <div>
-                      <h4 className="font-semibold text-foreground mb-2 border-b pb-1">Preços por Convidado</h4>
-                      <ul className="list-disc list-inside space-y-1 text-foreground/80 pl-4 text-base">
-                          {pkg.pricing.map((item, index) => (
-                              <li key={index}>{item.guests} pessoas: R$ {item.price}</li>
-                          ))}
-                      </ul>
-                  </div>
-                  <div>
-                      <h4 className="font-semibold text-foreground mb-2 border-b pb-1">Equipe</h4>
-                      <p className="text-foreground/80 pl-4">{pkg.staff}</p>
-                  </div>
-                  <div>
-                      <h4 className="font-semibold text-foreground mb-2 border-b pb-1">Decoração</h4>
-                      <ul className="list-disc list-inside space-y-1 text-foreground/80 pl-4 text-base">
-                          {pkg.decoracao.map((item, index) => (
-                              <li key={index}>{item}</li>
-                          ))}
-                      </ul>
-                  </div>
-                  <div>
-                      <h4 className="font-semibold text-foreground mb-2 border-b pb-1">Observações</h4>
-                      <ul className="list-disc list-inside space-y-1 text-foreground/80 pl-4 text-base">
-                          {pkg.observacoes.map((item, index) => (
-                              <li key={index}>{item}</li>
-                          ))}
-                      </ul>
-                  </div>
-              </div>
-            </DialogContent>
-          </Dialog>
+                </div>
+            </CardFooter>
+          </Card>
         ))}
       </div>
     </div>
