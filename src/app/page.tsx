@@ -147,6 +147,15 @@ const packages = [
       "Decoração tradicional completa",
       "1 recepcionista, 2 monitores e garçons"
     ],
+    pricing: {
+        title: "Preços por Convidado",
+        items: [
+            "20 pessoas: R$ 3.000,00",
+            "30 pessoas: R$ 3.700,00",
+            "40 pessoas: R$ 4.400,00",
+            "50 pessoas: R$ 5.100,00"
+        ]
+    },
     details: [
         { 
             title: "Buffet", 
@@ -165,12 +174,6 @@ const packages = [
             title: "Bebidas", 
             items: [
                 "Coca-cola, Guaraná, Coca-cola Zero", "Água natural, Suco de uva"
-            ] 
-        },
-        { 
-            title: "Preços por Convidado", 
-            items: [
-                "20 pessoas: R$ 3.000,00", "30 pessoas: R$ 3.700,00", "40 pessoas: R$ 4.400,00", "50 pessoas: R$ 5.100,00"
             ] 
         },
         { title: "Equipe", items: ["1 recepcionista, 2 monitores, 2 garçons a cada 20 convidados."] },
@@ -200,6 +203,15 @@ const packages = [
       "Equipe completa com 1 recepcionista e 2 monitores",
       "Lembrancinhas personalizadas",
     ],
+    pricing: {
+        title: "Preços por Convidado",
+        items: [
+            "20 pessoas: R$ 4.000,00",
+            "30 pessoas: R$ 4.700,00",
+            "40 pessoas: R$ 5.500,00",
+            "50 pessoas: R$ 6.300,00"
+        ]
+    },
     details: [
         { 
             title: "Buffet", 
@@ -218,12 +230,6 @@ const packages = [
             title: "Bebidas", 
             items: [
                 "Coca-cola, Guaraná, Coca-cola Zero", "Água natural, Suco de uva, Suco de laranja"
-            ] 
-        },
-        { 
-            title: "Preços por Convidado", 
-            items: [
-                "20 pessoas: R$ 4.000,00", "30 pessoas: R$ 4.700,00", "40 pessoas: R$ 5.500,00", "50 pessoas: R$ 6.300,00"
             ] 
         },
         { title: "Equipe", items: ["1 recepcionista, 2 monitores, 2 garçons a cada 20 convidados."] },
@@ -263,7 +269,14 @@ const PackagesSection = () => (
               <CardDescription>{pkg.description}</CardDescription>
             </CardHeader>
             <CardContent className="flex-grow space-y-4">
-              <p className="text-center text-4xl font-bold font-headline text-primary">{pkg.price}</p>
+              <div className="space-y-2">
+                <h4 className="font-semibold text-center text-foreground">{pkg.pricing.title}</h4>
+                <ul className="text-center text-foreground/80 text-sm space-y-1">
+                    {pkg.pricing.items.map((item, itemIndex) => (
+                        <li key={itemIndex}>{item}</li>
+                    ))}
+                </ul>
+              </div>
               <ul className="space-y-2 text-sm text-foreground/80">
                 {pkg.inclusions.map((item, index) => (
                   <li key={index} className="flex items-start gap-2">
@@ -438,7 +451,7 @@ const Footer = () => (
       </div>
       <div className="absolute -bottom-3 -right-8 md:right-4 w-48 h-auto pointer-events-none">
          <Image
-          src="https://static.wikia.nocookie.net/comotreinarseudragao/images/1/11/ToothlessHttyd2Remder.png/revision/latest?cb=20180531200115&path-prefix=pt-br"
+          src="https://www.pngall.com/wp-content/uploads/8/How-To-Train-Your-Dragon-Toothless.png"
           alt="Dragão Banguela"
           width={250}
           height={250}
