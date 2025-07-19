@@ -255,7 +255,7 @@ const PackagesSection = () => (
           <TabsList className="grid w-full grid-cols-2">
             {packages.map(pkg => (
               <TabsTrigger key={pkg.id} value={pkg.id}>
-                {pkg.isFeatured && <Star className="w-4 h-4 mr-2 text-accent" fill="currentColor" />}
+                {pkg.isFeatured && <Star className="w-4 h-4 mr-2 text-yellow-400" fill="currentColor" />}
                 {pkg.title}
               </TabsTrigger>
             ))}
@@ -342,7 +342,7 @@ const TestimonialsSection = () => (
             <CarouselItem key={index}>
               <Card className="p-6 bg-background">
                 <CardContent className="flex flex-col items-center text-center">
-                  <div className="flex gap-1 text-accent mb-4">
+                  <div className="flex gap-1 text-yellow-400 mb-4">
                     {[...Array(5)].map((_, i) => <Star key={i} fill="currentColor" className="h-5 w-5" />)}
                   </div>
                   <p className="text-lg italic text-foreground/90">"{testimonial.quote}"</p>
@@ -402,9 +402,9 @@ const FaqSection = () => (
 );
 
 const contactInfo = [
-  { icon: <Phone className="h-6 w-6 text-accent" />, title: "Ligue para Nós", value: "+55 (45) 9 9844-1759" },
-  { icon: <Mail className="h-6 w-6 text-accent" />, title: "Envie um Email", value: "Camilakoval14@outlook.com" },
-  { icon: <MapPin className="h-6 w-6 text-accent" />, title: "Encontre-nos", value: "Rua Fortaleza, 729 - Centro, Cascavel - PR" },
+  { icon: <Phone className="h-6 w-6 text-primary" />, title: "Ligue para Nós", value: "+55 (45) 9 9844-1759" },
+  { icon: <Mail className="h-6 w-6 text-primary" />, title: "Envie um Email", value: "Camilakoval14@outlook.com" },
+  { icon: <MapPin className="h-6 w-6 text-primary" />, title: "Encontre-nos", value: "Rua Fortaleza, 729 - Centro, Cascavel - PR" },
 ];
 
 const ContactSection = () => (
