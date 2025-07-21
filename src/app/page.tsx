@@ -456,6 +456,7 @@ const BehanceIcon = (props: React.SVGProps<SVGSVGElement>) => (
     role="img"
     viewBox="0 0 24 24"
     xmlns="http://www.w3.org/2000/svg"
+    fill="currentColor"
     {...props}
   >
     <title>Behance</title>
@@ -470,7 +471,7 @@ const Footer = () => (
                 <Image src="https://www.pngall.com/wp-content/uploads/8/How-To-Train-Your-Dragon-Toothless.png" alt="Logo Banguela" width={24} height={24} className="h-6 w-6" />
                 <span className="font-headline text-lg">Cabana do Banguela</span>
             </div>
-            <div className="flex items-center gap-4">
+            <div className="flex flex-col sm:flex-row items-center gap-2 sm:gap-4">
                 <p className="text-sm text-foreground/70 text-center">
                     © {new Date().getFullYear()} Todos os direitos reservados.
                 </p>
