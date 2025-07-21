@@ -29,7 +29,7 @@ const Header = () => (
         <Link href="#testimonials" className="text-foreground/60 transition-colors hover:text-foreground/80">Depoimentos</Link>
         <Link href="#contact" className="text-foreground/60 transition-colors hover:text-foreground/80">Contato</Link>
       </nav>
-      <Button asChild className="ml-4 hidden bg-accent hover:bg-accent/90 text-accent-foreground md:flex">
+      <Button asChild className="ml-4 hidden md:flex">
         <a href={`${baseWhatsAppUrl}${encodeURIComponent("Olá! Tenho interesse em reservar uma festa.")}`} target="_blank" rel="noopener noreferrer">Reserve Agora</a>
       </Button>
     </div>
@@ -37,40 +37,23 @@ const Header = () => (
 );
 
 const HeroSection = () => {
-  const [opacity, setOpacity] = useState(1);
-
-  useEffect(() => {
-    const handleScroll = () => {
-      const heroHeight = window.innerHeight * 0.7;
-      const scrollY = window.scrollY;
-      const newOpacity = Math.max(0, 1 - scrollY / (heroHeight / 1.5));
-      setOpacity(newOpacity);
-    };
-
-    window.addEventListener('scroll', handleScroll);
-
-    return () => {
-      window.removeEventListener('scroll', handleScroll);
-    };
-  }, []);
-
   return (
     <section className="relative h-[70vh] md:h-[80vh] w-full flex items-center justify-center text-center overflow-hidden">
+      <div className="absolute inset-0 bg-gradient-to-t from-background via-background/70 to-transparent z-10" />
       <Image
         src="https://i.imgur.com/SnvAEUK.jpeg"
         alt="Local decorado com o tema Como Treinar o Seu Dragão"
         fill
-        className="object-cover brightness-50"
-        style={{ opacity }}
+        className="object-cover"
         data-ai-hint="fantasy dragon landscape"
         priority
       />
-      <div className="relative z-10 text-white flex flex-col items-center" style={{ opacity }}>
-        <p className="text-xl md:text-2xl font-body mb-2">Bem-vindo à Aventura Viking Definitiva</p>
-        <h1 className="font-headline text-5xl md:text-7xl text-primary">Cabana do Banguela</h1>
-        <p className="mt-4 text-lg md:text-xl max-w-2xl text-white">Onde festas de aniversário se tornam lendas.</p>
+      <div className="relative z-20 text-white flex flex-col items-center p-4">
+        <p className="text-xl md:text-2xl font-body mb-2 text-primary">Bem-vindo à Aventura Viking Definitiva</p>
+        <h1 className="font-headline text-5xl md:text-7xl font-bold text-foreground">Cabana do Banguela</h1>
+        <p className="mt-4 text-lg md:text-xl max-w-2xl text-foreground/80">Onde festas de aniversário se tornam lendas.</p>
         <div className="mt-8">
-            <Button asChild size="lg" className="bg-primary hover:bg-primary/90 text-primary-foreground">
+            <Button asChild size="lg">
                 <Link href="#packages">Ver Pacotes de Festa</Link>
             </Button>
         </div>
@@ -91,9 +74,9 @@ const FeaturesSection = () => (
     <div className="container">
       <div className="grid grid-cols-1 md:grid-cols-3 gap-8 text-center">
         {features.map((feature) => (
-          <div key={feature.title} className="flex flex-col items-center p-6">
+          <div key={feature.title} className="flex flex-col items-center p-6 bg-card rounded-lg transition-transform hover:scale-105">
             <div className="mb-4">{feature.icon}</div>
-            <h3 className="font-headline text-2xl mb-2">{feature.title}</h3>
+            <h3 className="font-headline text-2xl mb-2 text-foreground">{feature.title}</h3>
             <p className="text-foreground/80">{feature.description}</p>
           </div>
         ))}
@@ -113,7 +96,7 @@ const galleryImages = [
 ];
 
 const VenueShowcaseSection = () => (
-  <section id="gallery" className="py-16 md:py-24 bg-primary/5">
+  <section id="gallery" className="py-16 md:py-24 bg-card">
     <div className="container">
       <div className="text-center mb-12">
         <h2 className="font-headline text-3xl md:text-5xl text-primary">Explore a Cabana</h2>
@@ -254,25 +237,25 @@ const PackagesSection = () => (
         </div>
         
         <Tabs defaultValue="furia-da-noite" className="max-w-4xl mx-auto">
-            <TabsList className="grid w-full grid-cols-2">
+            <TabsList className="grid w-full grid-cols-2 bg-card">
                 {packages.map(pkg => (
-                    <TabsTrigger key={pkg.id} value={pkg.id}>
-                        {pkg.isFeatured && <Star className="w-4 h-4 mr-2 text-yellow-400" fill="currentColor" />}
+                    <TabsTrigger key={pkg.id} value={pkg.id} className="data-[state=active]:bg-background data-[state=active]:text-primary">
+                        {pkg.isFeatured && <Star className="w-4 h-4 mr-2 text-primary" fill="currentColor" />}
                         {pkg.title}
                     </TabsTrigger>
                 ))}
             </TabsList>
             {packages.map(pkg => (
                 <TabsContent key={pkg.id} value={pkg.id}>
-                    <Card className={`flex flex-col h-full mt-6 ${pkg.isFeatured ? 'border-2 border-primary' : ''}`}>
+                    <Card className={`flex flex-col h-full mt-6 bg-card border ${pkg.isFeatured ? 'border-primary' : 'border-border'}`}>
                         <CardHeader className="text-center">
-                           <CardTitle className="font-headline text-2xl md:text-3xl">{pkg.title}</CardTitle>
+                           <CardTitle className="font-headline text-2xl md:text-3xl text-foreground">{pkg.title}</CardTitle>
                            <CardDescription>{pkg.description}</CardDescription>
                         </CardHeader>
                         <CardContent className="flex-grow flex flex-col gap-8 p-6 md:p-8">
                           <div className="grid md:grid-cols-2 gap-8">
                             <div>
-                              <h4 className="font-semibold text-lg text-foreground mb-3">{pkg.pricing.title}</h4>
+                              <h4 className="font-semibold text-lg text-primary mb-3">{pkg.pricing.title}</h4>
                               <ul className="text-foreground/80 space-y-2">
                                   {pkg.pricing.items.map((item, itemIndex) => (
                                       <li key={itemIndex} className="flex justify-between border-b border-dashed pb-1">
@@ -283,7 +266,7 @@ const PackagesSection = () => (
                               </ul>
                             </div>
                             <div>
-                              <h4 className="font-semibold text-lg text-foreground mb-3">Principais Inclusões</h4>
+                              <h4 className="font-semibold text-lg text-primary mb-3">Principais Inclusões</h4>
                               <ul className="space-y-2 text-sm text-foreground/80">
                                 {pkg.inclusions.map((item, index) => (
                                   <li key={index} className="flex items-start gap-2">
@@ -297,7 +280,7 @@ const PackagesSection = () => (
                           <div className="space-y-6">
                             {pkg.details.map((section, index) => (
                               <div key={index}>
-                                  <h4 className="font-semibold text-foreground mb-2 border-b pb-1 text-lg">{section.title}</h4>
+                                  <h4 className="font-semibold text-primary mb-2 border-b border-border pb-1 text-lg">{section.title}</h4>
                                   <ul className="list-disc list-inside space-y-1 text-foreground/80 pl-2 text-sm">
                                       {section.items.map((item, itemIndex) => (
                                           <li key={itemIndex}>{item}</li>
@@ -329,7 +312,7 @@ const testimonials = [
 ];
 
 const TestimonialsSection = () => (
-  <section id="testimonials" className="py-16 md:py-24 bg-primary/5">
+  <section id="testimonials" className="py-16 md:py-24 bg-card">
     <div className="container">
       <div className="text-center mb-12">
         <h2 className="font-headline text-3xl md:text-5xl text-primary">Contos dos Nossos Vikings</h2>
@@ -343,7 +326,7 @@ const TestimonialsSection = () => (
             <CarouselItem key={index}>
               <Card className="p-6 bg-background">
                 <CardContent className="flex flex-col items-center text-center">
-                  <div className="flex gap-1 text-yellow-400 mb-4">
+                  <div className="flex gap-1 text-primary mb-4">
                     {[...Array(5)].map((_, i) => <Star key={i} fill="currentColor" className="h-5 w-5" />)}
                   </div>
                   <p className="text-lg italic text-foreground/90">"{testimonial.quote}"</p>
@@ -384,7 +367,7 @@ const faqItems = [
 ];
 
 const FaqSection = () => (
-  <section id="faq" className="py-16 md:py-24">
+  <section id="faq" className="py-16 md:py-24 bg-background">
     <div className="container">
       <div className="text-center mb-12">
         <h2 className="font-headline text-3xl md:text-5xl text-primary">Perguntas Frequentes</h2>
@@ -394,9 +377,9 @@ const FaqSection = () => (
       </div>
       <Accordion type="single" collapsible className="w-full max-w-3xl mx-auto">
         {faqItems.map((item, index) => (
-          <AccordionItem key={index} value={`item-${index}`}>
-            <AccordionTrigger className="text-left">{item.question}</AccordionTrigger>
-            <AccordionContent>
+          <AccordionItem key={index} value={`item-${index}`} className="border-border">
+            <AccordionTrigger className="text-left text-lg hover:text-primary">{item.question}</AccordionTrigger>
+            <AccordionContent className="text-base text-foreground/80">
               {item.answer}
             </AccordionContent>
           </AccordionItem>
@@ -414,7 +397,7 @@ const contactInfo = [
 ];
 
 const ContactSection = () => (
-  <section id="contact" className="py-16 md:py-24 bg-primary/5">
+  <section id="contact" className="py-16 md:py-24 bg-card">
     <div className="container">
       <div className="text-center mb-12">
         <h2 className="font-headline text-3xl md:text-5xl text-primary">Reserve Sua Festa Lendária</h2>
@@ -425,7 +408,7 @@ const ContactSection = () => (
       <div className="max-w-6xl mx-auto">
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
             {contactInfo.map((info) => (
-              <div key={info.title} className="flex flex-col items-center text-center gap-4 p-4">
+              <div key={info.title} className="flex flex-col items-center text-center gap-4 p-4 rounded-lg hover:bg-background transition-colors">
                 <div className="flex-shrink-0">{info.icon}</div>
                 <div>
                   <h3 className="font-headline text-xl text-primary">{info.title}</h3>
@@ -449,11 +432,11 @@ const ContactSection = () => (
 
 
 const Footer = () => (
-    <footer className="bg-background border-t">
+    <footer className="bg-card border-t border-border">
         <div className="container py-6 flex flex-col items-center justify-center gap-4">
             <div className="flex items-center gap-2">
                 <Image src="https://www.pngall.com/wp-content/uploads/8/How-To-Train-Your-Dragon-Toothless.png" alt="Logo Banguela" width={24} height={24} className="h-6 w-6" />
-                <span className="font-headline text-lg">Cabana do Banguela</span>
+                <span className="font-headline text-lg text-primary">Cabana do Banguela</span>
             </div>
             <div className="flex flex-col sm:flex-row items-center gap-2 sm:gap-4">
                 <p className="text-sm text-foreground/70 text-center">
