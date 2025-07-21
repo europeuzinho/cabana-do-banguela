@@ -474,9 +474,12 @@ const Footer = () => (
                 <p className="text-sm text-foreground/70 text-center">
                     © {new Date().getFullYear()} Todos os direitos reservados.
                 </p>
-                <a href="https://www.behance.net/europeudesigner" target="_blank" rel="noopener noreferrer" aria-label="Behance Profile" className="text-foreground/70 hover:text-primary transition-colors">
-                    <BehanceIcon className="h-5 w-5" />
-                </a>
+                <div className="flex items-center gap-2 text-sm text-foreground/70">
+                  <span>Desenvolvido por:</span>
+                  <a href="https://www.behance.net/europeudesigner" target="_blank" rel="noopener noreferrer" aria-label="Behance Profile" className="text-foreground/70 hover:text-primary transition-colors">
+                      <BehanceIcon className="h-5 w-5" />
+                  </a>
+                </div>
             </div>
         </div>
     </footer>
