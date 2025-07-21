@@ -8,7 +8,7 @@ import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from "@/components/ui/card";
 import { Carousel, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious } from "@/components/ui/carousel";
-import { CheckCircle, Mail, MapPin, Phone, Star, Shield, Utensils, Users, MessageCircle } from "lucide-react";
+import { CheckCircle, Mail, MapPin, Phone, Star, Shield, Utensils, Users, MessageCircle, Instagram } from "lucide-react";
 import { Gallery } from "@/components/gallery";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 
@@ -412,6 +412,7 @@ const FaqSection = () => (
 const contactInfo = [
   { icon: <Phone className="h-6 w-6 text-primary" />, title: "Ligue para Nós", value: "+55 (45) 9 9844-1759" },
   { icon: <Mail className="h-6 w-6 text-primary" />, title: "Envie um Email", value: "Camilakoval14@outlook.com" },
+  { icon: <Instagram className="h-6 w-6 text-primary" />, title: "Siga-nos", value: "@cabanadobanguela" },
   { icon: <MapPin className="h-6 w-6 text-primary" />, title: "Encontre-nos", value: "Rua Fortaleza, 729 - Centro, Cascavel - PR" },
 ];
 
@@ -421,11 +422,11 @@ const ContactSection = () => (
       <div className="text-center mb-12">
         <h2 className="font-headline text-3xl md:text-5xl text-primary">Reserve Sua Festa Lendária</h2>
         <p className="mt-4 max-w-2xl mx-auto text-lg text-foreground/80">
-          Entre em contato pelo WhatsApp para começar a planejar seu evento!
+          Entre em contato para começar a planejar seu evento!
         </p>
       </div>
-      <div className="max-w-4xl mx-auto">
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+      <div className="max-w-6xl mx-auto">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
             {contactInfo.map((info) => (
               <div key={info.title} className="flex flex-col items-center text-center gap-4 p-4">
                 <div className="flex-shrink-0">{info.icon}</div>
@@ -448,6 +449,7 @@ const ContactSection = () => (
     </div>
   </section>
 );
+
 
 const BehanceIcon = (props: React.SVGProps<SVGSVGElement>) => (
   <svg
@@ -512,5 +514,3 @@ export default function Home() {
     </div>
   );
 }
-
-    
