@@ -267,9 +267,9 @@ const PackagesSection = () => (
                         </div>
                        <CardDescription>{pkg.description}</CardDescription>
                     </CardHeader>
-                    <CardContent className="flex-grow grid md:grid-cols-2 gap-8 md:gap-12 p-6 md:p-8">
-                      {/* Coluna da Esquerda: Inclusões e Preços */}
-                      <div className="space-y-6">
+                    <CardContent className="flex-grow flex flex-col gap-8 p-6 md:p-8">
+                      {/* Seção de Preços e Inclusões */}
+                      <div className="grid md:grid-cols-2 gap-8">
                         <div>
                           <h4 className="font-semibold text-lg text-foreground mb-3">{pkg.pricing.title}</h4>
                           <ul className="text-foreground/80 space-y-2">
@@ -294,7 +294,7 @@ const PackagesSection = () => (
                         </div>
                       </div>
 
-                      {/* Coluna da Direita: Detalhes Completos */}
+                      {/* Seção de Detalhes Completos */}
                       <div className="space-y-6">
                         {pkg.details.map((section, index) => (
                           <div key={index}>
