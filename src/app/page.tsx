@@ -451,22 +451,14 @@ const ContactSection = () => (
 
 const Footer = () => (
     <footer className="bg-background border-t">
-        <div className="container py-8 flex flex-col md:flex-row justify-between items-center gap-6">
-            <div className="flex flex-col items-center md:items-start gap-2">
-                <div className="flex items-center gap-2">
-                    <Image src="https://www.pngall.com/wp-content/uploads/8/How-To-Train-Your-Dragon-Toothless.png" alt="Logo Banguela" width={24} height={24} className="h-6 w-6" />
-                    <span className="font-headline text-lg">Cabana do Banguela</span>
-                </div>
-                <p className="text-sm text-foreground/70 text-center md:text-left">
-                    © {new Date().getFullYear()} Todos os direitos reservados.
-                </p>
+        <div className="container py-6 flex flex-col items-center justify-center gap-4">
+            <div className="flex items-center gap-2">
+                <Image src="https://www.pngall.com/wp-content/uploads/8/How-To-Train-Your-Dragon-Toothless.png" alt="Logo Banguela" width={24} height={24} className="h-6 w-6" />
+                <span className="font-headline text-lg">Cabana do Banguela</span>
             </div>
-            <nav className="flex flex-wrap justify-center gap-x-6 gap-y-2">
-                <Link href="#features" className="text-sm text-foreground/60 transition-colors hover:text-foreground/80">Diferenciais</Link>
-                <Link href="#gallery" className="text-sm text-foreground/60 transition-colors hover:text-foreground/80">Galeria</Link>
-                <Link href="#packages" className="text-sm text-foreground/60 transition-colors hover:text-foreground/80">Pacotes</Link>
-                <Link href="#contact" className="text-sm text-foreground/60 transition-colors hover:text-foreground/80">Contato</Link>
-            </nav>
+            <p className="text-sm text-foreground/70 text-center">
+                © {new Date().getFullYear()} Todos os direitos reservados.
+            </p>
         </div>
     </footer>
 );
@@ -502,5 +494,3 @@ export default function Home() {
     </div>
   );
 }
-
-    
