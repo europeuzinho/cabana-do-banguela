@@ -253,74 +253,71 @@ const PackagesSection = () => (
           </p>
         </div>
         
-        <Tabs defaultValue="furia-da-noite" className="w-full max-w-6xl mx-auto">
-          <TabsList className="grid w-full grid-cols-2">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 max-w-6xl mx-auto items-start">
             {packages.map(pkg => (
-              <TabsTrigger key={pkg.id} value={pkg.id}>
-                {pkg.isFeatured && <Star className="w-4 h-4 mr-2 text-yellow-400" fill="currentColor" />}
-                {pkg.title}
-              </TabsTrigger>
-            ))}
-          </TabsList>
-          {packages.map(pkg => (
-            <TabsContent key={pkg.id} value={pkg.id}>
-              <Card className="border-2 border-transparent data-[state=active]:border-primary transition-all">
-                <CardHeader className="text-center">
-                   <CardTitle className="font-headline text-2xl md:text-3xl">{pkg.title}</CardTitle>
-                   <CardDescription>{pkg.description}</CardDescription>
-                </CardHeader>
-                <CardContent className="grid md:grid-cols-2 gap-8 md:gap-12 p-6 md:p-8">
-                  {/* Coluna da Esquerda: Inclusões e Preços */}
-                  <div className="space-y-6">
-                    <div>
-                      <h4 className="font-semibold text-lg text-foreground mb-3">{pkg.pricing.title}</h4>
-                      <ul className="text-foreground/80 space-y-2">
-                          {pkg.pricing.items.map((item, itemIndex) => (
-                              <li key={itemIndex} className="flex justify-between border-b border-dashed pb-1">
-                                <span>{item.split(':')[0]}</span>
-                                <span className="font-medium">{item.split(':')[1]}</span>
-                              </li>
-                          ))}
-                      </ul>
-                    </div>
-                    <div>
-                      <h4 className="font-semibold text-lg text-foreground mb-3">Principais Inclusões</h4>
-                      <ul className="space-y-2 text-sm text-foreground/80">
-                        {pkg.inclusions.map((item, index) => (
-                          <li key={index} className="flex items-start gap-2">
-                            <CheckCircle className="h-5 w-5 text-green-500 mt-0.5 flex-shrink-0" />
-                            <span>{item}</span>
-                          </li>
-                        ))}
-                      </ul>
-                    </div>
-                  </div>
-
-                  {/* Coluna da Direita: Detalhes Completos */}
-                  <div className="space-y-6">
-                    {pkg.details.map((section, index) => (
-                      <div key={index}>
-                          <h4 className="font-semibold text-foreground mb-2 border-b pb-1 text-lg">{section.title}</h4>
-                          <ul className="list-disc list-inside space-y-1 text-foreground/80 pl-2 text-sm">
-                              {section.items.map((item, itemIndex) => (
-                                  <li key={itemIndex}>{item}</li>
+                <Card 
+                    key={pkg.id} 
+                    className={`flex flex-col h-full ${pkg.isFeatured ? 'border-2 border-primary' : ''}`}
+                >
+                    <CardHeader className="text-center">
+                        <div className="flex justify-center items-center gap-2">
+                           {pkg.isFeatured && <Star className="w-5 h-5 text-yellow-400" fill="currentColor" />}
+                           <CardTitle className="font-headline text-2xl md:text-3xl">{pkg.title}</CardTitle>
+                           {pkg.isFeatured && <Star className="w-5 h-5 text-yellow-400" fill="currentColor" />}
+                        </div>
+                       <CardDescription>{pkg.description}</CardDescription>
+                    </CardHeader>
+                    <CardContent className="flex-grow grid md:grid-cols-2 gap-8 md:gap-12 p-6 md:p-8">
+                      {/* Coluna da Esquerda: Inclusões e Preços */}
+                      <div className="space-y-6">
+                        <div>
+                          <h4 className="font-semibold text-lg text-foreground mb-3">{pkg.pricing.title}</h4>
+                          <ul className="text-foreground/80 space-y-2">
+                              {pkg.pricing.items.map((item, itemIndex) => (
+                                  <li key={itemIndex} className="flex justify-between border-b border-dashed pb-1">
+                                    <span>{item.split(':')[0]}</span>
+                                    <span className="font-medium">{item.split(':')[1]}</span>
+                                  </li>
                               ))}
                           </ul>
+                        </div>
+                        <div>
+                          <h4 className="font-semibold text-lg text-foreground mb-3">Principais Inclusões</h4>
+                          <ul className="space-y-2 text-sm text-foreground/80">
+                            {pkg.inclusions.map((item, index) => (
+                              <li key={index} className="flex items-start gap-2">
+                                <CheckCircle className="h-5 w-5 text-green-500 mt-0.5 flex-shrink-0" />
+                                <span>{item}</span>
+                              </li>
+                            ))}
+                          </ul>
+                        </div>
                       </div>
-                    ))}
-                  </div>
-                </CardContent>
-                <CardFooter>
-                  <Button asChild className="w-full" size="lg">
-                    <a href={`${baseWhatsAppUrl}${encodeURIComponent(`Olá! Tenho interesse no pacote ${pkg.title}. Gostaria de mais informações.`)}`} target="_blank" rel="noopener noreferrer">
-                        Reserve este pacote
-                    </a>
-                  </Button>
-                </CardFooter>
-              </Card>
-            </TabsContent>
-          ))}
-        </Tabs>
+
+                      {/* Coluna da Direita: Detalhes Completos */}
+                      <div className="space-y-6">
+                        {pkg.details.map((section, index) => (
+                          <div key={index}>
+                              <h4 className="font-semibold text-foreground mb-2 border-b pb-1 text-lg">{section.title}</h4>
+                              <ul className="list-disc list-inside space-y-1 text-foreground/80 pl-2 text-sm">
+                                  {section.items.map((item, itemIndex) => (
+                                      <li key={itemIndex}>{item}</li>
+                                  ))}
+                              </ul>
+                          </div>
+                        ))}
+                      </div>
+                    </CardContent>
+                    <CardFooter>
+                      <Button asChild className="w-full" size="lg">
+                        <a href={`${baseWhatsAppUrl}${encodeURIComponent(`Olá! Tenho interesse no pacote ${pkg.title}. Gostaria de mais informações.`)}`} target="_blank" rel="noopener noreferrer">
+                            Reserve este pacote
+                        </a>
+                      </Button>
+                    </CardFooter>
+                </Card>
+            ))}
+        </div>
       </div>
     </section>
   );
