@@ -128,8 +128,8 @@ const VenueShowcaseSection = () => (
 
 const packages = [
   {
-    id: "viking-de-berk",
-    title: "Viking de Berk",
+    id: "furia-da-luz",
+    title: "Fúria da Luz",
     price: "Consulte",
     description: "Uma aventura fantástica com tudo que você precisa para uma ótima festa.",
     isFeatured: false,
@@ -502,6 +502,8 @@ export default function Home() {
     </div>
   );
 }
+
+    
 
     
 
