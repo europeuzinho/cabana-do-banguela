@@ -128,10 +128,10 @@ const VenueShowcaseSection = () => (
 
 const packages = [
   {
-    id: "prata",
-    title: "Prata Completo",
+    id: "viking-de-berk",
+    title: "Viking de Berk",
     price: "Consulte",
-    description: "Uma aventura fantástica com tudo o que você precisa para uma ótima festa.",
+    description: "Uma aventura fantástica com tudo que você precisa para uma ótima festa.",
     isFeatured: false,
     inclusions: [
       "3 horas e 30 minutos de festa",
@@ -185,8 +185,8 @@ const packages = [
     ]
   },
   {
-    id: "ouro",
-    title: "Ouro Completo",
+    id: "furia-da-noite",
+    title: "Fúria da Noite",
     price: "Consulte",
     description: "A experiência definitiva da Cabana do Banguela para uma celebração inesquecível.",
     isFeatured: true,
@@ -253,7 +253,7 @@ const PackagesSection = () => (
           </p>
         </div>
         
-        <Tabs defaultValue="ouro" className="w-full max-w-6xl mx-auto">
+        <Tabs defaultValue="furia-da-noite" className="w-full max-w-6xl mx-auto">
           <TabsList className="grid w-full grid-cols-2">
             {packages.map(pkg => (
               <TabsTrigger key={pkg.id} value={pkg.id}>
@@ -366,7 +366,7 @@ const TestimonialsSection = () => (
 const faqItems = [
   {
     question: "O que está incluso nos pacotes de festa?",
-    answer: "Nossos pacotes incluem decoração temática, buffet completo com salgados, doces e bebidas, bolo, e equipe de suporte. O pacote Ouro oferece um buffet premium e decoração de luxo. Veja todos os detalhes na seção de pacotes!"
+    answer: "Nossos pacotes incluem decoração temática, buffet completo com salgados, doces e bebidas, bolo, e equipe de suporte. O pacote Fúria da Noite oferece um buffet premium e decoração de luxo. Veja todos os detalhes na seção de pacotes!"
   },
   {
     question: "Qual a duração da festa e qual o valor da hora adicional?",
@@ -502,5 +502,7 @@ export default function Home() {
     </div>
   );
 }
+
+    
 
     
