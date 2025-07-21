@@ -449,6 +449,18 @@ const ContactSection = () => (
   </section>
 );
 
+const BehanceIcon = (props: React.SVGProps<SVGSVGElement>) => (
+  <svg
+    role="img"
+    viewBox="0 0 24 24"
+    xmlns="http://www.w3.org/2000/svg"
+    {...props}
+  >
+    <title>Behance</title>
+    <path d="M22.539 8.242H15V6.016h7.078a.461.461 0 0 1 .461.461v1.304a.461.461 0 0 1-.461.461zM8.984 17.656h5.813a3.07 3.07 0 0 0 2.5-1.078 3.323 3.323 0 0 0 .813-2.39a3.323 3.323 0 0 0-.813-2.391 3.07 3.07 0 0 0-2.5-1.078H8.984zm.484-6.328h4.688a1.865 1.865 0 0 1 1.484.586 2.015 2.015 0 0 1 .586 1.484 2.016 2.016 0 0 1-.586 1.485 1.865 1.865 0 0 1-1.484.586H9.468zM15.938 12.875h-7v4.78h6.125a2.062 2.062 0 0 0 1.547-.64 2.12 2.12 0 0 0 .625-1.547 2.15 2.15 0 0 0-.625-1.547 2.062 2.062 0 0 0-1.547-.641zM0 12.016C0 5.375 5.375 0 12 0s12 5.375 12 12.016c0 6.64-5.375 12.015-12 12.015S0 18.656 0 12.016zm1.125 0c0 6.015 4.875 10.89 10.875 10.89s10.875-4.875 10.875-10.89c0-6.016-4.875-10.89-10.875-10.89S1.125 6.001 1.125 12.016z" />
+  </svg>
+);
+
 const Footer = () => (
     <footer className="bg-background border-t">
         <div className="container py-6 flex flex-col items-center justify-center gap-4">
@@ -456,12 +468,18 @@ const Footer = () => (
                 <Image src="https://www.pngall.com/wp-content/uploads/8/How-To-Train-Your-Dragon-Toothless.png" alt="Logo Banguela" width={24} height={24} className="h-6 w-6" />
                 <span className="font-headline text-lg">Cabana do Banguela</span>
             </div>
-            <p className="text-sm text-foreground/70 text-center">
-                © {new Date().getFullYear()} Todos os direitos reservados.
-            </p>
+            <div className="flex items-center gap-4">
+                <p className="text-sm text-foreground/70 text-center">
+                    © {new Date().getFullYear()} Todos os direitos reservados.
+                </p>
+                <a href="https://www.behance.net/europeudesigner" target="_blank" rel="noopener noreferrer" aria-label="Behance Profile" className="text-foreground/70 hover:text-primary transition-colors">
+                    <BehanceIcon className="h-5 w-5" />
+                </a>
+            </div>
         </div>
     </footer>
 );
+
 
 const WhatsAppButton = () => (
     <a 
@@ -494,3 +512,5 @@ export default function Home() {
     </div>
   );
 }
+
+    
