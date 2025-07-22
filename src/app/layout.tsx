@@ -5,9 +5,8 @@ import { Toaster } from "@/components/ui/toaster";
 export const metadata: Metadata = {
   title: "Cabana do Banguela",
   description: "Reserve sua festa temática de Como Treinar o Seu Dragão!",
-  icons: {
-    icon: "https://www.pngall.com/wp-content/uploads/8/How-To-Train-Your-Dragon-Toothless.png",
-  },
+  // A definição do ícone aqui pode ser sobrescrita pelo ambiente.
+  // A tag <link> direta no <head> é mais explícita.
 };
 
 export default function RootLayout({
@@ -18,6 +17,7 @@ export default function RootLayout({
   return (
     <html lang="pt" className="!scroll-smooth">
       <head>
+        <link rel="icon" href="https://www.pngall.com/wp-content/uploads/8/How-To-Train-Your-Dragon-Toothless.png" type="image/png" sizes="any" />
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
         <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700&family=PT+Sans:wght@400;700&display=swap" rel="stylesheet" />
