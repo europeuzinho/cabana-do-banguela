@@ -5,9 +5,7 @@ import { Toaster } from "@/components/ui/toaster";
 export const metadata: Metadata = {
   title: "Cabana do Banguela",
   description: "Reserve sua festa temática de Como Treinar o Seu Dragão!",
-  icons: {
-    icon: "https://www.pngall.com/wp-content/uploads/8/How-To-Train-Your-Dragon-Toothless.png",
-  },
+  icons: false,
 };
 
 export default function RootLayout({
