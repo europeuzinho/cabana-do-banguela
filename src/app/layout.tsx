@@ -5,8 +5,8 @@ import { Toaster } from "@/components/ui/toaster";
 export const metadata: Metadata = {
   title: "Cabana do Banguela",
   description: "Reserve sua festa temática de Como Treinar o Seu Dragão!",
-  // A definição do ícone aqui pode ser sobrescrita pelo ambiente.
-  // A tag <link> direta no <head> é mais explícita.
+  // A geração de ícones foi desabilitada para garantir que a tag <link> explícita no <head> funcione sem conflitos.
+  icons: false
 };
 
 export default function RootLayout({
